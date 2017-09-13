@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">Easy Order</string>
+    <string name="so_ban_thinh">Bàn số :</string>
+    <string name="Ten_khach_thinh">Tên khách hàng :</string>
+    <string name="mon_an_thinh">Món ăn</string>
+    <string name="so_luong_thinh">Số lượng</string>
+    <string name="thong_tin_mon_thinh">Các món ăn đã gọi</string>
+    <string name="thong_tin_ban_thinh">Thông tin bàn ăn</string>
+    <string name="them_mon_thinh">Thêm món</string>
+    <string name="thanh_toan_thinh">Thanh toán</string>
+    <string name="ds_ttoan_thinh">Các món ăn cần thanh toán</string>
+    <string name="don_gia_thinh">Đơn giá</string>
+    <string name="tong_tien_thinh">Tổng tiền</string>
+    <string name="hint_code">Enter our code</string>
+    <string name="hint_password">Password</string>
+    <string name="text_login">Log In</string>
+    <string name="text_sign_up"><u>Sign up for a new account</u>.</string>
+
+</resources>

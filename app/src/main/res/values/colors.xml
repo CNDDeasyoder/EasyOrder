@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="thinh_blue">#223B99</color>
+    <color name="thinh_dark">#000000</color>
+    <color name="thinh_white">#ffffff</color>
+    <color name="thinh_nav">#3F51B5</color>
+    <color name="phong_white">#ffffff</color>
+    <color name="phong_black">#000000</color>
+    <color name="phong_blue">#223b99</color>
+    <color name="phong_blue2" >#6584F5</color>
+
+</resources>

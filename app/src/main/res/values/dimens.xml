@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="height_view_thinh">60dp</dimen>
+    <dimen name="text_size_large_thinh">20sp</dimen>
+    <dimen name="text_size_small_thinh">18sp</dimen>
+    <dimen name="margin_thinh">16dp</dimen>
+    <dimen name="padding_thinh">16dp</dimen>
+    <dimen name="min_width_thinh">200dp</dimen>
+    <dimen name="min_margin_thinh">8dp</dimen>
+    <dimen name="min_padding_thinh">8dp</dimen>
+</resources>
