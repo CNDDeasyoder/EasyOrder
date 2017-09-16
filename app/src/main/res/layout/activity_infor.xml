@@ -17,168 +17,161 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/height_view_thinh"
+                android:layout_marginTop="@dimen/min_margin_thinh"
+                android:background="@color/thinh_nav">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/height_view_thinh"
-        android:layout_marginTop="@dimen/min_margin_thinh"
-        android:background="@color/thinh_nav">
+                    <ImageButton
+                        android:id="@+id/btn_nav_ttin_thinh"
+                        android:layout_alignParentLeft="true"
+                        android:layout_width="56dp"
+                        android:layout_height="match_parent"
+                        android:background="@color/thinh_nav"
+                        app:srcCompat="?attr/homeAsUpIndicator" />
 
-        <ImageButton
-            android:id="@+id/btn_nav_ttin_thinh"
-            android:layout_alignParentLeft="true"
-            android:layout_width="56dp"
-            android:layout_height="match_parent"
-            android:background="@color/thinh_nav"
-            app:srcCompat="?attr/homeAsUpIndicator" />
+                    <TextView
+                        android:layout_centerInParent="true"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:text="@string/thong_tin_ban_thinh"
+                        android:textColor="@color/thinh_dark"
+                        android:textSize="@dimen/text_size_small_thinh" />
+            </RelativeLayout>
 
-            <TextView
-                android:layout_centerInParent="true"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:gravity="center"
-                android:text="@string/thong_tin_ban_thinh"
-                android:textColor="@color/thinh_dark"
-                android:textSize="@dimen/text_size_small_thinh" />
-    </RelativeLayout>
+                android:orientation="vertical"
+                android:padding="@dimen/padding_thinh">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
+                <LinearLayout
+                   android:layout_width="match_parent"
+                    android:layout_height="@dimen/height_view_thinh"
+                    android:orientation="horizontal"
+                    android:background="@drawable/layout_tv"
+                    android:layout_margin="@dimen/min_margin_thinh"
+                    android:paddingBottom="@dimen/min_padding_thinh"
+                    android:paddingLeft="@dimen/padding_thinh">
 
-        android:padding="@dimen/padding_thinh">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:text="@string/so_ban_thinh"
+                            android:textSize="@dimen/text_size_large_thinh"
+                            android:gravity="center" />
+                        <TextView
+                            android:id="@+id/tv_banso_thinh"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:inputType="numberDecimal"
+                            android:layout_gravity="center" />
+                </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/height_view_thinh"
-        android:orientation="horizontal"
-        android:background="@drawable/layout_tv"
-        android:layout_margin="@dimen/min_margin_thinh"
-        android:paddingBottom="@dimen/min_padding_thinh"
-        android:paddingLeft="@dimen/padding_thinh"
-        >
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/height_view_thinh"
+                    android:orientation="horizontal"
+                    android:background="@drawable/layout_tv"
+                    android:layout_margin="@dimen/min_margin_thinh"
+                    android:paddingBottom="@dimen/min_padding_thinh"
+                    android:paddingLeft="@dimen/padding_thinh">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:text="@string/Ten_khach_thinh"
+                            android:textSize="@dimen/text_size_large_thinh"
+                            android:gravity="center"/>
+                        <TextView
+                            android:id="@+id/tv_ten_kh_thinh"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:inputType="text"
+                            android:layout_gravity="center"/>
+                </LinearLayout>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:text="@string/so_ban_thinh"
-            android:textSize="@dimen/text_size_large_thinh"
-            android:gravity="center"
-            />
-        <EditText
-            android:id="@+id/edt_banso_thinh"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:inputType="numberDecimal"
-            android:layout_gravity="center"
-            />
-    </LinearLayout>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/height_view_thinh"
+                    android:text="@string/thong_tin_mon_thinh"
+                    android:textSize="@dimen/text_size_small_thinh"
+                    android:textColor="@color/thinh_dark"
+                    android:textStyle="bold"
+                    android:gravity="center"/>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/height_view_thinh"
-        android:orientation="horizontal"
-        android:background="@drawable/layout_tv"
-        android:layout_margin="@dimen/min_margin_thinh"
-        android:paddingBottom="@dimen/min_padding_thinh"
-        android:paddingLeft="@dimen/padding_thinh"
-        >
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:text="@string/Ten_khach_thinh"
-            android:textSize="@dimen/text_size_large_thinh"
-            android:gravity="center"/>
-        <EditText
-            android:id="@+id/edt_ten_kh_thinh"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:inputType="text"
-            android:layout_gravity="center"/>
-    </LinearLayout>
+                <TableLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:stretchColumns="*"
+                    android:background="@drawable/layout_tv"
+                    android:padding="5dp">
+                    <TableRow>
+                        <TextView
+                            android:layout_height="@dimen/height_view_thinh"
+                            android:layout_width="wrap_content"
+                            android:text="@string/mon_an_thinh"
+                            android:textSize="@dimen/text_size_large_thinh"
+                            android:gravity="center"
+                            android:padding="2dp"/>
+                        <TextView
+                            android:layout_height="@dimen/height_view_thinh"
+                            android:layout_width="wrap_content"
+                            android:text="@string/so_luong_thinh"
+                            android:textSize="@dimen/text_size_large_thinh"
+                            android:gravity="center"/>
+                    </TableRow>
+                    <TableRow>
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/height_view_thinh"
-        android:text="@string/thong_tin_mon_thinh"
-        android:textSize="@dimen/text_size_small_thinh"
-        android:textColor="@color/thinh_dark"
-        android:textStyle="bold"
-        android:gravity="center"/>
+                        <EditText android:inputType="text"
+                            android:layout_height="@dimen/height_view_thinh"/>
 
-    <TableLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:stretchColumns="*"
-        android:background="@drawable/layout_tv"
-        android:padding="5dp"
-        >
-        <TableRow>
-            <TextView
-                android:layout_height="@dimen/height_view_thinh"
-                android:layout_width="wrap_content"
-                android:text="@string/mon_an_thinh"
-                android:textSize="@dimen/text_size_large_thinh"
-                android:gravity="center"
-                android:padding="2dp"/>
-            <TextView
-                android:layout_height="@dimen/height_view_thinh"
-                android:layout_width="wrap_content"
-                android:text="@string/so_luong_thinh"
-                android:textSize="@dimen/text_size_large_thinh"
-                android:gravity="center"/>
-        </TableRow>
-        <TableRow>
+                        <EditText android:inputType="numberDecimal"
+                            android:layout_height="@dimen/height_view_thinh"/>
 
-            <EditText android:inputType="text"
-                android:layout_height="@dimen/height_view_thinh"/>
+                    </TableRow>
+                    <TableRow>
+                        <EditText android:inputType="text"
+                            android:layout_height="@dimen/height_view_thinh"/>
 
-            <EditText android:inputType="numberDecimal"
-                android:layout_height="@dimen/height_view_thinh"/>
+                        <EditText android:inputType="numberDecimal"
+                            android:layout_height="@dimen/height_view_thinh"/>
+                    </TableRow>
+                    <TableRow>
+                        <EditText android:inputType="text"
+                            android:layout_height="@dimen/height_view_thinh"/>
 
-        </TableRow>
-        <TableRow>
-            <EditText android:inputType="text"
-                android:layout_height="@dimen/height_view_thinh"/>
+                        <EditText android:inputType="numberDecimal"
+                            android:layout_height="@dimen/height_view_thinh"/>
+                    </TableRow>
+                    <TableRow>
+                        <EditText android:inputType="text"
+                         android:layout_height="@dimen/height_view_thinh"/>
 
-            <EditText android:inputType="numberDecimal"
-                android:layout_height="@dimen/height_view_thinh"/>
-        </TableRow>
-        <TableRow>
-            <EditText android:inputType="text"
-                android:layout_height="@dimen/height_view_thinh"/>
+                        <EditText android:inputType="numberDecimal"
+                            android:layout_height="@dimen/height_view_thinh"/>
+                    </TableRow>
 
-            <EditText android:inputType="numberDecimal"
-                android:layout_height="@dimen/height_view_thinh"/>
-        </TableRow>
-        <TableRow>
-            <EditText android:inputType="text"
-                android:layout_height="@dimen/height_view_thinh"/>
-
-            <EditText android:inputType="numberDecimal"
-                android:layout_height="@dimen/height_view_thinh"/>
-        </TableRow>
-
-    </TableLayout>
-        <LinearLayout
-            android:weightSum="1"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/height_view_thinh">
-            <Button
-                android:id="@+id/btn_them_mon_thinh"
-                android:text="@string/them_mon_thinh"
-                android:layout_weight="0.5"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
-            <Button
-                android:id="@+id/btn_thanh_toan_thinh"
-                android:text="@string/thanh_toan_thinh"
-                android:layout_weight="0.5"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
-        </LinearLayout>
-    </LinearLayout>
+                </TableLayout>
+                <LinearLayout
+                    android:weightSum="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/height_view_thinh">
+                    <Button
+                        android:id="@+id/btn_them_mon_thinh"
+                        android:text="@string/them_mon_thinh"
+                        android:layout_weight="0.5"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+                    <Button
+                        android:id="@+id/btn_thanh_toan_thinh"
+                        android:text="@string/thanh_toan_thinh"
+                        android:layout_weight="0.5"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+                </LinearLayout>
+            </LinearLayout>
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

@@ -16,8 +16,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".setInforActivity"/>
-        <activity android:name=".selectionActivity"/>
+        <activity android:name=".SetInforActivity"/>
+        <activity android:name=".SelectionActivity"/>
+        <activity android:name=".InformationActivity"/>
+        <activity android:name=".PayActivity"/>
+        <activity android:name=".MenuActivity"/>
     </application>
 
 </manifest>

@@ -12,10 +12,10 @@ import android.widget.Toast;
  * Created by thinhle on 9/16/17.
  */
 
-public class setInforActivity extends AppCompatActivity {
+public class SetInforActivity extends AppCompatActivity {
     private Button btnTable;
     private EditText edtName;
-    private EditText edttable;
+    private EditText edtTable;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,15 +24,15 @@ public class setInforActivity extends AppCompatActivity {
 
         btnTable = (Button) findViewById(R.id.btn_submit_infor);
         edtName = (EditText) findViewById(R.id.edt_set_name);
-        edttable = (EditText) findViewById(R.id.edt_set_table);
+        edtTable = (EditText) findViewById(R.id.edt_set_table);
 
         btnTable.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(setInforActivity.this, selectionActivity.class);
-                if (edttable.getText().toString().isEmpty() || edtName.getText().toString().isEmpty())
+                Intent intent = new Intent(SetInforActivity.this, SelectionActivity.class);
+                if (edtTable.getText().toString().isEmpty() || edtName.getText().toString().isEmpty())
                 {
-                    Toast.makeText(setInforActivity.this, "Vui lòng nhập đầy đủ thông tin", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(SetInforActivity.this, "Vui lòng nhập đầy đủ thông tin", Toast.LENGTH_SHORT).show();
                 }
                 else
                 {
