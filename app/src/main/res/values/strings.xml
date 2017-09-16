@@ -15,5 +15,9 @@
     <string name="hint_password">Password</string>
     <string name="text_login">Log In</string>
     <string name="text_sign_up"><u>Sign up for a new account</u>.</string>
+    <string name="set_infor">Vui lòng nhập thông tin</string>
+    <string name="set_name">Tên khách hàng</string>
+    <string name="set_table">Bàn số</string>
+    <string name="submit_infor">Nhập</string>
 
 </resources>

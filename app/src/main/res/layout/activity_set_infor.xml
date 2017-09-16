@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@color/thinh_blue"
+    android:padding="@dimen/padding_thinh"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <ImageView
+        android:id="@+id/mainlogo"
+        android:src="@drawable/p1"
+        android:layout_marginTop="80dp"
+        android:layout_width="match_parent"
+        android:layout_height="100dp" />
+    <TextView
+        android:id="@+id/edt_set_infor"
+        android:layout_below="@+id/mainlogo"
+        android:textColor="@color/thinh_white"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:text="@string/set_infor"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height_view_thinh" />
+    <EditText
+        android:id="@+id/edt_set_name"
+        android:padding="@dimen/min_padding_thinh"
+        android:hint="@string/set_name"
+        android:inputType="text"
+        android:background="@drawable/layout_tv"
+        android:layout_below="@id/edt_set_infor"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height_view_thinh" />
+
+    <EditText
+        android:id="@+id/edt_set_table"
+        android:layout_marginTop="@dimen/min_padding_thinh"
+        android:padding="@dimen/min_padding_thinh"
+        android:hint="@string/set_table"
+        android:inputType="numberDecimal"
+        android:background="@drawable/layout_tv"
+        android:layout_below="@id/edt_set_name"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height_view_thinh" />
+    <Button
+        android:id="@+id/btn_submit_infor"
+        android:layout_margin="@dimen/margin_thinh"
+        android:padding="@dimen/padding_thinh"
+        android:text="@string/submit_infor"
+        android:layout_centerInParent="true"
+        android:layout_below="@+id/edt_set_table"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+</RelativeLayout>
