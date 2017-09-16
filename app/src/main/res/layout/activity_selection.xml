@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <ImageView
+        android:background="@color/thinh_blue"
+        android:src="@drawable/p1"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/height_view_thinh"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height_view_thinh">
+        <ImageView
+            android:src="@drawable/p2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/hang1"
+        android:layout_gravity="center"
+        android:orientation="horizontal"
+        android:layout_marginBottom="@dimen/margin_thinh"
+        android:layout_marginTop="0dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:id="@+id/mon1"
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:src="@drawable/menu2"
+                android:layout_width="160dp"
+                android:layout_height="150dp"
+                android:layout_gravity="center"/>
+            <Button
+                android:id="@+id/btn_infor"
+                android:text="About Table"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/mon2"
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:src="@drawable/cart"
+                android:layout_width="160dp"
+                android:layout_height="150dp"
+                android:layout_gravity="center"/>
+            <Button
+                android:id="@+id/btn_menu"
+                android:text="Menu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"/>
+
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/hang1"
+        android:layout_gravity="center"
+        android:orientation="horizontal"
+        android:layout_marginTop="0dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:id="@+id/mon1"
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:src="@drawable/review"
+                android:layout_width="160dp"
+                android:layout_height="150dp"
+                android:layout_gravity="center"/>
+            <Button
+                android:id="@+id/btn_pay"
+                android:text="pay"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/mon2"
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:src="@drawable/review"
+                android:layout_width="160dp"
+                android:layout_height="150dp"
+                android:layout_gravity="center"/>
+            <Button
+                android:text="review"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"/>
+
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>
