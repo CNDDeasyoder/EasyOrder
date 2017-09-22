@@ -4,21 +4,7 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <RelativeLayout
-        android:background="@color/phong_blue"
-        android:layout_width="match_parent"
-        android:layout_height="70dp">
-
-        <ImageView
-            android:src="@drawable/picture2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"/>
-
-
-
-    </RelativeLayout>
-    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    <ScrollView
         android:id="@+id/ScrollView01"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent">
@@ -26,6 +12,7 @@
         <android.support.v7.widget.LinearLayoutCompat
             android:layout_width="match_parent"
             android:layout_height="match_parent">
+
             <LinearLayout
                 android:layout_width="fill_parent"
                 android:layout_height="150dp"
@@ -35,9 +22,9 @@
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:scaleType="matrix"
                     android:layout_weight="1"
-                    android:background="@drawable/mon1"/>
+                    android:background="@drawable/mon1"
+                    android:scaleType="matrix" />
 
                 <LinearLayout
                     android:layout_width="fill_parent"
@@ -45,33 +32,34 @@
                     android:layout_weight="1"
                     android:orientation="vertical">
 
-                <TextView
-                    android:layout_width="fill_parent"
-                    android:layout_height="fill_parent"
-                    android:layout_weight="1"
-                    android:text="Lươn xào"
-                    android:textAlignment="center"
-                    android:textAllCaps="true"
-                    android:textColor="#ff0000"
-                    android:textStyle="bold"
-                    android:textSize="20dp"
-                    />
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:layout_weight="1"
+                        android:text="Lươn xào"
+                        android:textAlignment="center"
+                        android:textAllCaps="true"
+                        android:textColor="#ff0000"
+                        android:textSize="20dp"
+                        android:textStyle="bold" />
+
                     <LinearLayout
                         android:layout_width="fill_parent"
                         android:layout_height="fill_parent"
                         android:layout_weight="2"
                         android:orientation="horizontal">
-                    <TextView
-                        android:layout_width="fill_parent"
-                        android:layout_height="fill_parent"
-                        android:layout_weight="1"
-                        android:text="Giá"
-                        android:textAlignment="center"
-                        android:textAllCaps="true"
-                        android:textColor="#ffffff"
-                        android:textStyle="bold"
-                        android:textSize="20dp"
-                        />
+
+                        <TextView
+                            android:layout_width="fill_parent"
+                            android:layout_height="fill_parent"
+                            android:layout_weight="1"
+                            android:text="Giá"
+                            android:textAlignment="center"
+                            android:textAllCaps="true"
+                            android:textColor="#ffffff"
+                            android:textSize="20dp"
+                            android:textStyle="bold" />
+
                         <TextView
                             android:layout_width="fill_parent"
                             android:layout_height="fill_parent"
@@ -80,9 +68,8 @@
                             android:textAlignment="center"
                             android:textAllCaps="true"
                             android:textColor="#ffffff"
-                            android:textStyle="bold"
                             android:textSize="20dp"
-                            />
+                            android:textStyle="bold" />
                     </LinearLayout>
 
                     <LinearLayout
@@ -95,34 +82,32 @@
                             android:layout_width="fill_parent"
                             android:layout_height="fill_parent"
                             android:layout_weight="1.5"
-                            android:text="Số lượng: "
-                            android:textColor="#ffffff"
                             android:gravity="center"
-                            />
+                            android:text="Số lượng: "
+                            android:textColor="#ffffff" />
 
 
                         <Button
+                            android:id="@+id/sub_1"
                             android:layout_width="fill_parent"
                             android:layout_height="fill_parent"
                             android:layout_weight="2"
-                            android:background="@drawable/sub"
-                            />
+                            android:background="@drawable/sub" />
 
                         <EditText
+                            android:id="@+id/sl_1"
                             android:layout_width="fill_parent"
                             android:layout_height="fill_parent"
                             android:layout_weight="2"
                             android:background="@drawable/round"
-                            android:inputType="number"
-                            />
+                            android:inputType="number" />
 
                         <Button
+                            android:id="@+id/add_1"
                             android:layout_width="fill_parent"
                             android:layout_height="fill_parent"
                             android:layout_weight="2"
-                            android:background="@drawable/plus"
-                            />
-
+                            android:background="@drawable/plus" />
 
 
                     </LinearLayout>
@@ -137,5 +122,4 @@
 
 
     </ScrollView>
-
 </LinearLayout>
