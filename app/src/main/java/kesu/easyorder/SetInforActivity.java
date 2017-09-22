@@ -17,6 +17,7 @@ public class SetInforActivity extends AppCompatActivity {
     private EditText edtName;
     private EditText edtTable;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

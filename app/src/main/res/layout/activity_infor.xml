@@ -23,13 +23,13 @@
                 android:layout_marginTop="@dimen/min_margin_thinh"
                 android:background="@color/thinh_nav">
 
-                    <ImageButton
-                        android:id="@+id/btn_nav_ttin_thinh"
-                        android:layout_alignParentLeft="true"
-                        android:layout_width="56dp"
-                        android:layout_height="match_parent"
-                        android:background="@color/thinh_nav"
-                        app:srcCompat="?attr/homeAsUpIndicator" />
+                <ImageButton
+                    android:id="@+id/btn_nav_ttin_thinh"
+                    android:layout_width="56dp"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentLeft="true"
+                    android:background="@color/thinh_nav"
+                    app:srcCompat="@drawable/ic_arrow_back_white_24dp" />
 
                     <TextView
                         android:layout_centerInParent="true"
@@ -37,7 +37,7 @@
                         android:layout_height="match_parent"
                         android:gravity="center"
                         android:text="@string/thong_tin_ban_thinh"
-                        android:textColor="@color/thinh_dark"
+                        android:textColor="@color/thinh_white"
                         android:textSize="@dimen/text_size_small_thinh" />
             </RelativeLayout>
 
@@ -97,13 +97,13 @@
                     android:layout_height="@dimen/height_view_thinh"
                     android:text="@string/thong_tin_mon_thinh"
                     android:textSize="@dimen/text_size_small_thinh"
-                    android:textColor="@color/thinh_dark"
+                    android:textColor="@color/thinh_white"
                     android:textStyle="bold"
                     android:gravity="center"/>
 
                 <TableLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="400dp"
                     android:stretchColumns="*"
                     android:background="@drawable/layout_tv"
                     android:padding="5dp">
@@ -122,36 +122,11 @@
                             android:textSize="@dimen/text_size_large_thinh"
                             android:gravity="center"/>
                     </TableRow>
-                    <TableRow>
-
-                        <EditText android:inputType="text"
-                            android:layout_height="@dimen/height_view_thinh"/>
-
-                        <EditText android:inputType="numberDecimal"
-                            android:layout_height="@dimen/height_view_thinh"/>
-
-                    </TableRow>
-                    <TableRow>
-                        <EditText android:inputType="text"
-                            android:layout_height="@dimen/height_view_thinh"/>
-
-                        <EditText android:inputType="numberDecimal"
-                            android:layout_height="@dimen/height_view_thinh"/>
-                    </TableRow>
-                    <TableRow>
-                        <EditText android:inputType="text"
-                            android:layout_height="@dimen/height_view_thinh"/>
-
-                        <EditText android:inputType="numberDecimal"
-                            android:layout_height="@dimen/height_view_thinh"/>
-                    </TableRow>
-                    <TableRow>
-                        <EditText android:inputType="text"
-                         android:layout_height="@dimen/height_view_thinh"/>
-
-                        <EditText android:inputType="numberDecimal"
-                            android:layout_height="@dimen/height_view_thinh"/>
-                    </TableRow>
+                    <ListView
+                        android:id="@+id/lv_thong_tin"
+                        android:layout_height="@dimen/height_list_view"
+                        android:layout_width="wrap_content">
+                    </ListView>
 
                 </TableLayout>
                 <LinearLayout
