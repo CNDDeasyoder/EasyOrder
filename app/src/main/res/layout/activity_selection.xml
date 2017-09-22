@@ -3,6 +3,8 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+
+
     <ImageView
         android:background="@color/thinh_blue"
         android:src="@drawable/p1"
@@ -66,7 +68,6 @@
         </LinearLayout>
     </LinearLayout>
     <LinearLayout
-        android:id="@+id/hang1"
         android:layout_gravity="center"
         android:orientation="horizontal"
         android:layout_marginTop="0dp"

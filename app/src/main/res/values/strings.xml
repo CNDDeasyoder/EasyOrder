@@ -4,6 +4,7 @@
     <string name="Ten_khach_thinh">Tên khách hàng :</string>
     <string name="mon_an_thinh">Món ăn</string>
     <string name="so_luong_thinh">Số lượng</string>
+    <string name="so_luong2_thinh">Số lượng:</string>
     <string name="thong_tin_mon_thinh">Các món ăn đã gọi</string>
     <string name="thong_tin_ban_thinh">Thông tin bàn ăn</string>
     <string name="them_mon_thinh">Thêm món</string>
@@ -19,5 +20,6 @@
     <string name="set_name">Tên khách hàng</string>
     <string name="set_table">Bàn số</string>
     <string name="submit_infor">Nhập</string>
+    <string name="nghin_dong">nghìn đồng</string>
 
 </resources>

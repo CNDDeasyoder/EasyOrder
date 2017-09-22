@@ -18,30 +18,26 @@
 
 
     </RelativeLayout>
-
-    <ScrollView
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/ScrollView01"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent">
 
         <android.support.v7.widget.LinearLayoutCompat
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-
+            android:layout_height="match_parent">
             <LinearLayout
                 android:layout_width="fill_parent"
                 android:layout_height="150dp"
-                android:background="@drawable/border"
-                android:layout_marginBottom="3dp"
+                android:background="@color/phong_blue2"
                 android:padding="3dp">
 
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:scaleType="matrix"
                     android:layout_weight="1"
-                    android:background="@drawable/mon1"
-                    android:scaleType="matrix" />
+                    android:background="@drawable/mon1"/>
 
                 <LinearLayout
                     android:layout_width="fill_parent"
@@ -49,34 +45,33 @@
                     android:layout_weight="1"
                     android:orientation="vertical">
 
-                    <TextView
-                        android:layout_width="fill_parent"
-                        android:layout_height="fill_parent"
-                        android:layout_weight="1"
-                        android:text="Lươn xào"
-                        android:textAlignment="center"
-                        android:textAllCaps="true"
-                        android:textColor="#ff0000"
-                        android:textSize="20dp"
-                        android:textStyle="bold" />
-
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1"
+                    android:text="Lươn xào"
+                    android:textAlignment="center"
+                    android:textAllCaps="true"
+                    android:textColor="#ff0000"
+                    android:textStyle="bold"
+                    android:textSize="20dp"
+                    />
                     <LinearLayout
                         android:layout_width="fill_parent"
                         android:layout_height="fill_parent"
                         android:layout_weight="2"
                         android:orientation="horizontal">
-
-                        <TextView
-                            android:layout_width="fill_parent"
-                            android:layout_height="fill_parent"
-                            android:layout_weight="1"
-                            android:text="Giá"
-                            android:textAlignment="center"
-                            android:textAllCaps="true"
-                            android:textColor="#ffffff"
-                            android:textSize="20dp"
-                            android:textStyle="bold" />
-
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:layout_weight="1"
+                        android:text="Giá"
+                        android:textAlignment="center"
+                        android:textAllCaps="true"
+                        android:textColor="#ffffff"
+                        android:textStyle="bold"
+                        android:textSize="20dp"
+                        />
                         <TextView
                             android:layout_width="fill_parent"
                             android:layout_height="fill_parent"
@@ -85,8 +80,9 @@
                             android:textAlignment="center"
                             android:textAllCaps="true"
                             android:textColor="#ffffff"
+                            android:textStyle="bold"
                             android:textSize="20dp"
-                            android:textStyle="bold" />
+                            />
                     </LinearLayout>
 
                     <LinearLayout
@@ -99,466 +95,34 @@
                             android:layout_width="fill_parent"
                             android:layout_height="fill_parent"
                             android:layout_weight="1.5"
-                            android:gravity="center"
                             android:text="Số lượng: "
-                            android:textColor="#ffffff" />
+                            android:textColor="#ffffff"
+                            android:gravity="center"
+                            />
 
 
                         <Button
-                            android:id="@+id/sub_2"
                             android:layout_width="fill_parent"
                             android:layout_height="fill_parent"
-                            android:layout_margin="2dp"
                             android:layout_weight="2"
-                            android:background="@drawable/sub" />
+                            android:background="@drawable/sub"
+                            />
 
                         <EditText
-                            android:id="@+id/sl_2"
                             android:layout_width="fill_parent"
                             android:layout_height="fill_parent"
                             android:layout_weight="2"
                             android:background="@drawable/round"
-                            android:inputType="number" />
+                            android:inputType="number"
+                            />
 
                         <Button
-                            android:id="@+id/add_2"
-                            android:layout_width="fill_parent"
-                            android:layout_height="fill_parent"
-                            android:layout_margin="2dp"
-                            android:layout_weight="2"
-                            android:background="@drawable/plus" />
-
-
-                    </LinearLayout>
-
-
-                </LinearLayout>
-
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="fill_parent"
-                android:layout_height="150dp"
-                android:padding="3dp"
-                android:background="@drawable/border"
-                android:layout_marginBottom="3dp">
-
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:background="@drawable/mon1"
-                    android:scaleType="matrix" />
-
-                <LinearLayout
-                    android:layout_width="fill_parent"
-                    android:layout_height="fill_parent"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="fill_parent"
-                        android:layout_height="fill_parent"
-                        android:layout_weight="1"
-                        android:text="Lươn xào"
-                        android:textAlignment="center"
-                        android:textAllCaps="true"
-                        android:textColor="#ff0000"
-                        android:textSize="20dp"
-                        android:textStyle="bold" />
-
-                    <LinearLayout
-                        android:layout_width="fill_parent"
-                        android:layout_height="fill_parent"
-                        android:layout_weight="2"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:layout_width="fill_parent"
-                            android:layout_height="fill_parent"
-                            android:layout_weight="1"
-                            android:text="Giá"
-                            android:textAlignment="center"
-                            android:textAllCaps="true"
-                            android:textColor="#ffffff"
-                            android:textSize="20dp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:layout_width="fill_parent"
-                            android:layout_height="fill_parent"
-                            android:layout_weight="1"
-                            android:text="50k"
-                            android:textAlignment="center"
-                            android:textAllCaps="true"
-                            android:textColor="#ffffff"
-                            android:textSize="20dp"
-                            android:textStyle="bold" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="fill_parent"
-                        android:layout_height="fill_parent"
-                        android:layout_weight="2"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:layout_width="fill_parent"
-                            android:layout_height="fill_parent"
-                            android:layout_weight="1.5"
-                            android:gravity="center"
-                            android:text="Số lượng: "
-                            android:textColor="#ffffff" />
-
-
-                        <Button
-                            android:id="@+id/sub_3"
-                            android:layout_width="fill_parent"
-                            android:layout_height="fill_parent"
-                            android:layout_margin="2dp"
-                            android:layout_weight="2"
-                            android:background="@drawable/sub" />
-
-                        <EditText
-                            android:id="@+id/sl_3"
                             android:layout_width="fill_parent"
                             android:layout_height="fill_parent"
                             android:layout_weight="2"
-                            android:background="@drawable/round"
-                            android:inputType="number" />
+                            android:background="@drawable/plus"
+                            />
 
-                        <Button
-                            android:id="@+id/add_3"
-                            android:layout_width="fill_parent"
-                            android:layout_height="fill_parent"
-                            android:layout_margin="2dp"
-                            android:layout_weight="2"
-                            android:background="@drawable/plus" />
-
-
-                    </LinearLayout>
-
-
-                </LinearLayout>
-
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="fill_parent"
-                android:layout_height="150dp"
-                android:padding="3dp"
-                android:background="@drawable/border"
-                android:layout_marginBottom="3dp">
-
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:background="@drawable/mon1"
-                    android:scaleType="matrix" />
-
-                <LinearLayout
-                    android:layout_width="fill_parent"
-                    android:layout_height="fill_parent"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="fill_parent"
-                        android:layout_height="fill_parent"
-                        android:layout_weight="1"
-                        android:text="Lươn xào"
-                        android:textAlignment="center"
-                        android:textAllCaps="true"
-                        android:textColor="#ff0000"
-                        android:textSize="20dp"
-                        android:textStyle="bold" />
-
-                    <LinearLayout
-                        android:layout_width="fill_parent"
-                        android:layout_height="fill_parent"
-                        android:layout_weight="2"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:layout_width="fill_parent"
-                            android:layout_height="fill_parent"
-                            android:layout_weight="1"
-                            android:text="Giá"
-                            android:textAlignment="center"
-                            android:textAllCaps="true"
-                            android:textColor="#ffffff"
-                            android:textSize="20dp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:layout_width="fill_parent"
-                            android:layout_height="fill_parent"
-                            android:layout_weight="1"
-                            android:text="50k"
-                            android:textAlignment="center"
-                            android:textAllCaps="true"
-                            android:textColor="#ffffff"
-                            android:textSize="20dp"
-                            android:textStyle="bold" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="fill_parent"
-                        android:layout_height="fill_parent"
-                        android:layout_weight="2"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:layout_width="fill_parent"
-                            android:layout_height="fill_parent"
-                            android:layout_weight="1.5"
-                            android:gravity="center"
-                            android:text="Số lượng: "
-                            android:textColor="#ffffff" />
-
-
-                        <Button
-                            android:id="@+id/sub_4"
-                            android:layout_width="fill_parent"
-                            android:layout_height="fill_parent"
-                            android:layout_margin="2dp"
-                            android:layout_weight="2"
-                            android:background="@drawable/sub" />
-
-                        <EditText
-                            android:id="@+id/sl_4"
-                            android:layout_width="fill_parent"
-                            android:layout_height="fill_parent"
-                            android:layout_weight="2"
-                            android:background="@drawable/round"
-                            android:inputType="number" />
-
-                        <Button
-                            android:id="@+id/add_4"
-                            android:layout_width="fill_parent"
-                            android:layout_height="fill_parent"
-                            android:layout_margin="2dp"
-                            android:layout_weight="2"
-                            android:background="@drawable/plus" />
-
-
-                    </LinearLayout>
-
-
-                </LinearLayout>
-
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="fill_parent"
-                android:layout_height="150dp"
-                android:padding="3dp"
-                android:background="@drawable/border"
-                android:layout_marginBottom="3dp">
-
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:background="@drawable/mon1"
-                    android:scaleType="matrix" />
-
-                <LinearLayout
-                    android:layout_width="fill_parent"
-                    android:layout_height="fill_parent"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="fill_parent"
-                        android:layout_height="fill_parent"
-                        android:layout_weight="1"
-                        android:text="Lươn xào"
-                        android:textAlignment="center"
-                        android:textAllCaps="true"
-                        android:textColor="#ff0000"
-                        android:textSize="20dp"
-                        android:textStyle="bold" />
-
-                    <LinearLayout
-                        android:layout_width="fill_parent"
-                        android:layout_height="fill_parent"
-                        android:layout_weight="2"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:layout_width="fill_parent"
-                            android:layout_height="fill_parent"
-                            android:layout_weight="1"
-                            android:text="Giá"
-                            android:textAlignment="center"
-                            android:textAllCaps="true"
-                            android:textColor="#ffffff"
-                            android:textSize="20dp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:layout_width="fill_parent"
-                            android:layout_height="fill_parent"
-                            android:layout_weight="1"
-                            android:text="50k"
-                            android:textAlignment="center"
-                            android:textAllCaps="true"
-                            android:textColor="#ffffff"
-                            android:textSize="20dp"
-                            android:textStyle="bold" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="fill_parent"
-                        android:layout_height="fill_parent"
-                        android:layout_weight="2"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:layout_width="fill_parent"
-                            android:layout_height="fill_parent"
-                            android:layout_weight="1.5"
-                            android:gravity="center"
-                            android:text="Số lượng: "
-                            android:textColor="#ffffff" />
-
-
-                        <Button
-                            android:id="@+id/sub_5"
-                            android:layout_width="fill_parent"
-                            android:layout_height="fill_parent"
-                            android:layout_margin="2dp"
-                            android:layout_weight="2"
-                            android:background="@drawable/sub" />
-
-                        <EditText
-                            android:id="@+id/sl_5"
-                            android:layout_width="fill_parent"
-                            android:layout_height="fill_parent"
-                            android:layout_weight="2"
-                            android:background="@drawable/round"
-                            android:inputType="number" />
-
-                        <Button
-                            android:id="@+id/add_5"
-                            android:layout_width="fill_parent"
-                            android:layout_height="fill_parent"
-                            android:layout_margin="2dp"
-                            android:layout_weight="2"
-                            android:background="@drawable/plus" />
-
-
-                    </LinearLayout>
-
-
-                </LinearLayout>
-
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="fill_parent"
-                android:layout_height="150dp"
-                android:padding="3dp"
-                android:background="@drawable/border"
-                android:layout_marginBottom="3dp">
-
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:background="@drawable/mon1"
-                    android:scaleType="matrix" />
-
-                <LinearLayout
-                    android:layout_width="fill_parent"
-                    android:layout_height="fill_parent"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="fill_parent"
-                        android:layout_height="fill_parent"
-                        android:layout_weight="1"
-                        android:text="Lươn xào"
-                        android:textAlignment="center"
-                        android:textAllCaps="true"
-                        android:textColor="#ff0000"
-                        android:textSize="20dp"
-                        android:textStyle="bold" />
-
-                    <LinearLayout
-                        android:layout_width="fill_parent"
-                        android:layout_height="fill_parent"
-                        android:layout_weight="2"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:layout_width="fill_parent"
-                            android:layout_height="fill_parent"
-                            android:layout_weight="1"
-                            android:text="Giá"
-                            android:textAlignment="center"
-                            android:textAllCaps="true"
-                            android:textColor="#ffffff"
-                            android:textSize="20dp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:layout_width="fill_parent"
-                            android:layout_height="fill_parent"
-                            android:layout_weight="1"
-                            android:text="50k"
-                            android:textAlignment="center"
-                            android:textAllCaps="true"
-                            android:textColor="#ffffff"
-                            android:textSize="20dp"
-                            android:textStyle="bold" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="fill_parent"
-                        android:layout_height="fill_parent"
-                        android:layout_weight="2"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:layout_width="fill_parent"
-                            android:layout_height="fill_parent"
-                            android:layout_weight="1.5"
-                            android:gravity="center"
-                            android:text="Số lượng: "
-                            android:textColor="#ffffff" />
-
-
-                        <Button
-                            android:id="@+id/sub_1"
-                            android:layout_width="fill_parent"
-                            android:layout_height="fill_parent"
-                            android:layout_margin="2dp"
-                            android:layout_weight="2"
-                            android:background="@drawable/sub" />
-
-                        <EditText
-                            android:id="@+id/sl_1"
-                            android:layout_width="fill_parent"
-                            android:layout_height="fill_parent"
-                            android:layout_weight="2"
-                            android:background="@drawable/round"
-                            android:inputType="number" />
-
-                        <Button
-                            android:id="@+id/add_1"
-                            android:layout_width="fill_parent"
-                            android:layout_height="fill_parent"
-                            android:layout_margin="2dp"
-                            android:layout_weight="2"
-                            android:background="@drawable/plus" />
 
 
                     </LinearLayout>
