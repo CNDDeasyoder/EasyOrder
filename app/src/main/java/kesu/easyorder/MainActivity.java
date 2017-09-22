@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent(MainActivity.this, SetInforActivity.class);
                 if (editText.getText().toString().isEmpty())
                 {
-                    Toast.makeText(MainActivity.this, "Vui lòng nhập Code", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, "Vui lòng nhập", Toast.LENGTH_SHORT).show();
                 }
                 else if (Integer.parseInt(editText.getText().toString()) > 0) // Sửa lại điều kiện
                 {

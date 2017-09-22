@@ -18,120 +18,116 @@
 
 
     </RelativeLayout>
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/height_view_thinh"
-        android:layout_marginTop="@dimen/min_margin_thinh"
-        android:background="@color/thinh_nav">
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/ScrollView01"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
 
-        <ImageButton
-            android:id="@+id/btn_nav_menu_thinh"
-            android:layout_width="56dp"
-            android:layout_height="match_parent"
-            android:layout_alignParentLeft="true"
-            android:background="@color/thinh_nav"
-            app:srcCompat="?attr/homeAsUpIndicator" />
-
-        <TextView
-            android:layout_centerInParent="true"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:text="Menu"
-            android:textColor="@color/thinh_dark"
-            android:textSize="@dimen/text_size_small_thinh" />
-    </RelativeLayout>
-    <LinearLayout
-        android:id="@+id/hang1"
-        android:orientation="horizontal"
-        android:layout_marginTop="0dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-        <LinearLayout
-            android:id="@+id/mon1"
-            android:orientation="vertical"
-            android:layout_marginLeft="15dp"
-            android:layout_width="wrap_content"
+        <android.support.v7.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
             android:layout_height="match_parent">
-
-            <ImageView
-                android:src="@drawable/mon1"
-                android:layout_width="160dp"
+            <LinearLayout
+                android:layout_width="fill_parent"
                 android:layout_height="150dp"
-                android:layout_gravity="center"/>
-            <Button
-                android:text="Ếch xào sả"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"/>
+                android:background="@color/phong_blue2"
+                android:padding="3dp">
 
-        </LinearLayout>
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="matrix"
+                    android:layout_weight="1"
+                    android:background="@drawable/mon1"/>
 
-        <LinearLayout
-            android:id="@+id/mon2"
-            android:orientation="vertical"
-            android:layout_marginLeft="30dp"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent">
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
 
-            <ImageView
-                android:src="@drawable/mon2"
-                android:layout_width="160dp"
-                android:layout_height="150dp"
-                android:layout_gravity="center"/>
-            <Button
-                android:text="Lẩu hải sản"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"/>
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1"
+                    android:text="Lươn xào"
+                    android:textAlignment="center"
+                    android:textAllCaps="true"
+                    android:textColor="#ff0000"
+                    android:textStyle="bold"
+                    android:textSize="20dp"
+                    />
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:layout_weight="2"
+                        android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:layout_weight="1"
+                        android:text="Giá"
+                        android:textAlignment="center"
+                        android:textAllCaps="true"
+                        android:textColor="#ffffff"
+                        android:textStyle="bold"
+                        android:textSize="20dp"
+                        />
+                        <TextView
+                            android:layout_width="fill_parent"
+                            android:layout_height="fill_parent"
+                            android:layout_weight="1"
+                            android:text="50k"
+                            android:textAlignment="center"
+                            android:textAllCaps="true"
+                            android:textColor="#ffffff"
+                            android:textStyle="bold"
+                            android:textSize="20dp"
+                            />
+                    </LinearLayout>
 
-        </LinearLayout>
-    </LinearLayout>
-    <LinearLayout
-        android:id="@+id/hang2"
-        android:orientation="horizontal"
-        android:layout_marginTop="0dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-        <LinearLayout
-            android:id="@+id/mon3"
-            android:orientation="vertical"
-            android:layout_marginLeft="15dp"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent">
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:layout_weight="2"
+                        android:orientation="horizontal">
 
-            <ImageView
-                android:src="@drawable/mon3"
-                android:layout_width="160dp"
-                android:layout_height="150dp"
-                android:layout_gravity="center"/>
-            <Button
-                android:text="Vịt quay"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"/>
+                        <TextView
+                            android:layout_width="fill_parent"
+                            android:layout_height="fill_parent"
+                            android:layout_weight="1"
+                            android:text="Số lượng: "
+                            android:textColor="#ffffff"
+                            android:gravity="center"
+                            />
 
-        </LinearLayout>
 
-        <LinearLayout
-            android:id="@+id/mon4"
-            android:orientation="vertical"
-            android:layout_marginLeft="30dp"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent">
+                        <Button
+                            android:layout_width="fill_parent"
+                            android:layout_height="fill_parent"
+                            android:layout_weight="3"
+                            android:background="@drawable/sub"
+                            />
 
-            <ImageView
-                android:src="@drawable/mon4"
-                android:layout_width="160dp"
-                android:layout_height="150dp"
-                android:layout_gravity="center"/>
-            <Button
-                android:text="Ram cuốn cải"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"/>
+                        <Button
+                            android:layout_width="fill_parent"
+                            android:layout_height="fill_parent"
+                            android:layout_weight="3"
+                            android:background="@drawable/plus"
+                            />
 
-        </LinearLayout>
-    </LinearLayout>
+
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+        </android.support.v7.widget.LinearLayoutCompat>
+
+
+    </ScrollView>
 
 </LinearLayout>

@@ -19,14 +19,6 @@ public class MenuActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
 
-        btnBack = (ImageButton) findViewById(R.id.btn_nav_menu_thinh);
 
-        btnBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MenuActivity.this, SelectionActivity.class);
-                startActivity(intent);
-            }
-        });
     }
 }
