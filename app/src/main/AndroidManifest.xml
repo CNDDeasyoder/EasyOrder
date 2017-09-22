@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/ic_easyorder"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name=".MenuActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -20,7 +20,7 @@
         <activity android:name=".SelectionActivity"/>
         <activity android:name=".InformationActivity"/>
         <activity android:name=".PayActivity"/>
-        <activity android:name=".MenuActivity"/>
+        <activity android:name=".MainActivity"/>
     </application>
 
 </manifest>
