@@ -53,24 +53,29 @@ public class MonAnAdapter extends BaseAdapter {
         ImageView img = (ImageView)view.findViewById(R.id.hinh_anh);
         Button btn_add = (Button)view.findViewById(R.id.add);
         Button btn_sub = (Button)view.findViewById(R.id.sub);
-        final EditText edt = (EditText)view.findViewById(R.id.sl);
+        final EditText edt = (EditText) view.findViewById(R.id.sl);
         TextView ten_mon = (TextView)view.findViewById(R.id.ten_mon);
         final TextView gia = (TextView)view.findViewById(R.id.gia);
         final TextView tong =(TextView)view.findViewById(R.id.tong);
 
+
+
         img.setImageResource(R.drawable.mon1);
 
-        edt.setText(Integer.toString(0));
-
         final ThongTinMonAn monan = thongTinList.get(i);
+
+        edt.setText(Integer.toString(monan.getDang_chon()));
+
 
         ten_mon.setText(monan.getTen_mon());
         gia.setText(monan.getGia()+"");
         btn_add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if (edt.getText().toString().isEmpty() == true ) edt.setText(Integer.toString(0));
                 int a = Integer.parseInt(edt.getText().toString());
                 a++;
+                monan.setDang_chon(a);
                 edt.setText(Integer.toString(a));
                 tong.setText("Tổng: "+Integer.toString(monan.getGia()*a)+"K");
             }
@@ -79,9 +84,11 @@ public class MonAnAdapter extends BaseAdapter {
         btn_sub.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if (edt.getText().toString().isEmpty() == true ) edt.setText(Integer.toString(0));
                 int a = Integer.parseInt(edt.getText().toString());
                 if (a==0) return;
                 a--;
+                monan.setDang_chon(a);
                 edt.setText(Integer.toString(a));
                 tong.setText("Tổng: "+Integer.toString(monan.getGia()*a)+"K");
             }

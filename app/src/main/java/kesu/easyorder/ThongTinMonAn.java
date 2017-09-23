@@ -8,6 +8,15 @@ public class ThongTinMonAn {
     public String hinh;
     public String ten_mon;
     public int gia;
+    public int dang_chon;
+
+    public int getDang_chon() {
+        return dang_chon;
+    }
+
+    public void setDang_chon(int dang_chon) {
+        this.dang_chon = dang_chon;
+    }
 
     public ThongTinMonAn() {
     }
@@ -16,6 +25,7 @@ public class ThongTinMonAn {
         this.hinh = hinh;
         this.ten_mon = ten_mon;
         this.gia = gia;
+        this.dang_chon=0;
     }
 
     public String getTen_mon() {
