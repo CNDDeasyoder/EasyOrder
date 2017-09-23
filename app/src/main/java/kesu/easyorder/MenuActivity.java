@@ -30,6 +30,9 @@ public class MenuActivity extends AppCompatActivity{
         list.add(new ThongTinMonAn("mon1","Lươn xào",30));
         list.add(new ThongTinMonAn("mon1","Lươn xào",60));
         list.add(new ThongTinMonAn("mon1","Lươn xào",90));
+        list.add(new ThongTinMonAn("mon1","Lươn xào",90));
+        list.add(new ThongTinMonAn("mon1","Lươn xào",90));
+        list.add(new ThongTinMonAn("mon1","Lươn xào",90));
         list.add(new ThongTinMonAn("mon1","Lươn xào",70));
 
         apater = new MonAnAdapter(this, R.layout.mon,list);

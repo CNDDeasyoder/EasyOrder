@@ -49,6 +49,7 @@ public class InformationActivity extends AppCompatActivity{
                 startActivity(intent);
             }
         });
+
     }
 
 }

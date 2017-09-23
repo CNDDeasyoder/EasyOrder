@@ -93,6 +93,7 @@
                     android:background="@drawable/round"
                     android:inputType="number"
                     android:textAlignment="center"
+                    android:editable="true"
                     />
 
                 <Button
