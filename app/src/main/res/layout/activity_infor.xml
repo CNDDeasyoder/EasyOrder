@@ -124,8 +124,10 @@
                     </TableRow>
                     <ListView
                         android:id="@+id/lv_thong_tin"
-                        android:layout_height="@dimen/height_list_view"
-                        android:layout_width="wrap_content">
+                        android:layout_height="fill_parent"
+                        android:layout_width="fill_parent"
+                        android:scrollbarStyle="insideOverlay"
+                        >
                     </ListView>
 
                 </TableLayout>
