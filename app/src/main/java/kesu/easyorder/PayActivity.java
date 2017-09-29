@@ -3,10 +3,13 @@ package kesu.easyorder;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.MotionEvent;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -17,6 +20,7 @@ import java.util.ArrayList;
 public class PayActivity extends AppCompatActivity {
     private ImageButton btnBack;
     private TextView tvTongTien;
+    private Button btnThanhToan;
     ListView lvThanhToan;
     ArrayList<MonAn> list;
     ThanhToanAdapter thanhToanAdapter;
@@ -29,6 +33,15 @@ public class PayActivity extends AppCompatActivity {
         btnBack = (ImageButton) findViewById(R.id.btn_nav_ttoan_thinh);
         tvTongTien = (TextView) findViewById(R.id.tv_tong_tien_thinh) ;
         lvThanhToan = (ListView) findViewById(R.id.lv_thanh_toan);
+        btnThanhToan = (Button) findViewById(R.id.btn_thanh_toan_tong_thinh);
+
+        lvThanhToan.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View view, MotionEvent motionEvent) {
+                view.getParent().requestDisallowInterceptTouchEvent(true);
+                return false;
+            }
+        });
 
         list = new ArrayList<>();
 
@@ -56,6 +69,14 @@ public class PayActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(PayActivity.this, SelectionActivity.class);
                 startActivity(intent);
+            }
+        });
+
+        btnThanhToan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // add more code
+                Toast.makeText(PayActivity.this, "Yêu cầu đã được gửi. Vui lòng đợi trong giây lát!", Toast.LENGTH_SHORT).show();
             }
         });
     }

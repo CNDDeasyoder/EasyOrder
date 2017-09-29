@@ -17,7 +17,9 @@
         android:layout_width="55.5dp"
         android:layout_height="match_parent"
         android:layout_alignParentLeft="true"
-       android:background="@drawable/ic_arrow_back_white_24dp" />
+       android:background="@color/thinh_nav"
+        android:src="@drawable/ic_arrow_back_white_24dp"/>
+
 
     <TextView
         android:layout_centerInParent="true"

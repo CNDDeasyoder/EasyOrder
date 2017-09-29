@@ -5,11 +5,6 @@
     android:layout_height="match_parent"
     android:background="@color/thinh_blue"
     android:orientation="vertical">
-    <ImageView
-        android:src="@drawable/picture2"
-        android:layout_width="wrap_content"
-        android:layout_height="@dimen/height_view_thinh"
-        android:layout_alignParentLeft="true"/>
     <ScrollView
         android:layout_width="fill_parent"
         android:layout_height="match_parent">
@@ -126,8 +121,7 @@
                         android:id="@+id/lv_thong_tin"
                         android:layout_height="fill_parent"
                         android:layout_width="fill_parent"
-                        android:scrollbarStyle="insideOverlay"
-                        >
+                        android:smoothScrollbar="true">
                     </ListView>
 
                 </TableLayout>
