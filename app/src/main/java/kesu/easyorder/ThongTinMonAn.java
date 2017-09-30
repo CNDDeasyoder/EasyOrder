@@ -9,6 +9,7 @@ public class ThongTinMonAn {
     public String ten_mon;
     public int gia;
     public int dang_chon;
+    public static int tong_tien=0;
 
     public int getDang_chon() {
         return dang_chon;

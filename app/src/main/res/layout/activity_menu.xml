@@ -7,10 +7,12 @@
     >
 
     <RelativeLayout
-    android:layout_width="match_parent"
-    android:layout_height="@dimen/height_view_thinh"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
     android:layout_marginTop="@dimen/min_margin_thinh"
-    android:background="@color/thinh_nav">
+    android:background="@color/thinh_nav"
+    android:layout_weight="7"
+        >
 
     <ImageButton
         android:id="@+id/btn_back"
@@ -35,7 +37,19 @@
         android:layout_height="fill_parent"
         android:layout_width="fill_parent"
         android:scrollbarStyle="insideOverlay"
+        android:layout_weight="1"
         >
     </ListView>
+
+    <TextView
+        android:id="@+id/tv_tongtien_hien"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="7"
+        android:text="Tổng tiền: "
+        android:textColor="#ffffff"
+        android:textSize="23dp"
+        android:gravity="end"
+        />
 
 </LinearLayout>

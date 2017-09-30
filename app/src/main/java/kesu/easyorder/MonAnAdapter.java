@@ -43,7 +43,7 @@ public class MonAnAdapter extends BaseAdapter {
     }
 
     @Override
-    public View getView(int i, View view, ViewGroup viewGroup) {
+    public View getView(int i, View view, final ViewGroup viewGroup) {
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
         view = inflater.inflate(layout, null);
@@ -76,7 +76,9 @@ public class MonAnAdapter extends BaseAdapter {
                 monan.setDang_chon(a);
                 edt.setText(Integer.toString(a));
                 tong.setText("Tổng: "+Integer.toString(monan.getGia()*a)+"K");
-            }
+                ThongTinMonAn.tong_tien+=monan.getGia();
+
+                }
         });
 
         btn_sub.setOnClickListener(new View.OnClickListener() {
@@ -89,6 +91,8 @@ public class MonAnAdapter extends BaseAdapter {
                 monan.setDang_chon(a);
                 edt.setText(Integer.toString(a));
                 tong.setText("Tổng: "+Integer.toString(monan.getGia()*a)+"K");
+                ThongTinMonAn.tong_tien-=monan.getGia();
+
             }
         });
 

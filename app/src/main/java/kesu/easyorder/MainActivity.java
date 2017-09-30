@@ -8,7 +8,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuthException;
+
 public class MainActivity extends AppCompatActivity {
+
     private Button btnLogin;
     private EditText editText;
     @Override
