@@ -20,6 +20,7 @@ public class DrawerLayout extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.drawer_layout);
 
         listView = (ListView) findViewById(R.id.lv_drawer);
