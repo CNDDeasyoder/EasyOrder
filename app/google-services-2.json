@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "799322417128",
+    "firebase_url": "https://easyorder-52cea.firebaseio.com",
+    "project_id": "easyorder-52cea",
+    "storage_bucket": "easyorder-52cea.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:799322417128:android:0fdc18fd110e1bae",
+        "android_client_info": {
+          "package_name": "kesu.easyorder"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "799322417128-ab25v88dav9c0532mpfs2tfh31h7s6nk.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "kesu.easyorder",
+            "certificate_hash": "f02be0577307a3007acab76b3412a94449a0627d"
+          }
+        },
+        {
+          "client_id": "799322417128-u91eipkh6t1qpajmd1mv1ej9nofmhdv9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAQIv4WU-SD2x5lbP0axb1_1SgX4hFdoNY"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "799322417128-u91eipkh6t1qpajmd1mv1ej9nofmhdv9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -12,13 +12,13 @@
     <string name="ds_ttoan_thinh">Các món ăn cần thanh toán</string>
     <string name="don_gia_thinh">Đơn giá</string>
     <string name="tong_tien_thinh">Tổng tiền</string>
-    <string name="hint_code">Enter our code</string>
+    <string name="hint_code">Code(4 chữ số)</string>
     <string name="hint_password">Password</string>
     <string name="text_login">Log In</string>
     <string name="text_sign_up"><u>Sign up for a new account</u>.</string>
     <string name="set_infor">Vui lòng nhập thông tin</string>
-    <string name="set_name">Tên khách hàng</string>
-    <string name="set_table">Bàn số</string>
+    <string name="set_name">Tên khách hàng(Họ và tên)</string>
+    <string name="set_table">Bàn số (1 - 99)</string>
     <string name="submit_infor">Nhập</string>
     <string name="nghin_dong">nghìn đồng</string>
 

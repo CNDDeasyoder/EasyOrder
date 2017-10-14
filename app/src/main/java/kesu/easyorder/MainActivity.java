@@ -8,7 +8,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+
 import com.google.firebase.auth.FirebaseAuthException;
+
+import java.util.regex.Pattern;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -26,11 +29,15 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, SetInforActivity.class);
+                String regExCode = "^[0-9]{4}$";
+
+                Pattern pCode = Pattern.compile(regExCode);
+
                 if (editText.getText().toString().isEmpty())
                 {
-                    Toast.makeText(MainActivity.this, "Vui lòng nhập", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, "Vui lòng nhập code", Toast.LENGTH_SHORT).show();
                 }
-                else if (Integer.parseInt(editText.getText().toString()) > 0) // Sửa lại điều kiện
+                else if (pCode.matches(regExCode, editText.getText().toString())) // Sửa lại điều kiện
                 {
                     startActivity(intent);
                 }
