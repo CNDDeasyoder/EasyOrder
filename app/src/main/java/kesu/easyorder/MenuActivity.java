@@ -3,6 +3,7 @@ package kesu.easyorder;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.constraint.solver.widgets.Snapshot;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
@@ -31,6 +32,10 @@ public class MenuActivity extends AppCompatActivity {
     private Button btnThemMon;
     private ImageButton btnBack;
     public static TextView tv_tongtien;
+    public static int tong_tien=0;
+    private ListView lv;
+    private FirebaseDatabase mFirebaseDatabase;
+    private DatabaseReference mDatabaseReference;
 
 
     private ArrayList<MonAn> danhSachMonAn;
@@ -47,19 +52,41 @@ public class MenuActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
 
-        list.add(new ThongTinMonAn("mon1", "Lươn xào", 20));
-        list.add(new ThongTinMonAn("mon1", "Lươn xào", 30));
-        list.add(new ThongTinMonAn("mon1", "Lươn xào", 60));
-        list.add(new ThongTinMonAn("mon1", "Lươn xào", 90));
-        list.add(new ThongTinMonAn("mon1", "Lươn xào", 90));
-        list.add(new ThongTinMonAn("mon1", "Lươn xào", 90));
-        list.add(new ThongTinMonAn("mon1", "Lươn xào", 90));
-        list.add(new ThongTinMonAn("mon1", "Lươn xào", 70));
-
+        //Hien code ----------------------
+        mFirebaseDatabase = FirebaseDatabase.getInstance();
+        mDatabaseReference = mFirebaseDatabase.getReference().child("mon_an");
         apater = new MonAnAdapter(this, R.layout.mon, list);
+        mDatabaseReference.addChildEventListener(new ChildEventListener() {
+            @Override
+            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+                ThongTinMonAn temp;
+                temp = dataSnapshot.getValue(ThongTinMonAn.class);
+                list.add(temp);
+                lv = (ListView) findViewById(R.id.lv);
+                lv.setAdapter(apater);
 
-        ListView lv = (ListView) findViewById(R.id.lv);
-        lv.setAdapter(apater);
+            }
+
+            @Override
+            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+
+            }
+
+            @Override
+            public void onChildRemoved(DataSnapshot dataSnapshot) {
+
+            }
+
+            @Override
+            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
 
         tv_tongtien = (TextView)findViewById(R.id.tv_tongtien_hien);
 
@@ -68,7 +95,7 @@ public class MenuActivity extends AppCompatActivity {
 
         handler.postDelayed(new Runnable(){
             public void run(){
-                tv_tongtien.setText("Tổng tiền: "+Integer.toString(ThongTinMonAn.tong_tien)+"K");
+                tv_tongtien.setText("Tổng tiền: "+Integer.toString(MenuActivity.tong_tien)+"K");
                 handler.postDelayed(this, delay);
             }
         }, delay);

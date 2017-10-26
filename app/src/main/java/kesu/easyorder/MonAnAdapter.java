@@ -2,6 +2,7 @@ package kesu.easyorder;
 
 import android.content.Context;
 import android.view.LayoutInflater;
+import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -77,7 +78,7 @@ public class MonAnAdapter extends BaseAdapter {
                 monan.setDang_chon(a);
                 edt.setText(Integer.toString(a));
                 tong.setText("Tổng: "+Integer.toString(monan.getGia()*a)+"K");
-                ThongTinMonAn.tong_tien+=monan.getGia();
+                MenuActivity.tong_tien+=monan.getGia();
 
                 }
         });
@@ -92,7 +93,7 @@ public class MonAnAdapter extends BaseAdapter {
                 monan.setDang_chon(a);
                 edt.setText(Integer.toString(a));
                 tong.setText("Tổng: "+Integer.toString(monan.getGia()*a)+"K");
-                ThongTinMonAn.tong_tien-=monan.getGia();
+                MenuActivity.tong_tien-=monan.getGia();
 
             }
         });
