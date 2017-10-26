@@ -37,19 +37,32 @@
         android:layout_height="fill_parent"
         android:layout_width="fill_parent"
         android:scrollbarStyle="insideOverlay"
-        android:layout_weight="1"
+        android:layout_weight="1.5"
         >
     </ListView>
 
-    <TextView
-        android:id="@+id/tv_tongtien_hien"
+    <LinearLayout
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:layout_weight="7"
-        android:text="Tổng tiền: "
-        android:textColor="#ffffff"
-        android:textSize="23dp"
-        android:gravity="end"
-        />
+        android:layout_height="@dimen/height_view_thinh">
+        <TextView
+            android:id="@+id/tv_tongtien_hien"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="7"
+            android:text="Tổng tiền: "
+            android:textColor="#ffffff"
+            android:textSize="23dp"
+            android:gravity="center_vertical"/>
+        <Button
+            android:id="@+id/btn_them_mon_menu"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="@string/them_mon"
+            android:paddingLeft="@dimen/padding_thinh"
+            android:paddingRight="@dimen/padding_thinh"/>
+    </LinearLayout>
+
+
+
 
 </LinearLayout>

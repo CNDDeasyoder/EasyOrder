@@ -8,6 +8,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 import java.util.regex.Pattern;
 
 
@@ -19,6 +22,8 @@ public class SetInforActivity extends AppCompatActivity {
     private Button btnTable;
     private EditText edtName;
     private EditText edtTable;
+    private DatabaseReference mData;
+    public static String keyUser;
 
 
     @Override
@@ -29,6 +34,7 @@ public class SetInforActivity extends AppCompatActivity {
         btnTable = (Button) findViewById(R.id.btn_submit_infor);
         edtName = (EditText) findViewById(R.id.edt_set_name);
         edtTable = (EditText) findViewById(R.id.edt_set_table);
+        mData = FirebaseDatabase.getInstance().getReference();
 
         btnTable.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -47,6 +53,8 @@ public class SetInforActivity extends AppCompatActivity {
                 else if (pName.matches(regExName, edtName.getText().toString())
                         && pTable.matches(regExTable, edtTable.getText().toString()))
                 {
+                    keyUser = mData.child("KhachHang").push().getKey().toString();
+                    mData.child("KhachHang").child(keyUser).setValue(new KhachHang(edtName.getText().toString(),Integer.parseInt(edtTable.getText().toString())));
                     startActivity(intent);
                 }
                 else

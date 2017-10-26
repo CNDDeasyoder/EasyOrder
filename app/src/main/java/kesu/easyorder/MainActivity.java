@@ -8,9 +8,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-
-import com.google.firebase.auth.FirebaseAuthException;
-
 import java.util.regex.Pattern;
 
 public class MainActivity extends AppCompatActivity {
@@ -40,6 +37,10 @@ public class MainActivity extends AppCompatActivity {
                 else if (pCode.matches(regExCode, editText.getText().toString())) // Sửa lại điều kiện
                 {
                     startActivity(intent);
+                }
+                else
+                {
+                    Toast.makeText(MainActivity.this, "        Code sai! \nCode gồm 4 chữ số.", Toast.LENGTH_SHORT).show();
                 }
             }
         });

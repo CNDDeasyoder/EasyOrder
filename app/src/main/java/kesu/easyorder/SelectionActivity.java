@@ -26,6 +26,7 @@ public class SelectionActivity extends AppCompatActivity {
         btnPay = (Button) findViewById(R.id.btn_pay);
         btnMenu = (Button) findViewById(R.id.btn_menu);
 
+
         btninfor.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

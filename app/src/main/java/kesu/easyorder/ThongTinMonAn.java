@@ -11,14 +11,6 @@ public class ThongTinMonAn {
     public int dang_chon;
     public static int tong_tien=0;
 
-    public int getDang_chon() {
-        return dang_chon;
-    }
-
-    public void setDang_chon(int dang_chon) {
-        this.dang_chon = dang_chon;
-    }
-
     public ThongTinMonAn() {
     }
 
@@ -27,6 +19,19 @@ public class ThongTinMonAn {
         this.ten_mon = ten_mon;
         this.gia = gia;
         this.dang_chon=0;
+    }
+
+    public ThongTinMonAn(String ten_mon, int gia) {
+        this.ten_mon = ten_mon;
+        this.gia = gia;
+    }
+
+    public int getDang_chon() {
+        return dang_chon;
+    }
+
+    public void setDang_chon(int dang_chon) {
+        this.dang_chon = dang_chon;
     }
 
     public String getTen_mon() {
@@ -42,11 +47,6 @@ public class ThongTinMonAn {
     }
 
     public void setGia(int gia) {
-        this.gia = gia;
-    }
-
-    public ThongTinMonAn(String ten_mon, int gia) {
-        this.ten_mon = ten_mon;
         this.gia = gia;
     }
 
