@@ -18,7 +18,7 @@
     <string name="text_sign_up"><u>Sign up for a new account</u>.</string>
     <string name="set_infor">Vui lòng nhập thông tin</string>
     <string name="set_name">Tên khách hàng(Họ và tên)</string>
-    <string name="set_table">Bàn số (1 - 99)</string>
+    <string name="set_table">Bàn số (1 - 11)</string>
     <string name="submit_infor">Nhập</string>
     <string name="nghin_dong"> - nghìn đồng</string>
     <string name="them_mon">Thêm món</string>

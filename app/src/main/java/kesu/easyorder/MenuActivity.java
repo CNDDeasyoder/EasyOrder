@@ -3,7 +3,6 @@ package kesu.easyorder;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.constraint.solver.widgets.Snapshot;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
@@ -17,6 +16,8 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
@@ -37,10 +38,6 @@ public class MenuActivity extends AppCompatActivity {
     private FirebaseDatabase mFirebaseDatabase;
     private DatabaseReference mDatabaseReference;
 
-
-    private ArrayList<MonAn> danhSachMonAn;
-
-    DatabaseReference mData = FirebaseDatabase.getInstance().getReference();
 
     @Override
     protected void onStart() {
@@ -112,66 +109,65 @@ public class MenuActivity extends AppCompatActivity {
 
         // Thêm các món ăn đã chọn vao database.
 
-        final DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
 
+        final DatabaseReference mData = FirebaseDatabase.getInstance().getReference();
         btnThemMon = (Button) findViewById(R.id.btn_them_mon_menu);
-
         btnThemMon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mDatabase.child("KhachHang").addChildEventListener(new ChildEventListener() {
-                    @Override
-                    public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-                        KhachHang khachHang = dataSnapshot.getValue(KhachHang.class);
+                final ArrayList<ThongTinMonAn> danhSachThemMon = new ArrayList<>();
+                //them cac mon an da chon vao list can order them
+                for (int i = 0; i < list.size(); i++)
+                {
+                    if (list.get(i).dang_chon > 0)
+                    {
+                        ThongTinMonAn thongTinMonAn = new ThongTinMonAn(list.get(i).id, list.get(i).name, list.get(i).gia, list.get(i).dang_chon);
+                        danhSachThemMon.add(thongTinMonAn);
+                        list.get(i).dang_chon = 0;
+                    }
+                }
 
-                        if (dataSnapshot.getKey().equals(SetInforActivity.keyUser))
-                        {
-                            Toast.makeText(MenuActivity.this, "key giong nhau", Toast.LENGTH_SHORT).show();
-                            for (int i = 0; i < list.size(); i++)
+                if (danhSachThemMon.size() == 0)
+                {
+                    //thong bao neu chua order mon
+                    Toast.makeText(MenuActivity.this, "Bạn chưa chọn món!", Toast.LENGTH_SHORT).show();
+                }
+                else
+                {
+                    //tham chieu den danhSachMonAn hien tai de lay cac mon an da order truoc do
+                    Query query = mData.child("danhSachBanAn").child("ban" + SetInforActivity.banSo).child("khachHang").orderByChild("danhSachMonAn").startAt("");
+                    query.addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(DataSnapshot dataSnapshot) {
+                            for (DataSnapshot ds : dataSnapshot.getChildren())
                             {
-                                if (list.get(i).dang_chon > 0)
-                                {
-                                    khachHang.getDanhSachMonAn().add(new MonAn(list.get(i).getTen_mon(),
-                                            list.get(i).getDang_chon(), list.get(i).getGia()));
-                                    list.get(i).dang_chon = 0;
-                                }
+                                ThongTinMonAn monAn = ds.getValue(ThongTinMonAn.class);
+                                danhSachThemMon.add(monAn); // them vao danh sach them mon de ghi de du lieu
                             }
-                            mDatabase.child("KhachHang").child(SetInforActivity.keyUser).setValue(khachHang, new DatabaseReference.CompletionListener() {
-                                @Override
-                                public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {
-                                    if (databaseError == null)
-                                    {
-                                        Toast.makeText(MenuActivity.this, "Đã thêm món!", Toast.LENGTH_SHORT).show();
-                                    }
-                                    else
-                                    {
-                                        Toast.makeText(MenuActivity.this, "Lỗi!", Toast.LENGTH_SHORT).show();
-                                    }
-                                }
-                            });
                         }
-                    }
 
-                    @Override
-                    public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+                        @Override
+                        public void onCancelled(DatabaseError databaseError) {
 
-                    }
+                        }
+                    });
+                    //them mon an
+                    DatabaseReference temp = mData.child("danhSachBanAn").child("ban" + SetInforActivity.banSo).child("khachHang").child("danhSachMonAn");
 
-                    @Override
-                    public void onChildRemoved(DataSnapshot dataSnapshot) {
-
-                    }
-
-                    @Override
-                    public void onChildMoved(DataSnapshot dataSnapshot, String s) {
-
-                    }
-
-                    @Override
-                    public void onCancelled(DatabaseError databaseError) {
-
-                    }
-                });
+                    temp.setValue(danhSachThemMon, new DatabaseReference.CompletionListener() {
+                        @Override
+                        public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {
+                            if (databaseError == null)
+                            {
+                                Toast.makeText(MenuActivity.this, "Đã thêm món vừa chọn!", Toast.LENGTH_SHORT).show();
+                            }
+                            else
+                            {
+                                Toast.makeText(MenuActivity.this, "Đã xảy ra lỗi!", Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                    });
+                }
             }
         });
 

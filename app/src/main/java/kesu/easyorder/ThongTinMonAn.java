@@ -15,6 +15,13 @@ public class ThongTinMonAn {
     public ThongTinMonAn() {
     }
 
+    public ThongTinMonAn(String id, String name, int gia, int dang_chon) {
+        this.id = id;
+        this.name = name;
+        this.gia = gia;
+        this.dang_chon = dang_chon;
+    }
+
     public ThongTinMonAn(String hinh, String ten_mon, int gia) {
         this.id = hinh;
         this.name = ten_mon;
