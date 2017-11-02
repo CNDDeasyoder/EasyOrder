@@ -34,6 +34,10 @@ public class ThongTinMonAn {
         this.gia = gia;
     }
 
+    public String getMieu_ta() {
+        return mieu_ta;
+    }
+
     public int getDang_chon() {
         return dang_chon;
     }

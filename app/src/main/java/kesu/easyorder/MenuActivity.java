@@ -135,8 +135,9 @@ public class MenuActivity extends AppCompatActivity {
                 else
                 {
                     //tham chieu den danhSachMonAn hien tai de lay cac mon an da order truoc do
-                    Query query = mData.child("danhSachBanAn").child("ban" + SetInforActivity.banSo).child("khachHang").orderByChild("danhSachMonAn").startAt("");
-                    query.addValueEventListener(new ValueEventListener() {
+                    Query query = mData.child("danhSachBanAn").child("ban" + SetInforActivity.banSo).child("khachHang").child("danhSachMonAn").orderByKey().startAt("0");
+
+                    query.addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
                         public void onDataChange(DataSnapshot dataSnapshot) {
                             for (DataSnapshot ds : dataSnapshot.getChildren())
@@ -144,27 +145,28 @@ public class MenuActivity extends AppCompatActivity {
                                 ThongTinMonAn monAn = ds.getValue(ThongTinMonAn.class);
                                 danhSachThemMon.add(monAn); // them vao danh sach them mon de ghi de du lieu
                             }
+
+                            //them mon an
+                            DatabaseReference temp = mData.child("danhSachBanAn").child("ban" + SetInforActivity.banSo).child("khachHang").child("danhSachMonAn");
+
+                            temp.setValue(danhSachThemMon, new DatabaseReference.CompletionListener() {
+                                @Override
+                                public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {
+                                    if (databaseError == null)
+                                    {
+                                        Toast.makeText(MenuActivity.this, "Đã thêm món vừa chọn!", Toast.LENGTH_SHORT).show();
+                                    }
+                                    else
+                                    {
+                                        Toast.makeText(MenuActivity.this, "Đã xảy ra lỗi!", Toast.LENGTH_SHORT).show();
+                                    }
+                                }
+                            });
                         }
 
                         @Override
                         public void onCancelled(DatabaseError databaseError) {
 
-                        }
-                    });
-                    //them mon an
-                    DatabaseReference temp = mData.child("danhSachBanAn").child("ban" + SetInforActivity.banSo).child("khachHang").child("danhSachMonAn");
-
-                    temp.setValue(danhSachThemMon, new DatabaseReference.CompletionListener() {
-                        @Override
-                        public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {
-                            if (databaseError == null)
-                            {
-                                Toast.makeText(MenuActivity.this, "Đã thêm món vừa chọn!", Toast.LENGTH_SHORT).show();
-                            }
-                            else
-                            {
-                                Toast.makeText(MenuActivity.this, "Đã xảy ra lỗi!", Toast.LENGTH_SHORT).show();
-                            }
                         }
                     });
                 }

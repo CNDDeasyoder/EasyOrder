@@ -60,7 +60,7 @@ public class SetInforActivity extends AppCompatActivity {
                 {
                     //neu ten va ban dung theo pattern thi kiem tra du lieu
                     Query query = mData.child("danhSachBanAn").orderByChild("banSo").equalTo(Integer.parseInt(table)); //loc du lieu theo so ban da nhap
-                    query.addValueEventListener(new ValueEventListener() {
+                    query.addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
                         public void onDataChange(DataSnapshot dataSnapshot) {
                             for (DataSnapshot ds: dataSnapshot.getChildren())

@@ -69,7 +69,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
         <LinearLayout
-            android:id="@+id/mon1"
+            android:id="@+id/mon3"
             android:orientation="vertical"
             android:layout_width="wrap_content"
             android:layout_height="match_parent">
@@ -88,7 +88,7 @@
 
         </LinearLayout>
         <LinearLayout
-            android:id="@+id/mon2"
+            android:id="@+id/mon4"
             android:orientation="vertical"
             android:layout_width="wrap_content"
             android:layout_height="match_parent">

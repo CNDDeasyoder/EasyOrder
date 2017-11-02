@@ -11,6 +11,12 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 import java.util.ArrayList;
 
 /**
@@ -24,6 +30,7 @@ public class PayActivity extends AppCompatActivity {
     ListView lvThanhToan;
     ArrayList<MonAn> list;
     ThanhToanAdapter thanhToanAdapter;
+    DatabaseReference mData = FirebaseDatabase.getInstance().getReference();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,24 +52,51 @@ public class PayActivity extends AppCompatActivity {
 
         list = new ArrayList<>();
 
-        list.add(new MonAn("Gà luộc", 2, 50));
-        list.add(new MonAn("Gà kho", 3, 87));
-        list.add(new MonAn("Gà nướng", 1, 67));
-        list.add(new MonAn("Gà bóp", 2, 45));
-        list.add(new MonAn("Gà lội sông", 3, 89));
-        list.add(new MonAn("Gà tắm dầu", 2, 77));
-        list.add(new MonAn("Gà bóp", 5, 77));
-        list.add(new MonAn("Gà bóp", 2, 87));
-        thanhToanAdapter = new ThanhToanAdapter(this, R.layout.dong_thanh_toan, list);
-        lvThanhToan.setAdapter(thanhToanAdapter);
+        DatabaseReference temp = mData.child("danhSachBanAn").child("ban" + SetInforActivity.banSo).child("khachHang");
+        temp.addChildEventListener(new ChildEventListener() {
+            @Override
+            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+                for (DataSnapshot ds : dataSnapshot.getChildren())
+                {
+                    ThongTinMonAn thongTinMonAn = ds.getValue(ThongTinMonAn.class);
+                    MonAn monAn = new MonAn(thongTinMonAn.getTen_mon(), thongTinMonAn.dang_chon, thongTinMonAn.gia);
+                    list.add(monAn);
 
-        // ham tinh tong tien can thanh toan
-        int tong = 0;
-        for (int i = 0; i < list.size(); i++)
-        {
-            tong = tong + list.get(i).getDonGia() * list.get(i).getSoLuong();
-        }
-        tvTongTien.setText(String.valueOf(tong));
+                }
+                thanhToanAdapter = new ThanhToanAdapter(PayActivity.this, R.layout.dong_thanh_toan, list);
+                lvThanhToan.setAdapter(thanhToanAdapter);
+
+                // ham tinh tong tien can thanh toan
+                int tong = 0;
+                for (int i = 0; i < list.size(); i++)
+                {
+                    tong = tong + list.get(i).getDonGia() * list.get(i).getSoLuong();
+                }
+                tvTongTien.setText(String.valueOf(tong));
+            }
+
+            @Override
+            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+
+            }
+
+            @Override
+            public void onChildRemoved(DataSnapshot dataSnapshot) {
+
+            }
+
+            @Override
+            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
+
 
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override

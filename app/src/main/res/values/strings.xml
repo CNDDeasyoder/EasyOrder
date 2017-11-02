@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Easy Order</string>
     <string name="so_ban_thinh">Bàn số :</string>
-    <string name="Ten_khach_thinh">Tên khách hàng :</string>
+    <string name="Ten_khach_thinh">Khách hàng :</string>
     <string name="mon_an_thinh">Món ăn</string>
     <string name="so_luong_thinh">Số lượng</string>
     <string name="so_luong2_thinh">Số lượng:</string>
