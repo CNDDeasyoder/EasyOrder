@@ -13,6 +13,10 @@ public class BanAn {
 
     public BanAn() {
     }
+    public BanAn(int banSo, Boolean state){
+        this.banSo=banSo;
+        this.state=state;
+    }
 
     public BanAn(int banSo, Boolean state, KhachHang khachHang) {
         this.state = state;

@@ -1,52 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:background="@color/thinh_blue"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@color/thinh_white"
     android:padding="@dimen/padding_thinh"
+    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <ImageView
-        android:id="@+id/mainlogo"
-        android:src="@drawable/p1"
-        android:layout_marginTop="80dp"
-        android:layout_width="match_parent"
-        android:layout_height="100dp" />
-    <TextView
-        android:id="@+id/edt_set_infor"
-        android:layout_below="@+id/mainlogo"
-        android:textColor="@color/thinh_white"
-        android:gravity="center"
-        android:textStyle="bold"
-        android:text="@string/set_infor"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/height_view_thinh" />
+    android:layout_height="match_parent"
+    android:backgroundTint="@color/common_google_signin_btn_text_light_disabled"
+    >
     <EditText
         android:id="@+id/edt_set_name"
         android:padding="@dimen/min_padding_thinh"
         android:hint="@string/set_name"
         android:inputType="text"
         android:background="@drawable/layout_tv"
-        android:layout_below="@id/edt_set_infor"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/height_view_thinh" />
-
-    <EditText
-        android:id="@+id/edt_set_table"
-        android:layout_marginTop="@dimen/min_padding_thinh"
-        android:padding="@dimen/min_padding_thinh"
-        android:hint="@string/set_table"
-        android:inputType="numberDecimal"
-        android:background="@drawable/layout_tv"
-        android:layout_below="@id/edt_set_name"
         android:layout_width="match_parent"
         android:layout_height="@dimen/height_view_thinh" />
     <Button
-        android:id="@+id/btn_submit_infor"
-        android:layout_margin="@dimen/margin_thinh"
-        android:padding="@dimen/padding_thinh"
-        android:text="@string/submit_infor"
-        android:layout_centerInParent="true"
-        android:layout_below="@+id/edt_set_table"
+        android:id="@+id/btn_sel"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:text="Chọn bàn"
+        android:layout_gravity="center"
+        />
 
-</RelativeLayout>
+    <GridView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:numColumns="3"
+        android:id="@+id/gr_table">
+
+    </GridView>
+</LinearLayout>
