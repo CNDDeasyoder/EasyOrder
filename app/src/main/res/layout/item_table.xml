@@ -1,15 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
-    android:layout_width="wrap_content"
-    android:layout_height="120dp">
+    android:background="@drawable/round"
+    android:layout_gravity="center"
+    android:gravity="center"
+    android:elevation="@dimen/do_bong"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
     <Button
         android:id="@+id/btn_table"
-        android:layout_width="fill_parent"
-        android:layout_height="120dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:text="1"
         android:textStyle="bold"
-        android:textSize="30dp"
+        android:textSize="@dimen/text_size_large_thinh"
         android:textColor="#ffffff"
         />
 

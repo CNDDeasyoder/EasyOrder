@@ -8,12 +8,14 @@
     <LinearLayout
         android:layout_weight="1"
         android:layout_width="wrap_content"
+        android:paddingLeft="@dimen/padding_thinh"
         android:orientation="vertical"
         android:layout_height="@dimen/height_view_thinh">
         <TextView
             android:id="@+id/tv_ten_thanh_toan"
             android:textStyle="bold"
             android:textSize="@dimen/text_size_large_thinh"
+            android:textColor="#5D4037"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
         <LinearLayout
@@ -24,13 +26,14 @@
             <TextView
                 android:gravity="center_vertical"
                 android:text="@string/so_luong2_thinh"
-                android:layout_weight="7"
+                android:layout_weight="6"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
             <TextView
+                android:textColor="@color/red"
                 android:id="@+id/tv_so_luong"
                 android:gravity="center_vertical"
-                android:layout_weight="3"
+                android:layout_weight="4"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
         </LinearLayout>

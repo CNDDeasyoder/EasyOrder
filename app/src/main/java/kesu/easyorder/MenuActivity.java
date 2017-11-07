@@ -1,6 +1,7 @@
 package kesu.easyorder;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
@@ -32,6 +33,7 @@ public class MenuActivity extends AppCompatActivity {
     MonAnAdapter apater;
     private Button btnThemMon;
     private ImageButton btnBack;
+    private TextView headline;
     public static TextView tv_tongtien;
     public static int tong_tien=0;
     private ListView lv;
@@ -85,7 +87,10 @@ public class MenuActivity extends AppCompatActivity {
             }
         });
 
+        Typeface f = Typeface.createFromAsset(getAssets(), "fonts/UVNBanhMi.TTF");
+
         tv_tongtien = (TextView)findViewById(R.id.tv_tongtien_hien);
+        tv_tongtien.setTypeface(f);
 
         final Handler handler = new Handler();
         final int delay = 1000;
@@ -98,6 +103,9 @@ public class MenuActivity extends AppCompatActivity {
         }, delay);
 
         btnBack = (ImageButton) findViewById(R.id.btn_back);
+        headline = (TextView) findViewById(R.id.tv_headline_chonmon) ;
+
+        headline.setTypeface(f);
 
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override

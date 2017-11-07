@@ -3,39 +3,46 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/thinh_blue"
-    android:orientation="vertical">
+    android:background="@color/thinh_white"
+    android:orientation="vertical"
+    android:padding="@dimen/min_padding_thinh">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:elevation="@dimen/do_bong"
+        android:layout_height="@dimen/height_view_thinh"
+        android:layout_marginBottom="@dimen/min_margin_thinh"
+        android:background="@drawable/headline">
+
+        <ImageButton
+            android:id="@+id/btn_nav_ttin_thinh"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="12dp"
+            android:layout_marginStart="12dp"
+            android:background="@drawable/headline"
+            android:src="@drawable/back_icon" />
+
+        <TextView
+            android:id="@+id/tv_headline_thongtin"
+            android:layout_centerInParent="true"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="@string/thong_tin_ban_thinh"
+            android:textColor="@color/thinh_white"
+            android:textSize="@dimen/text_size_large_thinh" />
+    </RelativeLayout>
     <ScrollView
         android:layout_width="fill_parent"
         android:layout_height="match_parent">
         <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            >
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/height_view_thinh"
-                android:layout_marginTop="@dimen/min_margin_thinh"
-                android:background="@color/thinh_nav">
+            android:orientation="vertical">
 
-                <ImageButton
-                    android:id="@+id/btn_nav_ttin_thinh"
-                    android:layout_width="56dp"
-                    android:layout_height="match_parent"
-                    android:layout_alignParentLeft="true"
-                    android:background="@color/thinh_nav"
-                    app:srcCompat="@drawable/ic_arrow_back_white_24dp" />
-
-                    <TextView
-                        android:layout_centerInParent="true"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:gravity="center"
-                        android:text="@string/thong_tin_ban_thinh"
-                        android:textColor="@color/thinh_white"
-                        android:textSize="@dimen/text_size_small_thinh" />
-            </RelativeLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -62,7 +69,7 @@
                             android:id="@+id/tv_banso_thinh"
                             android:textSize="@dimen/text_size_large_thinh"
                             android:gravity="center_vertical"
-                            android:padding="@dimen/padding_thinh"
+                            android:paddingLeft="@dimen/padding_thinh"
                             android:textStyle="bold"
                             android:textColor="@color/red"
                             android:layout_width="match_parent"
@@ -89,7 +96,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:gravity="center_vertical"
-                            android:padding="@dimen/padding_thinh"
+                            android:paddingLeft="@dimen/padding_thinh"
                             android:textStyle="bold"
                             android:textColor="@color/red"
                             android:textSize="@dimen/text_size_large_thinh"
@@ -101,7 +108,7 @@
                     android:layout_height="@dimen/height_view_thinh"
                     android:text="@string/thong_tin_mon_thinh"
                     android:textSize="@dimen/text_size_small_thinh"
-                    android:textColor="@color/thinh_white"
+                    android:textColor="#5D4037"
                     android:textStyle="bold"
                     android:gravity="center"/>
 
@@ -109,7 +116,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="400dp"
                     android:stretchColumns="*"
-                    android:background="@drawable/layout_tv"
+                    android:background="@drawable/input_view"
                     android:padding="5dp">
                     <TableRow>
                         <TextView
@@ -138,17 +145,20 @@
                 </TableLayout>
                 <LinearLayout
                     android:weightSum="1"
+                    android:layout_marginTop="@dimen/margin_thinh"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/height_view_thinh">
                     <Button
                         android:id="@+id/btn_them_mon_thinh"
                         android:text="@string/them_mon_thinh"
                         android:layout_weight="0.5"
+                        android:background="@drawable/button"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent" />
                     <Button
                         android:id="@+id/btn_thanh_toan_thinh"
                         android:text="@string/thanh_toan_thinh"
+                        android:background="@drawable/button"
                         android:layout_weight="0.5"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent" />

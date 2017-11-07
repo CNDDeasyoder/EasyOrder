@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorPrimaryDark">#D84315</color>
     <color name="colorAccent">#FF4081</color>
     <color name="thinh_blue">#223B99</color>
     <color name="thinh_dark">#000000</color>
@@ -13,6 +13,10 @@
     <color name="phong_blue2" >#6584F5</color>
     <color name="gray" >#c3c5cc</color>
     <color name="red" >#ef0804</color>
+    <color name="button_color" >#FFA500</color>
+    <color name="primary_orange">#FF3D00</color>
+    <color name="secondary_orange">#FF8A65</color>
+    <color name="button_orange">#FF3D00</color>
 
 
 </resources>

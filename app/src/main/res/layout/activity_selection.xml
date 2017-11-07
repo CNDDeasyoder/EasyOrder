@@ -1,18 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
+    android:gravity="center"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-
-
     <LinearLayout
         android:layout_width="match_parent"
+        android:layout_marginTop="0dp"
+        android:layout_marginBottom="@dimen/min_margin_thinh"
         android:layout_height="@dimen/height_view_thinh">
         <ImageView
-            android:src="@drawable/p2"
+            android:src="@mipmap/ic_easyorder"
+            android:elevation="@dimen/do_bong"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="match_parent" />
     </LinearLayout>
 
     <LinearLayout
@@ -25,7 +27,11 @@
         android:layout_height="wrap_content">
         <LinearLayout
             android:id="@+id/mon1"
+            android:background="@drawable/round"
+            android:elevation="@dimen/do_bong"
             android:orientation="vertical"
+            android:layout_margin="@dimen/min_margin_thinh"
+            android:padding="@dimen/min_padding_thinh"
             android:layout_width="wrap_content"
             android:layout_height="match_parent">
 
@@ -36,7 +42,10 @@
                 android:layout_gravity="center"/>
             <Button
                 android:id="@+id/btn_infor"
-                android:text="About Table"
+                android:text="Thông tin"
+                android:layout_margin="@dimen/min_margin_thinh"
+                android:padding="@dimen/min_padding_thinh"
+                android:background="@drawable/button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"/>
@@ -44,18 +53,25 @@
         </LinearLayout>
         <LinearLayout
             android:id="@+id/mon2"
+            android:elevation="@dimen/do_bong"
             android:orientation="vertical"
+            android:layout_margin="@dimen/min_margin_thinh"
+            android:background="@drawable/round"
+            android:padding="@dimen/min_padding_thinh"
             android:layout_width="wrap_content"
             android:layout_height="match_parent">
 
             <ImageView
-                android:src="@drawable/cart"
+                android:src="@drawable/menu"
                 android:layout_width="160dp"
                 android:layout_height="150dp"
                 android:layout_gravity="center"/>
             <Button
                 android:id="@+id/btn_menu"
                 android:text="Menu"
+                android:layout_margin="@dimen/min_margin_thinh"
+                android:background="@drawable/button"
+                android:padding="@dimen/min_padding_thinh"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"/>
@@ -70,18 +86,25 @@
         android:layout_height="wrap_content">
         <LinearLayout
             android:id="@+id/mon3"
+            android:elevation="@dimen/do_bong"
+            android:layout_margin="@dimen/min_margin_thinh"
             android:orientation="vertical"
+            android:background="@drawable/round"
+            android:padding="@dimen/min_padding_thinh"
             android:layout_width="wrap_content"
             android:layout_height="match_parent">
 
             <ImageView
-                android:src="@drawable/review"
+                android:src="@drawable/thanh_toan"
                 android:layout_width="160dp"
                 android:layout_height="150dp"
                 android:layout_gravity="center"/>
             <Button
                 android:id="@+id/btn_pay"
-                android:text="pay"
+                android:text="Thanh toán"
+                android:layout_margin="@dimen/min_margin_thinh"
+                android:background="@drawable/button"
+                android:padding="@dimen/min_padding_thinh"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"/>
@@ -89,7 +112,11 @@
         </LinearLayout>
         <LinearLayout
             android:id="@+id/mon4"
+            android:elevation="@dimen/do_bong"
             android:orientation="vertical"
+            android:layout_margin="@dimen/min_margin_thinh"
+            android:background="@drawable/round"
+            android:padding="@dimen/min_padding_thinh"
             android:layout_width="wrap_content"
             android:layout_height="match_parent">
 
@@ -100,6 +127,9 @@
                 android:layout_gravity="center"/>
             <Button
                 android:text="review"
+                android:layout_margin="@dimen/min_margin_thinh"
+                android:padding="@dimen/min_padding_thinh"
+                android:background="@drawable/button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"/>

@@ -1,6 +1,7 @@
 package kesu.easyorder;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MotionEvent;
@@ -26,6 +27,7 @@ import java.util.ArrayList;
 public class PayActivity extends AppCompatActivity {
     private ImageButton btnBack;
     private TextView tvTongTien;
+    private TextView headline;
     private Button btnThanhToan;
     ListView lvThanhToan;
     ArrayList<MonAn> list;
@@ -39,8 +41,12 @@ public class PayActivity extends AppCompatActivity {
 
         btnBack = (ImageButton) findViewById(R.id.btn_nav_ttoan_thinh);
         tvTongTien = (TextView) findViewById(R.id.tv_tong_tien_thinh) ;
+        headline = (TextView) findViewById(R.id.tv_headline_thanhtoan) ;
         lvThanhToan = (ListView) findViewById(R.id.lv_thanh_toan);
         btnThanhToan = (Button) findViewById(R.id.btn_thanh_toan_tong_thinh);
+
+        Typeface f = Typeface.createFromAsset(getAssets(), "fonts/UVNBanhMi.TTF");
+        headline.setTypeface(f);
 
         lvThanhToan.setOnTouchListener(new View.OnTouchListener() {
             @Override

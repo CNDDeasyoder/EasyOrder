@@ -1,6 +1,7 @@
 package kesu.easyorder;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MotionEvent;
@@ -30,6 +31,7 @@ public class InformationActivity extends AppCompatActivity{
     private Button btnThanhToan;
     private TextView banSo;
     private TextView tenKhachHang;
+    private TextView headline;
     ListView lvThongTin;
     ArrayList<MonAn> monAnArrayList;
     ThongTinAdapter thongTinAdapter;
@@ -47,6 +49,10 @@ public class InformationActivity extends AppCompatActivity{
         lvThongTin = (ListView)findViewById(R.id.lv_thong_tin);
         banSo = (TextView) findViewById(R.id.tv_banso_thinh);
         tenKhachHang = (TextView) findViewById(R.id.tv_ten_kh_thinh);
+        headline = (TextView) findViewById(R.id.tv_headline_thongtin);
+
+        Typeface f = Typeface.createFromAsset(getAssets(), "fonts/UVNBanhMi.TTF");
+        headline.setTypeface(f);
         DatabaseReference temp = mData.child("danhSachBanAn").child("ban" + SetInforActivity.banSo).child("banSo").getRef();
         temp.addValueEventListener(new ValueEventListener() {
             @Override
