@@ -69,4 +69,7 @@ public class ThongTinMonAn {
     public void setHinh(String hinh) {
         this.id = hinh;
     }
+     public String getId() {
+        return id;
+    }
 }
