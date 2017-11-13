@@ -60,10 +60,14 @@ public class MonAnAdapter extends BaseAdapter {
 
 
 
-        img.setImageResource(R.drawable.mon1);
+     //  img.setImageResource(R.drawable.mon1);
 
         final ThongTinMonAn monan = thongTinList.get(i);
 
+         StorageReference mStorageRef = FirebaseStorage.getInstance().getReference();
+        StorageReference mStorageReference = mStorageRef.child("Image").child(monan.getId());
+        Glide.with(context).using(new FirebaseImageLoader()).load(mStorageReference).into(img);
+        
         edt.setText(Integer.toString(monan.getDang_chon()));
 
 
