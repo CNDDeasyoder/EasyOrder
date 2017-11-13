@@ -64,7 +64,7 @@ public class MonAnAdapter extends BaseAdapter {
 
         final ThongTinMonAn monan = thongTinList.get(i);
 
-         StorageReference mStorageRef = FirebaseStorage.getInstance().getReference();
+        StorageReference mStorageRef = FirebaseStorage.getInstance().getReference();
         StorageReference mStorageReference = mStorageRef.child("Image").child(monan.getId());
         Glide.with(context).using(new FirebaseImageLoader()).load(mStorageReference).into(img);
         
