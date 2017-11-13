@@ -115,7 +115,7 @@ public class PayActivity extends AppCompatActivity {
         btnThanhToan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // add more code
+                mData.child("danhSachBanAn").child("ban" + SetInforActivity.banSo).child("yeuCauThanhToan").setValue("DANG_CHO_THANH_TOAN");
                 Toast.makeText(PayActivity.this, "Yêu cầu đã được gửi. Vui lòng đợi trong giây lát!", Toast.LENGTH_SHORT).show();
             }
         });

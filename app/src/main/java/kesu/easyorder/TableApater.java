@@ -66,6 +66,7 @@ public class TableApater extends BaseAdapter {
                     dialog.setMessage("Đang chọn bàn");
                     dialog.setCancelable(false);
                     tb.setState(true);
+                    tb.setYeuCauThanhToan(YeuCauThanhToan.CHUA_YEU_CAU);
                     mDatabaseReference.child("danhSachBanAn").child("ban"+tb.getBanSo()).setValue(tb);
                     SetInforActivity.banSo=tb.getBanSo();
                     dialog.dismiss();
