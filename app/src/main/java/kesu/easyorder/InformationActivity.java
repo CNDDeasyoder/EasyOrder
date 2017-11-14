@@ -53,6 +53,8 @@ public class InformationActivity extends AppCompatActivity{
 
         Typeface f = Typeface.createFromAsset(getAssets(), "fonts/UVNBanhMi.TTF");
         headline.setTypeface(f);
+        btnThanhToan.setTypeface(f);
+        btnThemMon.setTypeface(f);
         DatabaseReference temp = mData.child("danhSachBanAn").child("ban" + SetInforActivity.banSo).child("banSo").getRef();
         temp.addValueEventListener(new ValueEventListener() {
             @Override

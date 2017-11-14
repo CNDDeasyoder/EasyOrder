@@ -85,12 +85,12 @@
                     android:layout_margin="@dimen/min_margin_thinh"
                     android:paddingBottom="@dimen/min_padding_thinh"
                     android:paddingLeft="@dimen/padding_thinh">
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:text="@string/Ten_khach_thinh"
-                            android:textSize="@dimen/text_size_large_thinh"
-                            android:gravity="center"/>
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/users"
+                        android:layout_margin="5dp"/>
+
                         <TextView
                             android:id="@+id/tv_ten_kh_thinh"
                             android:layout_width="match_parent"
@@ -152,6 +152,10 @@
                         android:id="@+id/btn_them_mon_thinh"
                         android:text="@string/them_mon_thinh"
                         android:layout_weight="0.5"
+                        android:textColor="@color/thinh_white"
+                        android:textSize="@dimen/text_size_small_thinh"
+                        android:textStyle="bold"
+                        android:layout_marginRight="@dimen/min_margin_thinh"
                         android:background="@drawable/button"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent" />
@@ -160,6 +164,10 @@
                         android:text="@string/thanh_toan_thinh"
                         android:background="@drawable/button"
                         android:layout_weight="0.5"
+                        android:layout_marginLeft="@dimen/min_margin_thinh"
+                        android:textColor="@color/thinh_white"
+                        android:textSize="@dimen/text_size_small_thinh"
+                        android:textStyle="bold"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent" />
                 </LinearLayout>

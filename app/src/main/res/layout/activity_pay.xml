@@ -127,6 +127,9 @@
                     android:layout_width="match_parent"
                     android:background="@drawable/button"
                     android:layout_margin="@dimen/min_margin_thinh"
+                    android:textColor="@color/thinh_white"
+                    android:textSize="@dimen/text_size_small_thinh"
+                    android:textStyle="bold"
                     android:layout_height="match_parent"
                     android:text="@string/thanh_toan_thinh"/>
 

@@ -45,6 +45,9 @@
                 android:text="Thông tin"
                 android:layout_margin="@dimen/min_margin_thinh"
                 android:padding="@dimen/min_padding_thinh"
+                android:textColor="@color/thinh_white"
+                android:textSize="@dimen/text_size_small_thinh"
+                android:textStyle="bold"
                 android:background="@drawable/button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -72,6 +75,9 @@
                 android:layout_margin="@dimen/min_margin_thinh"
                 android:background="@drawable/button"
                 android:padding="@dimen/min_padding_thinh"
+                android:textColor="@color/thinh_white"
+                android:textSize="@dimen/text_size_small_thinh"
+                android:textStyle="bold"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"/>
@@ -105,6 +111,9 @@
                 android:layout_margin="@dimen/min_margin_thinh"
                 android:background="@drawable/button"
                 android:padding="@dimen/min_padding_thinh"
+                android:textColor="@color/thinh_white"
+                android:textSize="@dimen/text_size_small_thinh"
+                android:textStyle="bold"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"/>
@@ -126,9 +135,13 @@
                 android:layout_height="150dp"
                 android:layout_gravity="center"/>
             <Button
+                android:id="@+id/btn_review"
                 android:text="review"
                 android:layout_margin="@dimen/min_margin_thinh"
                 android:padding="@dimen/min_padding_thinh"
+                android:textColor="@color/thinh_white"
+                android:textSize="@dimen/text_size_small_thinh"
+                android:textStyle="bold"
                 android:background="@drawable/button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

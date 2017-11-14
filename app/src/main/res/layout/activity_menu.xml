@@ -42,6 +42,8 @@
         android:layout_width="match_parent"
         android:scrollbarStyle="insideOverlay"
         android:layout_weight="1.5"
+        android:divider="@color/thinh_white"
+        android:dividerHeight="15.0sp"
         >
     </ListView>
 
@@ -63,7 +65,10 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:text="@string/them_mon"
-            android:layout_margin="@dimen/min_margin_thinh"
+            android:textColor="@color/thinh_white"
+            android:textSize="@dimen/text_size_small_thinh"
+            android:textStyle="bold"
+            android:padding="@dimen/min_padding_thinh"
             android:background="@drawable/button"
             android:paddingLeft="@dimen/padding_thinh"
             android:paddingRight="@dimen/padding_thinh"/>

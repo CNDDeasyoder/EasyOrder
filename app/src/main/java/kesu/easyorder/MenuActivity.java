@@ -120,6 +120,7 @@ public class MenuActivity extends AppCompatActivity {
 
         final DatabaseReference mData = FirebaseDatabase.getInstance().getReference();
         btnThemMon = (Button) findViewById(R.id.btn_them_mon_menu);
+        btnThemMon.setTypeface(f);
         btnThemMon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -178,6 +179,7 @@ public class MenuActivity extends AppCompatActivity {
                         }
                     });
                 }
+                apater.notifyDataSetChanged();
             }
         });
 
