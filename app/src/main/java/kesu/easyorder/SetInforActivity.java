@@ -1,6 +1,7 @@
 package kesu.easyorder;
 
 import android.app.ProgressDialog;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -43,6 +44,8 @@ public class SetInforActivity extends AppCompatActivity {
         edtName = (EditText) findViewById(R.id.edt_set_name);
         grv = (GridView)findViewById(R.id.gr_table);
         mFirebaseDatabase = FirebaseDatabase.getInstance();
+        Typeface f = Typeface.createFromAsset(getAssets(), "fonts/UVNBanhMi.TTF");
+        btn.setTypeface(f);
         apater = new TableApater(this, R.layout.item_table,arrayList);
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -91,5 +94,9 @@ public class SetInforActivity extends AppCompatActivity {
             }
         });
 
+    }
+    @Override
+    public void onBackPressed() {
+        moveTaskToBack(true);
     }
 }

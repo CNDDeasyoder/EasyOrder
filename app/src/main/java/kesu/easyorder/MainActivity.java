@@ -1,6 +1,7 @@
 package kesu.easyorder;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -30,6 +31,8 @@ public class MainActivity extends AppCompatActivity {
 
         btnLogin = (Button) findViewById(R.id.btn_login);
         editText = (EditText)findViewById(R.id.edt_code);
+        Typeface f = Typeface.createFromAsset(getAssets(), "fonts/UVNBanhMi.TTF");
+        btnLogin.setTypeface(f);
         Query query = databaseReference.child("code").orderByValue();
         query.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override

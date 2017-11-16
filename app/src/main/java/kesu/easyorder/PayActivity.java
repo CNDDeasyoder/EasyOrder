@@ -47,6 +47,7 @@ public class PayActivity extends AppCompatActivity {
 
         Typeface f = Typeface.createFromAsset(getAssets(), "fonts/UVNBanhMi.TTF");
         headline.setTypeface(f);
+        btnThanhToan.setTypeface(f);
 
         lvThanhToan.setOnTouchListener(new View.OnTouchListener() {
             @Override
