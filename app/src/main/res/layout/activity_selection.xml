@@ -145,6 +145,7 @@
                 android:layout_gravity="center"/>
             <Button
                 android:text="review"
+                android:id="@+id/btn_review"
                 android:layout_margin="@dimen/min_margin_thinh"
                 android:padding="@dimen/min_padding_thinh"
                 android:background="@drawable/button"

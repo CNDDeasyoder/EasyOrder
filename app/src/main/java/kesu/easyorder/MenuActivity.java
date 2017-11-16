@@ -1,5 +1,7 @@
 package kesu.easyorder;
 
+import android.app.Dialog;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
@@ -39,6 +41,8 @@ public class MenuActivity extends AppCompatActivity {
     private ListView lv;
     private FirebaseDatabase mFirebaseDatabase;
     private DatabaseReference mDatabaseReference;
+    private ProgressDialog dialog;
+    private int max;
 
 
     @Override
@@ -52,6 +56,7 @@ public class MenuActivity extends AppCompatActivity {
         setContentView(R.layout.activity_menu);
 
         //Hien code ----------------------
+        dialog = new ProgressDialog(this);
         mFirebaseDatabase = FirebaseDatabase.getInstance();
         mDatabaseReference = mFirebaseDatabase.getReference().child("mon_an");
         apater = new MonAnAdapter(this, R.layout.mon, list);
@@ -124,7 +129,11 @@ public class MenuActivity extends AppCompatActivity {
         btnThemMon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                dialog.setMessage("Đang ORDER");
+                dialog.setCancelable(false);
+                dialog.show();
                 final ArrayList<ThongTinMonAn> danhSachThemMon = new ArrayList<>();
+                final ArrayList<ThongTinMonAn> t_danhSachThemMon = new ArrayList<ThongTinMonAn>();
                 //them cac mon an da chon vao list can order them
                 for (int i = 0; i < list.size(); i++)
                 {
@@ -132,10 +141,10 @@ public class MenuActivity extends AppCompatActivity {
                     {
                         ThongTinMonAn thongTinMonAn = new ThongTinMonAn(list.get(i).id, list.get(i).name, list.get(i).gia, list.get(i).dang_chon);
                         danhSachThemMon.add(thongTinMonAn);
+                        t_danhSachThemMon.add(thongTinMonAn);
                         list.get(i).dang_chon = 0;
                     }
                 }
-
                 if (danhSachThemMon.size() == 0)
                 {
                     //thong bao neu chua order mon
@@ -144,7 +153,8 @@ public class MenuActivity extends AppCompatActivity {
                 else
                 {
                     //tham chieu den danhSachMonAn hien tai de lay cac mon an da order truoc do
-                    Query query = mData.child("danhSachBanAn").child("ban" + SetInforActivity.banSo).child("khachHang").child("danhSachMonAn").orderByKey().startAt("0");
+                    Query query = mData.child("danhSachBanAn").child("ban" + SetInforActivity.banSo)
+                            .child("khachHang").child("danhSachMonAn").orderByKey().startAt("0");
 
                     query.addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
@@ -156,18 +166,41 @@ public class MenuActivity extends AppCompatActivity {
                             }
 
                             //them mon an
-                            DatabaseReference temp = mData.child("danhSachBanAn").child("ban" + SetInforActivity.banSo).child("khachHang").child("danhSachMonAn");
+                            DatabaseReference temp = mData.child("danhSachBanAn").child("ban"
+                                    + SetInforActivity.banSo).child("khachHang")
+                                    .child("danhSachMonAn");
+                            mData.child("danhSachOrder").child("max").addValueEventListener(new ValueEventListener() {
+                                @Override
+                                public void onDataChange(DataSnapshot dataSnapshot) {
+                                    max = dataSnapshot.getValue(int.class);
+                                }
 
+                                @Override
+                                public void onCancelled(DatabaseError databaseError) {
+
+                                }
+                            });
                             temp.setValue(danhSachThemMon, new DatabaseReference.CompletionListener() {
                                 @Override
                                 public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {
                                     if (databaseError == null)
                                     {
+                                        for (ThongTinMonAn ma : t_danhSachThemMon){
+                                            Queue_MonAn q = new Queue_MonAn(SetInforActivity.banSo,ma.getDang_chon(),ma.getGia(),ma.getTen_mon());
+                                            mData.child("danhSachOrder").child("danhSach")
+                                                    .child(String.valueOf(max)).setValue(q);
+                                            max ++;
+                                        }
+                                        mData.child("danhSachOrder").child("max").setValue(max);
+                                        dialog.dismiss();
                                         Toast.makeText(MenuActivity.this, "Đã thêm món vừa chọn!", Toast.LENGTH_SHORT).show();
+                                        onBackPressed();
                                     }
                                     else
                                     {
+                                        dialog.dismiss();
                                         Toast.makeText(MenuActivity.this, "Đã xảy ra lỗi!", Toast.LENGTH_SHORT).show();
+                                        onBackPressed();
                                     }
                                 }
                             });
