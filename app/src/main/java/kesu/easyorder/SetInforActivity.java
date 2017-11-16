@@ -51,7 +51,7 @@ public class SetInforActivity extends AppCompatActivity {
                     Toast.makeText(SetInforActivity.this, "Vui Lòng nhập tên", Toast.LENGTH_SHORT).show();
                     return;
                 };
-                ProgressDialog dialog;
+                final ProgressDialog dialog;
                 dialog = new ProgressDialog(SetInforActivity.this);
                 dialog.setCancelable(false);
                 dialog.setMessage("Đang tải dữ liệu");
@@ -79,6 +79,7 @@ public class SetInforActivity extends AppCompatActivity {
                             });
                             apater.notifyDataSetChanged();
                         }
+                        dialog.dismiss();
                     }
 
                     @Override
@@ -86,7 +87,7 @@ public class SetInforActivity extends AppCompatActivity {
 
                     }
                 });
-                dialog.dismiss();
+
             }
         });
 
