@@ -76,8 +76,8 @@ public class SetInforActivity extends AppCompatActivity {
                                 @Override
                                 public int compare(BanAn t1, BanAn t2) {
                                     if(t1.getBanSo()<t2.getBanSo()) return -1;
-                                    else if (t1.getBanSo()==t2.getBanSo()) return 1;else
-                                        return 0;
+                                    else if (t1.getBanSo()==t2.getBanSo()) return 0;else
+                                        return 1;
                                 }
                             });
                             apater.notifyDataSetChanged();
