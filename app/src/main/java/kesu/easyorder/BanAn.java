@@ -7,12 +7,12 @@ package kesu.easyorder;
 //lớp chứa thông tin bàn ăn
 
 public class BanAn {
-    private Boolean state;
+    private int state;
     private KhachHang khachHang;
     private int banSo;
     private YeuCauThanhToan yeuCauThanhToan;
 
-    public BanAn(Boolean state, int banSo, YeuCauThanhToan yeuCauThanhToan) {
+    public BanAn(int state, int banSo, YeuCauThanhToan yeuCauThanhToan) {
         this.state = state;
         this.banSo = banSo;
         this.yeuCauThanhToan = yeuCauThanhToan;
@@ -20,7 +20,7 @@ public class BanAn {
 
     public BanAn() {
     }
-    public BanAn(int banSo, Boolean state){
+    public BanAn(int banSo, int state){
         this.banSo=banSo;
         this.state=state;
     }
@@ -33,7 +33,7 @@ public class BanAn {
         this.yeuCauThanhToan = yeuCauThanhToan;
     }
 
-    public BanAn(int banSo, Boolean state, KhachHang khachHang) {
+    public BanAn(int banSo, int state, KhachHang khachHang) {
         this.state = state;
         this.khachHang = khachHang;
         this.banSo = banSo;
@@ -43,11 +43,11 @@ public class BanAn {
         return banSo;
     }
 
-    public Boolean getState() {
+    public int getState() {
         return state;
     }
 
-    public void setState(Boolean state) {
+    public void setState(int state) {
         this.state = state;
     }
 

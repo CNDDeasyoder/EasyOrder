@@ -53,19 +53,19 @@ public class TableApater extends BaseAdapter {
         Button btn = (Button)view.findViewById(R.id.btn_table);
         final BanAn tb = List.get(i);
         btn.setText(""+String.valueOf(tb.getBanSo()));
-        if(!tb.getState()) {
+        if(tb.getState()==0) {
             btn.setBackgroundResource(R.drawable.ban_xanh);
-        } else btn.setBackgroundResource(R.drawable.ban_do);
+        } else if (tb.getState()==1) btn.setBackgroundResource(R.drawable.ban_do);
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 FirebaseDatabase mFirebaseDatabase = FirebaseDatabase.getInstance();
                 DatabaseReference mDatabaseReference = mFirebaseDatabase.getReference();
-                if (!tb.getState()){ //Bàn vẫn còn trống
+                if (tb.getState()==0){ //Bàn vẫn còn trống
                     ProgressDialog dialog = new ProgressDialog(context);
                     dialog.setMessage("Đang chọn bàn");
                     dialog.setCancelable(false);
-                    tb.setState(true);
+                    tb.setState(1);
                     tb.setYeuCauThanhToan(YeuCauThanhToan.CHUA_YEU_CAU);
                     mDatabaseReference.child("danhSachBanAn").child("ban"+tb.getBanSo()).setValue(tb);
                     SetInforActivity.banSo=tb.getBanSo();

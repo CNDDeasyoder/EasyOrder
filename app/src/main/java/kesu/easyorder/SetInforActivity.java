@@ -67,7 +67,7 @@ public class SetInforActivity extends AppCompatActivity {
                         arrayList.clear();
                         for(DataSnapshot data : dataSnapshot.getChildren()){
 
-                            boolean boo = data.child("state").getValue(boolean.class);
+                            int boo = data.child("state").getValue(int.class);
                             int id = data.child("banSo").getValue(int.class);
                             BanAn temp = new BanAn(id,boo);
                             temp.setKhachHang(new KhachHang(name));

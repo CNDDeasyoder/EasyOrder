@@ -111,12 +111,12 @@ public class PayActivity extends AppCompatActivity {
                 Intent intent = new Intent(PayActivity.this, SelectionActivity.class);
                 startActivity(intent);
             }
-        });
+        });t
 
         btnThanhToan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mData.child("danhSachBanAn").child("ban" + SetInforActivity.banSo).child("yeuCauThanhToan").setValue("DANG_CHO_THANH_TOAN");
+                mData.child("danhSachBanAn").child("ban" + SetInforActivity.banSo).child("state").setValue(2);
                 Toast.makeText(PayActivity.this, "Yêu cầu đã được gửi. Vui lòng đợi trong giây lát!", Toast.LENGTH_SHORT).show();
             }
         });
