@@ -1,6 +1,5 @@
 package kesu.easyorder;
 
-import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Typeface;
@@ -129,9 +128,7 @@ public class MenuActivity extends AppCompatActivity {
         btnThemMon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                dialog.setMessage("Đang ORDER");
-                dialog.setCancelable(false);
-                dialog.show();
+
                 final ArrayList<ThongTinMonAn> danhSachThemMon = new ArrayList<>();
                 final ArrayList<ThongTinMonAn> t_danhSachThemMon = new ArrayList<ThongTinMonAn>();
                 //them cac mon an da chon vao list can order them
@@ -152,6 +149,9 @@ public class MenuActivity extends AppCompatActivity {
                 }
                 else
                 {
+                    dialog.setMessage("Đang ORDER");
+                    dialog.setCancelable(false);
+                    dialog.show();
                     //tham chieu den danhSachMonAn hien tai de lay cac mon an da order truoc do
                     Query query = mData.child("danhSachBanAn").child("ban" + SetInforActivity.banSo)
                             .child("khachHang").child("danhSachMonAn").orderByKey().startAt("0");
