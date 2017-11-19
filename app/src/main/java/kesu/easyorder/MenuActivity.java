@@ -58,7 +58,7 @@ public class MenuActivity extends AppCompatActivity {
 
         DatabaseReference hien = FirebaseDatabase.getInstance().getReference();
         hien.child("danhSachBanAn").child("ban"+ SetInforActivity.banSo).child("state")
-                .addListenerForSingleValueEvent(new ValueEventListener() {
+                .addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
                         int check = dataSnapshot.getValue(int.class);
@@ -86,7 +86,6 @@ public class MenuActivity extends AppCompatActivity {
                 list.add(temp);
                 lv = (ListView) findViewById(R.id.lv);
                 lv.setAdapter(apater);
-
             }
 
             @Override

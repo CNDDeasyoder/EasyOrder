@@ -42,7 +42,7 @@ public class PayActivity extends AppCompatActivity {
 
         DatabaseReference hien = FirebaseDatabase.getInstance().getReference();
         hien.child("danhSachBanAn").child("ban"+ SetInforActivity.banSo).child("state")
-                .addListenerForSingleValueEvent(new ValueEventListener() {
+                .addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
                         int check = dataSnapshot.getValue(int.class);

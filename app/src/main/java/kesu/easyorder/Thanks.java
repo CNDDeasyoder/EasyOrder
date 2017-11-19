@@ -10,4 +10,9 @@ public class Thanks extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_thanks);
     }
+
+    @Override
+    public void onBackPressed() {
+        return;
+    }
 }
