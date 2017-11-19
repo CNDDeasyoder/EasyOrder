@@ -43,6 +43,24 @@ public class InformationActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_infor);
 
+        DatabaseReference hien = FirebaseDatabase.getInstance().getReference();
+        hien.child("danhSachBanAn").child("ban"+ SetInforActivity.banSo).child("state")
+                .addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        int check = dataSnapshot.getValue(int.class);
+                        if (check == 0) {
+                            Intent mIntent = new Intent(InformationActivity.this,Thanks.class);
+                            startActivity(mIntent);
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+
+                    }
+                });
+
         btnBack = (ImageButton) findViewById(R.id.btn_nav_ttin_thinh);
         btnThanhToan = (Button) findViewById(R.id.btn_thanh_toan_thinh);
         btnThemMon = (Button) findViewById(R.id.btn_them_mon_thinh);

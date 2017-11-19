@@ -8,6 +8,12 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
 
 /**
  * Created by thinhle on 9/16/17.
@@ -24,6 +30,24 @@ public class SelectionActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_selection);
+
+        DatabaseReference hien = FirebaseDatabase.getInstance().getReference();
+        hien.child("danhSachBanAn").child("ban"+ SetInforActivity.banSo).child("state")
+                .addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        int check = dataSnapshot.getValue(int.class);
+                        if (check == 0) {
+                            Intent mIntent = new Intent(SelectionActivity.this,Thanks.class);
+                            startActivity(mIntent);
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+
+                    }
+                });
 
         btninfor = (Button) findViewById(R.id.btn_infor);
         btnPay = (Button) findViewById(R.id.btn_pay);

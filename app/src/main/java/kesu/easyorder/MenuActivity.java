@@ -55,6 +55,25 @@ public class MenuActivity extends AppCompatActivity {
         setContentView(R.layout.activity_menu);
 
         //Hien code ----------------------
+
+        DatabaseReference hien = FirebaseDatabase.getInstance().getReference();
+        hien.child("danhSachBanAn").child("ban"+ SetInforActivity.banSo).child("state")
+                .addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        int check = dataSnapshot.getValue(int.class);
+                        if (check == 0) {
+                            Intent mIntent = new Intent(MenuActivity.this,Thanks.class);
+                            startActivity(mIntent);
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+
+                    }
+                });
+
         dialog = new ProgressDialog(this);
         mFirebaseDatabase = FirebaseDatabase.getInstance();
         mDatabaseReference = mFirebaseDatabase.getReference().child("mon_an");

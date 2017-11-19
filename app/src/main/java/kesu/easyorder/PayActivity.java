@@ -17,6 +17,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
@@ -38,6 +39,24 @@ public class PayActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pay);
+
+        DatabaseReference hien = FirebaseDatabase.getInstance().getReference();
+        hien.child("danhSachBanAn").child("ban"+ SetInforActivity.banSo).child("state")
+                .addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        int check = dataSnapshot.getValue(int.class);
+                        if (check == 0) {
+                            Intent mIntent = new Intent(PayActivity.this,Thanks.class);
+                            startActivity(mIntent);
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+
+                    }
+                });
 
         btnBack = (ImageButton) findViewById(R.id.btn_nav_ttoan_thinh);
         tvTongTien = (TextView) findViewById(R.id.tv_tong_tien_thinh) ;
@@ -111,7 +130,7 @@ public class PayActivity extends AppCompatActivity {
                 Intent intent = new Intent(PayActivity.this, SelectionActivity.class);
                 startActivity(intent);
             }
-        });t
+        });
 
         btnThanhToan.setOnClickListener(new View.OnClickListener() {
             @Override

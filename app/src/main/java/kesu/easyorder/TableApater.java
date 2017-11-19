@@ -56,6 +56,7 @@ public class TableApater extends BaseAdapter {
         if(tb.getState()==0) {
             btn.setBackgroundResource(R.drawable.ban_xanh);
         } else if (tb.getState()==1) btn.setBackgroundResource(R.drawable.ban_do);
+        else if (tb.getState()==2) btn.setBackgroundResource(R.drawable.ban_vang);
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
