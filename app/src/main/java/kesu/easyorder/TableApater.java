@@ -67,7 +67,9 @@ public class TableApater extends BaseAdapter {
                     dialog.setMessage("Đang chọn bàn");
                     dialog.setCancelable(false);
                     tb.setState(1);
-                    mDatabaseReference.child("danhSachBanAn").child("ban"+tb.getBanSo()).setValue(tb);
+                    mDatabaseReference.child("danhSachBanAn").child("ban"+tb.getBanSo()).child("state").setValue(1);
+                    mDatabaseReference.child("danhSachBanAn").child("ban"+tb.getBanSo())
+                            .child("khachHang").child("tenKhachHang").setValue(tb.getKhachHang().getTenKhachHang());
                     SetInforActivity.banSo=tb.getBanSo();
                     dialog.dismiss();
                     Intent intent = new Intent(context,SelectionActivity.class);
