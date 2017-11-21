@@ -9,19 +9,26 @@
         android:roundIcon="@mipmap/logo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".SetInforActivity" />
-        <activity android:name=".SelectionActivity" />
-        <activity android:name=".InformationActivity" />
-        <activity android:name=".PayActivity" />
-        <activity android:name=".MenuActivity" />
-        <activity android:name=".Thanks"></activity>
+        <activity android:name=".SetInforActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".SelectionActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".InformationActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".PayActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".MenuActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Thanks"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

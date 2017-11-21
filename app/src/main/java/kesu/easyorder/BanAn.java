@@ -10,27 +10,12 @@ public class BanAn {
     private int state;
     private KhachHang khachHang;
     private int banSo;
-    private YeuCauThanhToan yeuCauThanhToan;
-
-    public BanAn(int state, int banSo, YeuCauThanhToan yeuCauThanhToan) {
-        this.state = state;
-        this.banSo = banSo;
-        this.yeuCauThanhToan = yeuCauThanhToan;
-    }
 
     public BanAn() {
     }
     public BanAn(int banSo, int state){
         this.banSo=banSo;
         this.state=state;
-    }
-
-    public YeuCauThanhToan getYeuCauThanhToan() {
-        return yeuCauThanhToan;
-    }
-
-    public void setYeuCauThanhToan(YeuCauThanhToan yeuCauThanhToan) {
-        this.yeuCauThanhToan = yeuCauThanhToan;
     }
 
     public BanAn(int banSo, int state, KhachHang khachHang) {
