@@ -4,11 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="@dimen/padding_thinh"
+    android:background="@drawable/get_code"
     tools:context="kesu.easyorder.Thanks">
     <TextView
+        android:gravity="center"
+        android:textStyle="bold"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Lời cảm ơn"
-        />
+        android:textColor="@color/green"
+        android:text="@string/loi_cam_on"
+        android:textSize="@dimen/text_size_large_thinh"/>
 
 </android.support.constraint.ConstraintLayout>

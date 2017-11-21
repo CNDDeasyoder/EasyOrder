@@ -2,6 +2,8 @@ package kesu.easyorder;
 
 import android.content.Intent;
 import android.graphics.Typeface;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -16,8 +18,6 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
-import java.util.regex.Pattern;
-
 public class MainActivity extends AppCompatActivity {
 
     private Button btnLogin;
@@ -28,6 +28,16 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        if (!isOnline()){
+            btnLogin = (Button) findViewById(R.id.btn_login);
+            btnLogin.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Toast.makeText(MainActivity.this, "Vui lòng kết nối mạng!", Toast.LENGTH_SHORT).show();
+                }
+            });
+            return;
+        }
 
         btnLogin = (Button) findViewById(R.id.btn_login);
         editText = (EditText)findViewById(R.id.edt_code);
@@ -42,15 +52,12 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onClick(View view) {
                         Intent intent = new Intent(MainActivity.this, SetInforActivity.class);
-                        String regExCode = "^[0-9]{4}$";
-
-                        Pattern pCode = Pattern.compile(regExCode);
 
                         if (editText.getText().toString().isEmpty())
                         {
                             Toast.makeText(MainActivity.this, "Vui lòng nhập code", Toast.LENGTH_SHORT).show();
                         }
-                        else if (pCode.matches(regExCode, editText.getText().toString()) && (editText.getText().toString().equals(code)))
+                        else if ((editText.getText().toString().equals(code)))
                         {
                             startActivity(intent);
                         }
@@ -68,6 +75,12 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+    }
+    public boolean isOnline() {
+        ConnectivityManager cm =
+                (ConnectivityManager) getSystemService(this.CONNECTIVITY_SERVICE);
+        NetworkInfo netInfo = cm.getActiveNetworkInfo();
+        return netInfo != null && netInfo.isConnectedOrConnecting();
     }
 
 }

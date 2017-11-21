@@ -2,6 +2,8 @@ package kesu.easyorder;
 
 import android.app.ProgressDialog;
 import android.graphics.Typeface;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -50,6 +52,10 @@ public class SetInforActivity extends AppCompatActivity {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if(!isOnline()){
+                    Toast.makeText(SetInforActivity.this, "Vui lòng kết nối mạng!", Toast.LENGTH_SHORT).show();
+                    return;
+                }
                 if(edtName.getText().toString().isEmpty()) {
                     Toast.makeText(SetInforActivity.this, "Vui Lòng nhập tên", Toast.LENGTH_SHORT).show();
                     return;
@@ -99,4 +105,11 @@ public class SetInforActivity extends AppCompatActivity {
     public void onBackPressed() {
         moveTaskToBack(true);
     }
+    public boolean isOnline() {
+        ConnectivityManager cm =
+                (ConnectivityManager) getSystemService(this.CONNECTIVITY_SERVICE);
+        NetworkInfo netInfo = cm.getActiveNetworkInfo();
+        return netInfo != null && netInfo.isConnectedOrConnecting();
+    }
+
 }

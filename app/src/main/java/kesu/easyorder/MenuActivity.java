@@ -3,6 +3,8 @@ package kesu.easyorder;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Typeface;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
@@ -55,6 +57,7 @@ public class MenuActivity extends AppCompatActivity {
         setContentView(R.layout.activity_menu);
 
         //Hien code ----------------------
+
 
         DatabaseReference hien = FirebaseDatabase.getInstance().getReference();
         hien.child("danhSachBanAn").child("ban"+ SetInforActivity.banSo).child("state")
@@ -146,6 +149,10 @@ public class MenuActivity extends AppCompatActivity {
         btnThemMon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(!isOnline()){
+                    Toast.makeText(MenuActivity.this, "Vui lòng kết nối mạng!", Toast.LENGTH_SHORT).show();
+                    return;
+                }
 
                 final ArrayList<ThongTinMonAn> danhSachThemMon = new ArrayList<>();
                 final ArrayList<ThongTinMonAn> t_danhSachThemMon = new ArrayList<ThongTinMonAn>();
@@ -234,6 +241,12 @@ public class MenuActivity extends AppCompatActivity {
             }
         });
 
+    }
+    public boolean isOnline() {
+        ConnectivityManager cm =
+                (ConnectivityManager) getSystemService(this.CONNECTIVITY_SERVICE);
+        NetworkInfo netInfo = cm.getActiveNetworkInfo();
+        return netInfo != null && netInfo.isConnectedOrConnecting();
     }
 
 }

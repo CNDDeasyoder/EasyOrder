@@ -2,6 +2,8 @@ package kesu.easyorder;
 
 import android.content.Intent;
 import android.graphics.Typeface;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MotionEvent;
@@ -135,9 +137,22 @@ public class PayActivity extends AppCompatActivity {
         btnThanhToan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if(!isOnline()){
+                    Toast.makeText(PayActivity.this, "Vui lòng kết nối mạng!", Toast.LENGTH_SHORT).show();
+                    return;
+                }
                 mData.child("danhSachBanAn").child("ban" + SetInforActivity.banSo).child("state").setValue(2);
-                Toast.makeText(PayActivity.this, "Yêu cầu đã được gửi. Vui lòng đợi trong giây lát!", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(PayActivity.this, "Yêu cầu đã được gửi. Vui lòng đợi trong giây lát!", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(PayActivity.this, Thanks.class);
+                startActivity(intent);
             }
         });
     }
+    public boolean isOnline() {
+        ConnectivityManager cm =
+                (ConnectivityManager) getSystemService(this.CONNECTIVITY_SERVICE);
+        NetworkInfo netInfo = cm.getActiveNetworkInfo();
+        return netInfo != null && netInfo.isConnectedOrConnecting();
+    }
 }
+
