@@ -89,6 +89,7 @@ public class ThongTinAdapter extends BaseAdapter {
                             temp_query.child("danhSachBanAn").child("ban"+String.valueOf(monAn.getBan()))
                                     .child("khachHang").child("danhSachMonAn").child(String.valueOf(monAn.getStt()))
                                     .removeValue();
+                            temp_query.child("danhSachOrder").child("danhSach").child(String.valueOf(monAn.getStt())).removeValue();
                             monAnList.remove(i);
                             notifyDataSetChanged();
                             dialog.cancel();
