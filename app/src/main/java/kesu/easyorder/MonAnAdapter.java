@@ -8,6 +8,7 @@ import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.RatingBar;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
@@ -55,6 +56,7 @@ public class MonAnAdapter extends BaseAdapter {
         view = inflater.inflate(layout, null);
 
         ImageView img = (ImageView)view.findViewById(R.id.hinh_anh);
+        RatingBar ratingBar = (RatingBar) view.findViewById(R.id.ratingBar);
         Button btn_add = (Button)view.findViewById(R.id.add);
         Button btn_sub = (Button)view.findViewById(R.id.sub);
         final EditText edt = (EditText) view.findViewById(R.id.sl);
@@ -76,6 +78,7 @@ public class MonAnAdapter extends BaseAdapter {
 
 
         ten_mon.setText(monan.getTen());
+        ratingBar.setRating(monan.getRate().getSoSao());
         gia.setText(monan.getGia()+"");
         btn_add.setOnClickListener(new View.OnClickListener() {
             @Override
