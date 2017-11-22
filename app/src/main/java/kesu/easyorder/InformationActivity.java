@@ -116,7 +116,6 @@ public class InformationActivity extends AppCompatActivity{
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
                 for (DataSnapshot ds : dataSnapshot.getChildren())
                 {
-                    //Toast.makeText(InformationActivity.this, ds.getKey().toString(), Toast.LENGTH_SHORT).show();
                     MonAn monAn = ds.getValue(MonAn.class);
                     monAnArrayList.add(monAn);
 
