@@ -111,6 +111,8 @@ public class InformationActivity extends AppCompatActivity{
 
         monAnArrayList = new ArrayList<>();
         temp = mData.child("danhSachBanAn").child("ban" + SetInforActivity.banSo).child("khachHang");
+        thongTinAdapter = new ThongTinAdapter(InformationActivity.this, R.layout.dong_thong_tin, monAnArrayList);
+        lvThongTin.setAdapter(thongTinAdapter);
         temp.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
@@ -118,10 +120,8 @@ public class InformationActivity extends AppCompatActivity{
                 {
                     MonAn monAn = ds.getValue(MonAn.class);
                     monAnArrayList.add(monAn);
-
                 }
-                thongTinAdapter = new ThongTinAdapter(InformationActivity.this, R.layout.dong_thong_tin, monAnArrayList);
-                lvThongTin.setAdapter(thongTinAdapter);
+                thongTinAdapter.notifyDataSetChanged();
             }
 
             @Override

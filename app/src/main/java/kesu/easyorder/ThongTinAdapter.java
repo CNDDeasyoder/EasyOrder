@@ -9,6 +9,10 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.List;
 
@@ -43,7 +47,7 @@ public class ThongTinAdapter extends BaseAdapter {
     }
 
     @Override
-    public View getView(int i, View view, ViewGroup viewGroup) {
+    public View getView(final int i, View view, ViewGroup viewGroup) {
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
         view = inflater.inflate(layout, null);
@@ -53,7 +57,7 @@ public class ThongTinAdapter extends BaseAdapter {
         final TextView tvTrangThai = (TextView) view.findViewById(R.id.tv_trang_thai);
         Button btnXoa = (Button) view.findViewById(R.id.btn_xoa);
 
-        MonAn monAn = monAnList.get(i);
+        final MonAn monAn = monAnList.get(i);
 
         tvTen.setText(monAn.getTen());
         tvSoLuong.setText(String.valueOf(monAn.getSl()));
@@ -69,18 +73,25 @@ public class ThongTinAdapter extends BaseAdapter {
         {
             tvTrangThai.setText("Đang mang ra");
         }
+
         btnXoa.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (tvTrangThai.getText().equals("Mới gọi"))
+                if (monAn.getState()==0)
                 {
                     final AlertDialog.Builder builder = new AlertDialog.Builder(context);
                     builder.setTitle("Xoá món ");
                     builder.setMessage("Bạn có chắc chắn muốn xoá món này?");
                     builder.setPositiveButton("Có", new DialogInterface.OnClickListener() {
                         @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            //////do something
+                        public void onClick(final DialogInterface dialog, int which) {
+                            DatabaseReference temp_query = FirebaseDatabase.getInstance().getReference();
+                            temp_query.child("danhSachBanAn").child("ban"+String.valueOf(monAn.getBan()))
+                                    .child("khachHang").child("danhSachMonAn").child(String.valueOf(monAn.getStt()))
+                                    .removeValue();
+                            monAnList.remove(i);
+                            notifyDataSetChanged();
+                            dialog.cancel();
                         }
                     });
                     builder.setNegativeButton("Không", new DialogInterface.OnClickListener() {

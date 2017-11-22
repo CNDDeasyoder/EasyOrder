@@ -146,6 +146,20 @@ public class MenuActivity extends AppCompatActivity {
         final DatabaseReference mData = FirebaseDatabase.getInstance().getReference();
         btnThemMon = (Button) findViewById(R.id.btn_them_mon_menu);
         btnThemMon.setTypeface(f);
+        dialog.setMessage("Đang lấy dữ liệu");
+        dialog.setCancelable(false);
+        mData.child("danhSachOrder").child("max").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                max = dataSnapshot.getValue(int.class);
+                dialog.dismiss();
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
         btnThemMon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -153,95 +167,36 @@ public class MenuActivity extends AppCompatActivity {
                     Toast.makeText(MenuActivity.this, "Vui lòng kết nối mạng!", Toast.LENGTH_SHORT).show();
                     return;
                 }
-
-                final ArrayList<MonAn> danhSachThemMon = new ArrayList<>();
+                dialog.setMessage("Đang chọn món");
+                dialog.show();
                 final ArrayList<MonAn> t_danhSachThemMon = new ArrayList<MonAn>();
                 //them cac mon an da chon vao list can order them
                 for (int i = 0; i < list.size(); i++)
                 {
-                    if (list.get(i).getSl() > 0)
-                    {
+                    if (list.get(i).getSl() > 0) {
                         MonAn monAn = new MonAn(SetInforActivity.banSo, list.get(i).getGia(), list.get(i).getSl(), list.get(i).getState(), i, list.get(i).getTen(), list.get(i).getId());
-                        danhSachThemMon.add(monAn);
                         t_danhSachThemMon.add(monAn);
-                        list.get(i).setSl(0);
                     }
                 }
-                if (danhSachThemMon.size() == 0)
-                {
-                    //thong bao neu chua order mon
-                    Toast.makeText(MenuActivity.this, "Bạn chưa chọn món!", Toast.LENGTH_SHORT).show();
+
+                for (MonAn ma : t_danhSachThemMon){
+                    ma.setStt(max);
+                    mData.child("danhSachOrder").child("danhSach").child(String.valueOf(max)).setValue(ma);
+                    max ++;
                 }
-                else
-                {
-                    dialog.setMessage("Đang ORDER");
-                    dialog.setCancelable(false);
-                    dialog.show();
-                    //tham chieu den danhSachMonAn hien tai de lay cac mon an da order truoc do
-                    Query query = mData.child("danhSachBanAn").child("ban" + SetInforActivity.banSo)
-                            .child("khachHang").child("danhSachMonAn").orderByKey().startAt("0");
-
-                    query.addListenerForSingleValueEvent(new ValueEventListener() {
-                        @Override
-                        public void onDataChange(DataSnapshot dataSnapshot) {
-                            for (DataSnapshot ds : dataSnapshot.getChildren())
-                            {
-                                MonAn monAn = ds.getValue(MonAn.class);
-                                danhSachThemMon.add(monAn); // them vao danh sach them mon de ghi de du lieu
-                            }
-
-                            //them mon an
-                            DatabaseReference temp = mData.child("danhSachBanAn").child("ban"
-                                    + SetInforActivity.banSo).child("khachHang")
-                                    .child("danhSachMonAn");
-                            mData.child("danhSachOrder").child("max").addValueEventListener(new ValueEventListener() {
-                                @Override
-                                public void onDataChange(DataSnapshot dataSnapshot) {
-                                    max = dataSnapshot.getValue(int.class);
-                                }
-
-                                @Override
-                                public void onCancelled(DatabaseError databaseError) {
-
-                                }
-                            });
-                            temp.setValue(danhSachThemMon, new DatabaseReference.CompletionListener() {
-                                @Override
-                                public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {
-                                    if (databaseError == null)
-                                    {
-                                        for (MonAn ma : t_danhSachThemMon){
-                                            Queue_MonAn q = new Queue_MonAn(SetInforActivity.banSo,ma.getSl(),ma.getGia(),ma.getTen());
-                                            mData.child("danhSachOrder").child("danhSach")
-                                                    .child(String.valueOf(max)).setValue(q);
-                                            max ++;
-                                        }
-                                        mData.child("danhSachOrder").child("max").setValue(max);
-                                        dialog.dismiss();
-                                        Toast.makeText(MenuActivity.this, "Đã thêm món vừa chọn!", Toast.LENGTH_SHORT).show();
-                                        onBackPressed();
-                                    }
-                                    else
-                                    {
-                                        dialog.dismiss();
-                                        Toast.makeText(MenuActivity.this, "Đã xảy ra lỗi!", Toast.LENGTH_SHORT).show();
-                                        onBackPressed();
-                                    }
-                                }
-                            });
-                        }
-
-                        @Override
-                        public void onCancelled(DatabaseError databaseError) {
-
-                        }
-                    });
+                mData.child("danhSachOrder").child("max").setValue(max);
+                for (MonAn ma : t_danhSachThemMon){
+                mData.child("danhSachBanAn").child("ban"+String.valueOf(ma.getBan())).child("khachHang")
+                        .child("danhSachMonAn").child(String.valueOf(ma.getStt())).setValue(ma);
                 }
-                apater.notifyDataSetChanged();
+                            Toast.makeText(MenuActivity.this, "Đã thêm món vừa chọn!", Toast.LENGTH_SHORT).show();
+                    dialog.dismiss();
+                            onBackPressed();
+
             }
         });
+        }
 
-    }
     public boolean isOnline() {
         ConnectivityManager cm =
                 (ConnectivityManager) getSystemService(this.CONNECTIVITY_SERVICE);
