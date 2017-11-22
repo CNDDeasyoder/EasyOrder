@@ -3,6 +3,7 @@ package kesu.easyorder;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -64,14 +65,17 @@ public class ThongTinAdapter extends BaseAdapter {
         if (monAn.getState() == 0)
         {
             tvTrangThai.setText("Mới gọi");
+            tvTrangThai.setTextColor(Color.GREEN);
         }
         else if (monAnList.get(i).getState() == 1)
         {
             tvTrangThai.setText("Đang làm");
+            tvTrangThai.setTextColor(Color.BLUE);
         }
         else if (monAnList.get(i).getState() == 2)
         {
             tvTrangThai.setText("Đang mang ra");
+            tvTrangThai.setTextColor(Color.RED);
         }
 
         btnXoa.setOnClickListener(new View.OnClickListener() {

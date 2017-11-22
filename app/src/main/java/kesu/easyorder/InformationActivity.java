@@ -110,12 +110,13 @@ public class InformationActivity extends AppCompatActivity{
 
 
         monAnArrayList = new ArrayList<>();
-        temp = mData.child("danhSachBanAn").child("ban" + SetInforActivity.banSo).child("khachHang");
+        temp = mData.child("danhSachBanAn").child("ban" + SetInforActivity.banSo).child("khachHang").child("danhSachMonAn");
         thongTinAdapter = new ThongTinAdapter(InformationActivity.this, R.layout.dong_thong_tin, monAnArrayList);
         lvThongTin.setAdapter(thongTinAdapter);
-        temp.addChildEventListener(new ChildEventListener() {
+        temp.addValueEventListener(new ValueEventListener() {
             @Override
-            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                monAnArrayList.clear();
                 for (DataSnapshot ds : dataSnapshot.getChildren())
                 {
                     MonAn monAn = ds.getValue(MonAn.class);
@@ -125,27 +126,10 @@ public class InformationActivity extends AppCompatActivity{
             }
 
             @Override
-            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
-
-            }
-
-            @Override
-            public void onChildRemoved(DataSnapshot dataSnapshot) {
-
-            }
-
-            @Override
-            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
-
-            }
-
-            @Override
             public void onCancelled(DatabaseError databaseError) {
 
             }
         });
-
-
 
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
