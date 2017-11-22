@@ -49,15 +49,18 @@
                 android:orientation="vertical"
                 android:paddingLeft="@dimen/padding_thinh"
                 android:paddingRight="@dimen/padding_thinh">
-
                 <LinearLayout
-                   android:layout_width="match_parent"
-                    android:layout_height="@dimen/height_view_thinh"
-                    android:orientation="horizontal"
-                    android:background="@drawable/layout_tv"
-                    android:layout_margin="@dimen/min_margin_thinh"
-                    android:paddingBottom="@dimen/min_padding_thinh"
-                    android:paddingLeft="@dimen/padding_thinh">
+                    android:layout_marginTop="@dimen/min_margin_thinh"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginBottom="@dimen/min_margin_thinh"
+                    android:background="@drawable/border">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:orientation="horizontal"
+                        android:paddingLeft="@dimen/padding_thinh">
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -75,16 +78,14 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_gravity="center" />
-                </LinearLayout>
+                    </LinearLayout>
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/height_view_thinh"
-                    android:orientation="horizontal"
-                    android:background="@drawable/layout_tv"
-                    android:layout_margin="@dimen/min_margin_thinh"
-                    android:paddingBottom="@dimen/min_padding_thinh"
-                    android:paddingLeft="@dimen/padding_thinh">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:paddingBottom="@dimen/min_padding_thinh"
+                        android:orientation="horizontal"
+                        android:paddingLeft="@dimen/padding_thinh">
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
@@ -101,17 +102,9 @@
                             android:textColor="@color/red"
                             android:textSize="@dimen/text_size_large_thinh"
                             android:layout_gravity="center"/>
+                    </LinearLayout>
                 </LinearLayout>
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/thong_tin_mon_thinh"
-                    android:textSize="@dimen/text_size_small_thinh"
-                    android:layout_marginBottom="@dimen/min_margin_thinh"
-                    android:textColor="#5D4037"
-                    android:textStyle="bold"
-                    android:gravity="center"/>
 
                 <TableLayout
                     android:layout_width="match_parent"
@@ -148,7 +141,8 @@
         </LinearLayout>
     <LinearLayout
         android:layout_weight="4"
-        android:layout_marginTop="@dimen/margin_thinh"
+        android:layout_marginTop="@dimen/min_margin_thinh"
+        android:layout_marginBottom="@dimen/min_margin_thinh"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent">
         <Button

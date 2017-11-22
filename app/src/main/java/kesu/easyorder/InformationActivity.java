@@ -1,5 +1,6 @@
 package kesu.easyorder;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
@@ -11,7 +12,6 @@ import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -35,6 +35,7 @@ public class InformationActivity extends AppCompatActivity{
     ListView lvThongTin;
     ArrayList<MonAn> monAnArrayList;
     ThongTinAdapter thongTinAdapter;
+    private ProgressDialog dialog1;
 
     DatabaseReference mData = FirebaseDatabase.getInstance().getReference();
 
@@ -73,6 +74,11 @@ public class InformationActivity extends AppCompatActivity{
         headline.setTypeface(f);
         btnThanhToan.setTypeface(f);
         btnThemMon.setTypeface(f);
+
+        dialog1 = new ProgressDialog(this);
+        dialog1.setMessage("Đang lấy dữ liệu");
+        dialog1.setCancelable(false);
+        dialog1.show();
         DatabaseReference temp = mData.child("danhSachBanAn").child("ban" + SetInforActivity.banSo).child("banSo").getRef();
         temp.addValueEventListener(new ValueEventListener() {
             @Override
@@ -108,7 +114,9 @@ public class InformationActivity extends AppCompatActivity{
         });
 
 
-
+        dialog1.setMessage("Đang lấy dữ liệu");
+        dialog1.setCancelable(false);
+        dialog1.show();
         monAnArrayList = new ArrayList<>();
         temp = mData.child("danhSachBanAn").child("ban" + SetInforActivity.banSo).child("khachHang").child("danhSachMonAn");
         thongTinAdapter = new ThongTinAdapter(InformationActivity.this, R.layout.dong_thong_tin, monAnArrayList);
@@ -123,6 +131,7 @@ public class InformationActivity extends AppCompatActivity{
                     monAnArrayList.add(monAn);
                 }
                 thongTinAdapter.notifyDataSetChanged();
+                dialog1.cancel();
             }
 
             @Override

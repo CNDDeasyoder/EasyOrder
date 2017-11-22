@@ -1,12 +1,14 @@
 package kesu.easyorder;
 
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
@@ -20,7 +22,6 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
@@ -42,7 +43,7 @@ public class MenuActivity extends AppCompatActivity {
     private ListView lv;
     private FirebaseDatabase mFirebaseDatabase;
     private DatabaseReference mDatabaseReference;
-    private ProgressDialog dialog;
+    private ProgressDialog dialog1;
     private int max;
 
 
@@ -77,7 +78,10 @@ public class MenuActivity extends AppCompatActivity {
                     }
                 });
 
-        dialog = new ProgressDialog(this);
+        dialog1 = new ProgressDialog(this);
+        dialog1.setMessage("Đang lấy dữ liệu");
+        dialog1.setCancelable(false);
+        dialog1.show();
         mFirebaseDatabase = FirebaseDatabase.getInstance();
         mDatabaseReference = mFirebaseDatabase.getReference().child("mon_an");
         apater = new MonAnAdapter(this, R.layout.mon, list);
@@ -146,13 +150,13 @@ public class MenuActivity extends AppCompatActivity {
         final DatabaseReference mData = FirebaseDatabase.getInstance().getReference();
         btnThemMon = (Button) findViewById(R.id.btn_them_mon_menu);
         btnThemMon.setTypeface(f);
-        dialog.setMessage("Đang lấy dữ liệu");
-        dialog.setCancelable(false);
+        dialog1.setMessage("Đang lấy dữ liệu");
+        dialog1.setCancelable(false);
         mData.child("danhSachOrder").child("max").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 max = dataSnapshot.getValue(int.class);
-                dialog.dismiss();
+                dialog1.dismiss();
             }
 
             @Override
@@ -167,8 +171,7 @@ public class MenuActivity extends AppCompatActivity {
                     Toast.makeText(MenuActivity.this, "Vui lòng kết nối mạng!", Toast.LENGTH_SHORT).show();
                     return;
                 }
-                dialog.setMessage("Đang chọn món");
-                dialog.show();
+
                 final ArrayList<MonAn> t_danhSachThemMon = new ArrayList<MonAn>();
                 //them cac mon an da chon vao list can order them
                 for (int i = 0; i < list.size(); i++)
@@ -179,19 +182,45 @@ public class MenuActivity extends AppCompatActivity {
                     }
                 }
 
-                for (MonAn ma : t_danhSachThemMon){
-                    ma.setStt(max);
-                    mData.child("danhSachOrder").child("danhSach").child(String.valueOf(max)).setValue(ma);
-                    max ++;
+                if (t_danhSachThemMon.size() == 0)
+                {
+                    Toast.makeText(MenuActivity.this, "Bạn chưa chọn món", Toast.LENGTH_SHORT).show();
+                    dialog1.cancel();
+                    return;
                 }
-                mData.child("danhSachOrder").child("max").setValue(max);
-                for (MonAn ma : t_danhSachThemMon){
-                mData.child("danhSachBanAn").child("ban"+String.valueOf(ma.getBan())).child("khachHang")
-                        .child("danhSachMonAn").child(String.valueOf(ma.getStt())).setValue(ma);
-                }
-                            Toast.makeText(MenuActivity.this, "Đã thêm món vừa chọn!", Toast.LENGTH_SHORT).show();
-                    dialog.dismiss();
-                            onBackPressed();
+
+
+                final AlertDialog.Builder builder = new AlertDialog.Builder(MenuActivity.this);
+                builder.setTitle("Gọi món");
+                builder.setMessage("Bạn có chắc chắn muốn gọi những món đã chọn không?");
+                builder.setPositiveButton("Xác nhận", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog1.setMessage("Đang chọn món");
+                        dialog1.show();
+                        for (MonAn ma : t_danhSachThemMon){
+                            ma.setStt(max);
+                            mData.child("danhSachOrder").child("danhSach").child(String.valueOf(max)).setValue(ma);
+                            max ++;
+                        }
+                        mData.child("danhSachOrder").child("max").setValue(max);
+                        for (MonAn ma : t_danhSachThemMon){
+                            mData.child("danhSachBanAn").child("ban"+String.valueOf(ma.getBan())).child("khachHang")
+                                    .child("danhSachMonAn").child(String.valueOf(ma.getStt())).setValue(ma);
+                        }
+                        Toast.makeText(MenuActivity.this, "Đã thêm món vừa chọn!", Toast.LENGTH_SHORT).show();
+                        dialog1.dismiss();
+                        onBackPressed();
+
+                    }
+                });
+                builder.setNegativeButton("Huỷ", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+                    }
+                });
+                builder.show();
 
             }
         });

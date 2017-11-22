@@ -2,7 +2,9 @@ package kesu.easyorder;
 
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -61,19 +63,35 @@ public class TableApater extends BaseAdapter {
             @Override
             public void onClick(View view) {
                 FirebaseDatabase mFirebaseDatabase = FirebaseDatabase.getInstance();
-                DatabaseReference mDatabaseReference = mFirebaseDatabase.getReference();
+                final DatabaseReference mDatabaseReference = mFirebaseDatabase.getReference();
                 if (tb.getState()==0){ //Bàn vẫn còn trống
-                    ProgressDialog dialog = new ProgressDialog(context);
-                    dialog.setMessage("Đang chọn bàn");
-                    dialog.setCancelable(false);
-                    tb.setState(1);
-                    mDatabaseReference.child("danhSachBanAn").child("ban"+tb.getBanSo()).child("state").setValue(1);
-                    mDatabaseReference.child("danhSachBanAn").child("ban"+tb.getBanSo())
-                            .child("khachHang").child("tenKhachHang").setValue(tb.getKhachHang().getTenKhachHang());
-                    SetInforActivity.banSo=tb.getBanSo();
-                    dialog.dismiss();
-                    Intent intent = new Intent(context,SelectionActivity.class);
-                    context.startActivity(intent);
+                    final AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                    builder.setTitle("Chọn bàn");
+                    builder.setMessage("Bạn có chắc chắn muốn chọn bàn này không?");
+                    builder.setPositiveButton("Xác nhận", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            ProgressDialog dialog1 = new ProgressDialog(context);
+                            dialog1.setMessage("Đang chọn bàn");
+                            dialog1.setCancelable(false);
+                            tb.setState(1);
+                            mDatabaseReference.child("danhSachBanAn").child("ban"+tb.getBanSo()).child("state").setValue(1);
+                            mDatabaseReference.child("danhSachBanAn").child("ban"+tb.getBanSo())
+                                    .child("khachHang").child("tenKhachHang").setValue(tb.getKhachHang().getTenKhachHang());
+                            SetInforActivity.banSo=tb.getBanSo();
+                            dialog1.dismiss();
+                            Intent intent = new Intent(context,SelectionActivity.class);
+                            context.startActivity(intent);
+                        }
+                    });
+                    builder.setNegativeButton("Huỷ", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+
+                        }
+                    });
+                    builder.show();
+
                 } else{
                     Toast.makeText(context, "Bàn đã có người ngồi, vui lòng chọn bàn khác", Toast.LENGTH_SHORT).show();
                 }

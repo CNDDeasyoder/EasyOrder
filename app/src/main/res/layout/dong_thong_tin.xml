@@ -19,6 +19,8 @@
             <TextView
                 android:id="@+id/tv_ten"
                 android:textSize="@dimen/text_size_large_thinh"
+                android:textColor="#5D4037"
+                android:textStyle="bold"
                 android:gravity="center_vertical"
                 android:paddingLeft="@dimen/padding_thinh"
                 android:text="thinh le"
@@ -69,8 +71,11 @@
                 android:id="@+id/btn_xoa"
                 android:layout_weight="1"
                 android:text="xoá"
+                android:textColor="@color/thinh_white"
                 android:layout_gravity="center"
                 android:gravity="center"
+                android:layout_marginTop="@dimen/min_margin_thinh"
+                android:layout_marginBottom="@dimen/min_margin_thinh"
                 android:background="@drawable/button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />

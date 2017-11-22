@@ -1,10 +1,13 @@
 package kesu.easyorder;
 
+import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MotionEvent;
 import android.view.View;
@@ -36,6 +39,7 @@ public class PayActivity extends AppCompatActivity {
     ArrayList<MonAn> list;
     ThanhToanAdapter thanhToanAdapter;
     DatabaseReference mData = FirebaseDatabase.getInstance().getReference();
+    private ProgressDialog dialog1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -80,6 +84,11 @@ public class PayActivity extends AppCompatActivity {
 
         list = new ArrayList<>();
 
+        dialog1 = new ProgressDialog(this);
+        dialog1.setMessage("Đang lấy dữ liệu");
+        dialog1.setCancelable(false);
+        dialog1.show();
+
         DatabaseReference temp = mData.child("danhSachBanAn").child("ban" + SetInforActivity.banSo).child("khachHang");
         temp.addChildEventListener(new ChildEventListener() {
             @Override
@@ -88,10 +97,12 @@ public class PayActivity extends AppCompatActivity {
                 {
                     MonAn monAn = ds.getValue(MonAn.class);
                     list.add(monAn);
+                    dialog1.dismiss();
 
                 }
                 thanhToanAdapter = new ThanhToanAdapter(PayActivity.this, R.layout.dong_thanh_toan, list);
                 lvThanhToan.setAdapter(thanhToanAdapter);
+
 
                 // ham tinh tong tien can thanh toan
                 int tong = 0;
@@ -140,10 +151,24 @@ public class PayActivity extends AppCompatActivity {
                     Toast.makeText(PayActivity.this, "Vui lòng kết nối mạng!", Toast.LENGTH_SHORT).show();
                     return;
                 }
-                mData.child("danhSachBanAn").child("ban" + SetInforActivity.banSo).child("state").setValue(2);
-                //Toast.makeText(PayActivity.this, "Yêu cầu đã được gửi. Vui lòng đợi trong giây lát!", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(PayActivity.this, Thanks.class);
-                startActivity(intent);
+                final AlertDialog.Builder builder = new AlertDialog.Builder(PayActivity.this);
+                builder.setTitle("Yêu cầu thanh toán");
+                builder.setMessage("Bạn có chắc chắn muốn thanh toán?");
+                builder.setPositiveButton("Xác nhận", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        mData.child("danhSachBanAn").child("ban" + SetInforActivity.banSo).child("state").setValue(2);
+                        Intent intent = new Intent(PayActivity.this, Thanks.class);
+                        startActivity(intent);
+                    }
+                });
+                builder.setNegativeButton("Huỷ", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+                    }
+                });
+                builder.show();
             }
         });
     }
