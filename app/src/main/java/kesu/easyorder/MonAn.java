@@ -5,33 +5,80 @@ package kesu.easyorder;
  */
 
 public class MonAn {
-
+    private int ban;
+    private int gia;
+    private int sl;
+    private int state;
+    private int stt;
     private String ten;
-    private int soLuong;
-    private int donGia;
+    private Rate rate;
+    private String id;
 
     // constructors
 
-    public MonAn(String ten, int soLuong) {
+    public MonAn() {
+    }
+
+    public MonAn(int ban, int gia, int sl, int state, int stt, String ten, String id) {
+        this.ban = ban;
+        this.gia = gia;
+        this.sl = sl;
+        this.state = state;
+        this.stt = stt;
         this.ten = ten;
-        this.soLuong = soLuong;
+        this.id = id;
     }
-    public MonAn(String ten, int soLuong, int donGia) {
+
+    public MonAn(int ban, int gia, int sl, int state, int stt, String ten, Rate rate, String id) {
+        this.ban = ban;
+        this.gia = gia;
+        this.sl = sl;
+        this.state = state;
+        this.stt = stt;
         this.ten = ten;
-        this.soLuong = soLuong;
-        this.donGia = donGia;
+        this.rate = rate;
+        this.id = id;
     }
 
-    // Getters and Setters
-
-    public int getDonGia() {
-        return donGia;
+    public int getBan() {
+        return ban;
     }
 
-    public void setDonGia(int donGia) {
-        this.donGia = donGia;
+    public void setBan(int ban) {
+        this.ban = ban;
     }
 
+    public int getGia() {
+        return gia;
+    }
+
+    public void setGia(int gia) {
+        this.gia = gia;
+    }
+
+    public int getSl() {
+        return sl;
+    }
+
+    public void setSl(int sl) {
+        this.sl = sl;
+    }
+
+    public int getState() {
+        return state;
+    }
+
+    public void setState(int state) {
+        this.state = state;
+    }
+
+    public int getStt() {
+        return stt;
+    }
+
+    public void setStt(int stt) {
+        this.stt = stt;
+    }
 
     public String getTen() {
         return ten;
@@ -41,12 +88,19 @@ public class MonAn {
         this.ten = ten;
     }
 
-
-    public int getSoLuong() {
-        return soLuong;
+    public Rate getRate() {
+        return rate;
     }
 
-    public void setSoLuong(int soLuong) {
-        this.soLuong = soLuong;
+    public void setRate(Rate rate) {
+        this.rate = rate;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 }

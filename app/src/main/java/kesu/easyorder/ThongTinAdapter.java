@@ -52,7 +52,7 @@ public class ThongTinAdapter extends BaseAdapter {
         MonAn monAn = monAnList.get(i);
 
         tvTen.setText(monAn.getTen());
-        tvSoLuong.setText(String.valueOf(monAn.getSoLuong()));
+        tvSoLuong.setText(String.valueOf(monAn.getSl()));
         return view;
     }
 }

@@ -23,5 +23,6 @@
     <string name="nghin_dong"> - nghìn đồng</string>
     <string name="them_mon">Thêm món</string>
     <string name="loi_cam_on">Quý khách vui lòng đợi trong giây lát để nhân viên đến thanh toán. Xin cảm ơn!</string>
+    <string name="trang_thai">Trạng thái</string>
 
 </resources>

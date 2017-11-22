@@ -32,7 +32,7 @@ import java.util.ArrayList;
 
 public class MenuActivity extends AppCompatActivity {
 
-    ArrayList<ThongTinMonAn> list = new ArrayList<ThongTinMonAn>();
+    ArrayList<MonAn> list = new ArrayList<MonAn>();
     MonAnAdapter apater;
     private Button btnThemMon;
     private ImageButton btnBack;
@@ -84,8 +84,8 @@ public class MenuActivity extends AppCompatActivity {
         mDatabaseReference.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-                ThongTinMonAn temp;
-                temp = dataSnapshot.getValue(ThongTinMonAn.class);
+                MonAn temp;
+                temp = dataSnapshot.getValue(MonAn.class);
                 list.add(temp);
                 lv = (ListView) findViewById(R.id.lv);
                 lv.setAdapter(apater);
@@ -154,17 +154,17 @@ public class MenuActivity extends AppCompatActivity {
                     return;
                 }
 
-                final ArrayList<ThongTinMonAn> danhSachThemMon = new ArrayList<>();
-                final ArrayList<ThongTinMonAn> t_danhSachThemMon = new ArrayList<ThongTinMonAn>();
+                final ArrayList<MonAn> danhSachThemMon = new ArrayList<>();
+                final ArrayList<MonAn> t_danhSachThemMon = new ArrayList<MonAn>();
                 //them cac mon an da chon vao list can order them
                 for (int i = 0; i < list.size(); i++)
                 {
-                    if (list.get(i).dang_chon > 0)
+                    if (list.get(i).getSl() > 0)
                     {
-                        ThongTinMonAn thongTinMonAn = new ThongTinMonAn(list.get(i).id, list.get(i).name, list.get(i).gia, list.get(i).dang_chon);
-                        danhSachThemMon.add(thongTinMonAn);
-                        t_danhSachThemMon.add(thongTinMonAn);
-                        list.get(i).dang_chon = 0;
+                        MonAn monAn = new MonAn(SetInforActivity.banSo, list.get(i).getGia(), list.get(i).getSl(), list.get(i).getState(), i, list.get(i).getTen(), list.get(i).getId());
+                        danhSachThemMon.add(monAn);
+                        t_danhSachThemMon.add(monAn);
+                        list.get(i).setSl(0);
                     }
                 }
                 if (danhSachThemMon.size() == 0)
@@ -186,7 +186,7 @@ public class MenuActivity extends AppCompatActivity {
                         public void onDataChange(DataSnapshot dataSnapshot) {
                             for (DataSnapshot ds : dataSnapshot.getChildren())
                             {
-                                ThongTinMonAn monAn = ds.getValue(ThongTinMonAn.class);
+                                MonAn monAn = ds.getValue(MonAn.class);
                                 danhSachThemMon.add(monAn); // them vao danh sach them mon de ghi de du lieu
                             }
 
@@ -210,8 +210,8 @@ public class MenuActivity extends AppCompatActivity {
                                 public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {
                                     if (databaseError == null)
                                     {
-                                        for (ThongTinMonAn ma : t_danhSachThemMon){
-                                            Queue_MonAn q = new Queue_MonAn(SetInforActivity.banSo,ma.getDang_chon(),ma.getGia(),ma.getTen_mon());
+                                        for (MonAn ma : t_danhSachThemMon){
+                                            Queue_MonAn q = new Queue_MonAn(SetInforActivity.banSo,ma.getSl(),ma.getGia(),ma.getTen());
                                             mData.child("danhSachOrder").child("danhSach")
                                                     .child(String.valueOf(max)).setValue(q);
                                             max ++;

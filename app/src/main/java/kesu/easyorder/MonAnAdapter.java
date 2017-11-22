@@ -25,9 +25,9 @@ import java.util.List;
 public class MonAnAdapter extends BaseAdapter {
     private Context context;
     private int layout;
-    private List<ThongTinMonAn> thongTinList;
+    private List<MonAn> thongTinList;
 
-    public MonAnAdapter(Context context, int layout, List<ThongTinMonAn> thongTinList) {
+    public MonAnAdapter(Context context, int layout, List<MonAn> thongTinList) {
         this.context = context;
         this.layout = layout;
         this.thongTinList = thongTinList;
@@ -66,16 +66,16 @@ public class MonAnAdapter extends BaseAdapter {
 
      //  img.setImageResource(R.drawable.mon1);
 
-        final ThongTinMonAn monan = thongTinList.get(i);
+        final MonAn monan = thongTinList.get(i);
 
         StorageReference mStorageRef = FirebaseStorage.getInstance().getReference();
         StorageReference mStorageReference = mStorageRef.child("Image").child(monan.getId());
         Glide.with(context).using(new FirebaseImageLoader()).load(mStorageReference).into(img);
         
-        edt.setText(Integer.toString(monan.getDang_chon()));
+        edt.setText(Integer.toString(monan.getSl()));
 
 
-        ten_mon.setText(monan.getTen_mon());
+        ten_mon.setText(monan.getTen());
         gia.setText(monan.getGia()+"");
         btn_add.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -83,7 +83,7 @@ public class MonAnAdapter extends BaseAdapter {
                 if (edt.getText().toString().isEmpty() == true ) edt.setText(Integer.toString(0));
                 int a = Integer.parseInt(edt.getText().toString());
                 a++;
-                monan.setDang_chon(a);
+                monan.setSl(a);
                 edt.setText(Integer.toString(a));
                 tong.setText("Tổng: "+Integer.toString(monan.getGia()*a)+"K");
                 MenuActivity.tong_tien+=monan.getGia();
@@ -98,7 +98,7 @@ public class MonAnAdapter extends BaseAdapter {
                 int a = Integer.parseInt(edt.getText().toString());
                 if (a==0) return;
                 a--;
-                monan.setDang_chon(a);
+                monan.setSl(a);
                 edt.setText(Integer.toString(a));
                 tong.setText("Tổng: "+Integer.toString(monan.getGia()*a)+"K");
                 MenuActivity.tong_tien-=monan.getGia();

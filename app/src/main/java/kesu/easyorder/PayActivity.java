@@ -86,8 +86,7 @@ public class PayActivity extends AppCompatActivity {
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
                 for (DataSnapshot ds : dataSnapshot.getChildren())
                 {
-                    ThongTinMonAn thongTinMonAn = ds.getValue(ThongTinMonAn.class);
-                    MonAn monAn = new MonAn(thongTinMonAn.getTen_mon(), thongTinMonAn.dang_chon, thongTinMonAn.gia);
+                    MonAn monAn = ds.getValue(MonAn.class);
                     list.add(monAn);
 
                 }
@@ -98,7 +97,7 @@ public class PayActivity extends AppCompatActivity {
                 int tong = 0;
                 for (int i = 0; i < list.size(); i++)
                 {
-                    tong = tong + list.get(i).getDonGia() * list.get(i).getSoLuong();
+                    tong = tong + list.get(i).getGia() * list.get(i).getSl();
                 }
                 tvTongTien.setText(String.valueOf(tong));
             }

@@ -117,8 +117,7 @@ public class InformationActivity extends AppCompatActivity{
                 for (DataSnapshot ds : dataSnapshot.getChildren())
                 {
                     //Toast.makeText(InformationActivity.this, ds.getKey().toString(), Toast.LENGTH_SHORT).show();
-                    ThongTinMonAn thongTinMonAn = ds.getValue(ThongTinMonAn.class);
-                    MonAn monAn = new MonAn(thongTinMonAn.getTen_mon(), thongTinMonAn.dang_chon, thongTinMonAn.gia);
+                    MonAn monAn = ds.getValue(MonAn.class);
                     monAnArrayList.add(monAn);
 
                 }

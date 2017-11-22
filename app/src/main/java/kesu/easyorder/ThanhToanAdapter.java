@@ -54,8 +54,8 @@ public class ThanhToanAdapter extends BaseAdapter {
         MonAn monAn = monAnList.get(i);
 
         tvTen.setText(monAn.getTen());
-        tvDonGia.setText(String.valueOf(monAn.getDonGia()));
-        tvSoLuong.setText(String.valueOf(monAn.getSoLuong()));
+        tvDonGia.setText(String.valueOf(monAn.getGia()));
+        tvSoLuong.setText(String.valueOf(monAn.getSl()));
 
         return view;
     }

@@ -8,12 +8,12 @@ import java.util.ArrayList;
 
 public class KhachHang {
     private String tenKhachHang;
-    private ArrayList<ThongTinMonAn> danhSachMonAn = new ArrayList<>();
+    private ArrayList<MonAn> danhSachMonAn = new ArrayList<>();
 
     public KhachHang() {
     }
 
-    public KhachHang(String tenKhachHang, ArrayList<ThongTinMonAn> danhSachMonAn) {
+    public KhachHang(String tenKhachHang, ArrayList<MonAn> danhSachMonAn) {
         this.tenKhachHang = tenKhachHang;
         this.danhSachMonAn = danhSachMonAn;
     }
@@ -30,11 +30,11 @@ public class KhachHang {
         this.tenKhachHang = tenKhachHang;
     }
 
-    public ArrayList<ThongTinMonAn> getDanhSachMonAn() {
+    public ArrayList<MonAn> getDanhSachMonAn() {
         return danhSachMonAn;
     }
 
-    public void setDanhSachMonAn(ArrayList<ThongTinMonAn> danhSachMonAn) {
+    public void setDanhSachMonAn(ArrayList<MonAn> danhSachMonAn) {
         this.danhSachMonAn = danhSachMonAn;
     }
 }

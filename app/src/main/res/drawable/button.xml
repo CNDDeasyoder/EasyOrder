@@ -10,29 +10,4 @@
         android:right="7dp"
         android:bottom="7dp" />
     <corners android:radius= "15dp" />
-</shape><!--<?xml version="1.0" encoding="utf-8"?>-->
-<!--<layer-list xmlns:android="http://schemas.android.com/apk/res/android">-->
-
-    <!--<item>-->
-        <!--<shape android:shape="rectangle">-->
-            <!--<gradient-->
-                <!--android:endColor="#96767171" android:startColor="#050505" />-->
-            <!--<solid android:color="#53060606"/>-->
-            <!--<corners android:radius="15dp"/>-->
-        <!--</shape>-->
-    <!--</item>-->
-
-    <!--<item-->
-        <!--android:left="2dp"-->
-        <!--android:right="1dp"-->
-        <!--android:top="0dp"-->
-        <!--android:bottom="3dp">-->
-        <!--<shape android:shape="rectangle">-->
-            <!--<gradient android:angle="270"-->
-                <!--android:endColor="#E2E2E2" android:startColor="#BABABA" />-->
-            <!--<stroke android:width="1dp" android:color="@color/phong_black" />-->
-            <!--<solid android:color="@color/primary_orange"/>-->
-            <!--<corners android:radius="15dp"/>-->
-        <!--</shape>-->
-    <!--</item>-->
-<!--</layer-list>-->
+</shape>

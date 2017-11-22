@@ -131,7 +131,7 @@
                         <TextView
                             android:layout_height="@dimen/height_view_thinh"
                             android:layout_width="wrap_content"
-                            android:text="@string/so_luong_thinh"
+                            android:text="@string/trang_thai"
                             android:textStyle="bold"
                             android:textSize="@dimen/text_size_large_thinh"
                             android:gravity="center"/>
