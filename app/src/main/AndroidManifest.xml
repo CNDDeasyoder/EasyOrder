@@ -9,7 +9,8 @@
         android:roundIcon="@drawable/logo_ez"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity"
+        <activity
+            android:name=".MainActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -17,18 +18,25 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".SetInforActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".SelectionActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".InformationActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".PayActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".MenuActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".Thanks"
-            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".SetInforActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".SelectionActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".InformationActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".PayActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".MenuActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Thanks"
+            android:screenOrientation="portrait" />
+        <activity android:name=".Thanks2"></activity>
     </application>
 
 </manifest>
