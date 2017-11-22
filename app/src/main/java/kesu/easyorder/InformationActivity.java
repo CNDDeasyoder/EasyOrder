@@ -43,6 +43,10 @@ public class InformationActivity extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_infor);
+        dialog1 = new ProgressDialog(this);
+        dialog1.setMessage("Đang lấy dữ liệu");
+        dialog1.setCancelable(false);
+        dialog1.show();
 
         DatabaseReference hien = FirebaseDatabase.getInstance().getReference();
         hien.child("danhSachBanAn").child("ban"+ SetInforActivity.banSo).child("state")
@@ -75,10 +79,7 @@ public class InformationActivity extends AppCompatActivity{
         btnThanhToan.setTypeface(f);
         btnThemMon.setTypeface(f);
 
-        dialog1 = new ProgressDialog(this);
-        dialog1.setMessage("Đang lấy dữ liệu");
-        dialog1.setCancelable(false);
-        dialog1.show();
+
         DatabaseReference temp = mData.child("danhSachBanAn").child("ban" + SetInforActivity.banSo).child("banSo").getRef();
         temp.addValueEventListener(new ValueEventListener() {
             @Override
@@ -96,6 +97,7 @@ public class InformationActivity extends AppCompatActivity{
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 tenKhachHang.setText(dataSnapshot.getValue().toString());
+                dialog1.dismiss();
             }
 
             @Override
@@ -114,9 +116,7 @@ public class InformationActivity extends AppCompatActivity{
         });
 
 
-        dialog1.setMessage("Đang lấy dữ liệu");
-        dialog1.setCancelable(false);
-        dialog1.show();
+
         monAnArrayList = new ArrayList<>();
         temp = mData.child("danhSachBanAn").child("ban" + SetInforActivity.banSo).child("khachHang").child("danhSachMonAn");
         thongTinAdapter = new ThongTinAdapter(InformationActivity.this, R.layout.dong_thong_tin, monAnArrayList);
@@ -125,13 +125,14 @@ public class InformationActivity extends AppCompatActivity{
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 monAnArrayList.clear();
+                dialog1.show();
                 for (DataSnapshot ds : dataSnapshot.getChildren())
                 {
                     MonAn monAn = ds.getValue(MonAn.class);
                     monAnArrayList.add(monAn);
                 }
                 thongTinAdapter.notifyDataSetChanged();
-                dialog1.cancel();
+                dialog1.dismiss();
             }
 
             @Override

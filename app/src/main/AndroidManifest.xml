@@ -34,6 +34,9 @@
             android:name=".MenuActivity"
             android:screenOrientation="portrait" />
         <activity
+            android:name=".ReviewActivity"
+            android:screenOrientation="portrait" />
+        <activity
             android:name=".Thanks"
             android:screenOrientation="portrait" />
         <activity android:name=".Thanks2"

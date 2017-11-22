@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="2"
+    android:elevation="@dimen/do_bong"
+    android:orientation="horizontal"
+    android:layout_margin="@dimen/min_margin_thinh">
+    <LinearLayout
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:paddingLeft="@dimen/padding_thinh"
+        android:orientation="vertical"
+        android:layout_height="@dimen/height_view_thinh">
+        <TextView
+            android:id="@+id/tv_ten_review"
+            android:textStyle="bold"
+            android:textSize="@dimen/text_size_large_thinh"
+            android:textColor="#5D4037"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <LinearLayout
+            android:weightSum="10"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:gravity="center_vertical"
+                android:text="@string/so_luong2_thinh"
+                android:layout_weight="6"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+            <TextView
+                android:textColor="@color/red"
+                android:id="@+id/tv_so_luong_review"
+                android:gravity="center_vertical"
+                android:layout_weight="4"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </LinearLayout>
+    </LinearLayout>
+    <TextView
+        android:id="@+id/tv_don_gia_review"
+        android:textSize="@dimen/text_size_large_thinh"
+        android:gravity="center"
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height_view_thinh" />
+
+</LinearLayout>

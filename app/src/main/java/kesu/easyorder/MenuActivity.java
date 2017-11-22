@@ -196,20 +196,19 @@ public class MenuActivity extends AppCompatActivity {
                 builder.setPositiveButton("Xác nhận", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        dialog1.setMessage("Đang chọn món");
-                        dialog1.show();
                         for (MonAn ma : t_danhSachThemMon){
                             ma.setStt(max);
                             mData.child("danhSachOrder").child("danhSach").child(String.valueOf(max)).setValue(ma);
                             max ++;
                         }
                         mData.child("danhSachOrder").child("max").setValue(max);
+                        dialog1.show();
                         for (MonAn ma : t_danhSachThemMon){
                             mData.child("danhSachBanAn").child("ban"+String.valueOf(ma.getBan())).child("khachHang")
                                     .child("danhSachMonAn").child(String.valueOf(ma.getStt())).setValue(ma);
                         }
-                        Toast.makeText(MenuActivity.this, "Đã thêm món vừa chọn!", Toast.LENGTH_SHORT).show();
                         dialog1.dismiss();
+                        Toast.makeText(MenuActivity.this, "Đã thêm món vừa chọn!", Toast.LENGTH_SHORT).show();
                         onBackPressed();
 
                     }

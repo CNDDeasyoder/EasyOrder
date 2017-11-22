@@ -46,6 +46,11 @@ public class PayActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pay);
 
+        dialog1 = new ProgressDialog(this);
+        dialog1.setMessage("Đang lấy dữ liệu");
+        dialog1.setCancelable(false);
+        dialog1.show();
+
         DatabaseReference hien = FirebaseDatabase.getInstance().getReference();
         hien.child("danhSachBanAn").child("ban"+ SetInforActivity.banSo).child("state")
                 .addValueEventListener(new ValueEventListener() {
@@ -80,14 +85,11 @@ public class PayActivity extends AppCompatActivity {
                 view.getParent().requestDisallowInterceptTouchEvent(true);
                 return false;
             }
-        });
+        });////////////
 
         list = new ArrayList<>();
 
-        dialog1 = new ProgressDialog(this);
-        dialog1.setMessage("Đang lấy dữ liệu");
-        dialog1.setCancelable(false);
-        dialog1.show();
+
 
         DatabaseReference temp = mData.child("danhSachBanAn").child("ban" + SetInforActivity.banSo).child("khachHang");
         temp.addChildEventListener(new ChildEventListener() {
@@ -97,9 +99,9 @@ public class PayActivity extends AppCompatActivity {
                 {
                     MonAn monAn = ds.getValue(MonAn.class);
                     list.add(monAn);
-                    dialog1.dismiss();
 
                 }
+                dialog1.dismiss();
                 thanhToanAdapter = new ThanhToanAdapter(PayActivity.this, R.layout.dong_thanh_toan, list);
                 lvThanhToan.setAdapter(thanhToanAdapter);
 
@@ -157,8 +159,10 @@ public class PayActivity extends AppCompatActivity {
                 builder.setPositiveButton("Xác nhận", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
+                        dialog1.show();
                         mData.child("danhSachBanAn").child("ban" + SetInforActivity.banSo).child("state").setValue(2);
                         Intent intent = new Intent(PayActivity.this, Thanks.class);
+                        dialog1.dismiss();
                         startActivity(intent);
                     }
                 });
