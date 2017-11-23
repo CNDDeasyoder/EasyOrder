@@ -31,6 +31,7 @@ public class ReviewActivity extends AppCompatActivity{
     Button btnXacNhan;
     ListView listView;
     TextView headline;
+    TextView tvReview;
     ArrayList<MonAn> list;
     ReviewAdapter reviewAdapter;
     DatabaseReference mData = FirebaseDatabase.getInstance().getReference();
@@ -43,6 +44,8 @@ public class ReviewActivity extends AppCompatActivity{
         btnBack = (ImageButton) findViewById(R.id.btn_back_review);
         btnXacNhan = (Button) findViewById(R.id.btn_xac_nhan_review);
         headline = (TextView) findViewById(R.id.tv_headline_review);
+        tvReview = (TextView) findViewById(R.id.tv_review);
+
 
         Typeface f = Typeface.createFromAsset(getAssets(), "fonts/UVNBanhMi.TTF");
         headline.setTypeface(f);
@@ -66,6 +69,7 @@ public class ReviewActivity extends AppCompatActivity{
                     }
                 });
 
+
         list = new ArrayList<>();
         arrayList = new ArrayList<>();
 
@@ -83,9 +87,11 @@ public class ReviewActivity extends AppCompatActivity{
                     }
                 }
                 reviewAdapter = new ReviewAdapter(ReviewActivity.this, R.layout.dong_review, list);
-
                 listView.setAdapter(reviewAdapter);
-
+                if (list.size() != 0)
+                {
+                    tvReview.setVisibility(View.GONE);
+                }
             }
 
             @Override

@@ -9,11 +9,28 @@
     android:background="@color/thinh_white"
     android:orientation="horizontal"
     android:layout_marginTop="@dimen/margin_thinh">
+    <LinearLayout
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:gravity="center">
+        <TextView
+            android:id="@+id/tv_numb_review"
+            android:textSize="@dimen/text_size_large_thinh"
+            android:gravity="center"
+            android:textColor="@color/thinh_white"
+            android:textStyle="bold"
+            android:background="@drawable/circle"
+            android:layout_gravity="center"
+            android:text="5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:layout_marginLeft="@dimen/margin_thinh">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
@@ -43,22 +60,4 @@
                 android:stepSize="0.5"/>
         </LinearLayout>
     </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center">
-        <TextView
-            android:id="@+id/tv_numb_review"
-            android:textSize="@dimen/text_size_large_thinh"
-            android:gravity="center"
-            android:textColor="@color/thinh_white"
-            android:textStyle="bold"
-            android:background="@drawable/circle"
-            android:layout_gravity="center"
-            android:text="5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-    </LinearLayout>
-
-
 </LinearLayout>
