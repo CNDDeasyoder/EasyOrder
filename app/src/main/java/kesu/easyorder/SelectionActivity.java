@@ -1,11 +1,15 @@
 package kesu.easyorder;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -24,6 +28,7 @@ public class SelectionActivity extends AppCompatActivity {
     private Button btnPay;
     private Button btnMenu;
     private Button btnReview;
+    private FloatingActionButton fl;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,8 +62,6 @@ public class SelectionActivity extends AppCompatActivity {
         btnMenu.setTypeface(f);
         btnPay.setTypeface(f);
         btnReview.setTypeface(f);
-
-
         btninfor.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -87,6 +90,32 @@ public class SelectionActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(SelectionActivity.this, ReviewActivity.class);
                 startActivity(intent);
+            }
+        });
+        fl = (FloatingActionButton)findViewById(R.id.fab);
+        fl.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                AlertDialog.Builder dialog = new AlertDialog.Builder(SelectionActivity.this);
+                dialog.setTitle("Gọi nhân viên hỗ trợ")
+                        .setMessage("Bạn có muốn gọi nhân viên hỗ trợ k")
+                        .setNegativeButton("Có", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                DatabaseReference q = FirebaseDatabase.getInstance().getReference();
+                                q.child("danhSachBanAn").child("ban"+String.valueOf(SetInforActivity.banSo))
+                                        .child("state").setValue(3);
+                                Toast.makeText(SelectionActivity.this, "Đã gọi nhân viên hỗ trợ", Toast.LENGTH_SHORT).show();
+                            }
+                        })
+                        .setCancelable(false)
+                        .setNeutralButton("Không", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+
+                            }
+                        })
+                        .show();
             }
         });
     }
