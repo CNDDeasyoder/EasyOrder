@@ -177,7 +177,7 @@ public class MenuActivity extends AppCompatActivity {
                 for (int i = 0; i < list.size(); i++)
                 {
                     if (list.get(i).getSl() > 0) {
-                        MonAn monAn = new MonAn(SetInforActivity.banSo, list.get(i).getGia(), list.get(i).getSl(), list.get(i).getState(), i, list.get(i).getTen(), list.get(i).getId());
+                        MonAn monAn = new MonAn(SetInforActivity.banSo, list.get(i).getGia(), list.get(i).getSl(), list.get(i).getState(), i, list.get(i).getTen(),list.get(i).getRate(), list.get(i).getId());
                         t_danhSachThemMon.add(monAn);
                     }
                 }

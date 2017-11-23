@@ -155,6 +155,7 @@ public class PayActivity extends AppCompatActivity {
                 }
                 final AlertDialog.Builder builder = new AlertDialog.Builder(PayActivity.this);
                 builder.setTitle("Yêu cầu thanh toán");
+                builder.setCancelable(false);
                 builder.setMessage("Bạn có chắc chắn muốn thanh toán?");
                 builder.setPositiveButton("Xác nhận", new DialogInterface.OnClickListener() {
                     @Override

@@ -37,6 +37,7 @@
             android:textSize="@dimen/text_size_large_thinh" />
     </RelativeLayout>
     <ListView
+        android:layout_marginLeft="@dimen/min_margin_thinh"
         android:layout_marginTop="@dimen/margin_thinh"
         android:id="@+id/lv_review"
         android:layout_height="match_parent"
@@ -44,7 +45,7 @@
         android:scrollbarStyle="insideOverlay"
         android:layout_weight="1.5"
         android:divider="@color/thinh_white"
-        android:dividerHeight="5.0sp"
+        android:dividerHeight="15.0sp"
         >
     </ListView>
 

@@ -74,7 +74,7 @@ public class MonAnAdapter extends BaseAdapter {
         StorageReference mStorageReference = mStorageRef.child("Image").child(monan.getId());
         Glide.with(context).using(new FirebaseImageLoader()).load(mStorageReference).into(img);
         
-        edt.setText(Integer.toString(monan.getSl()));
+        edt.setText("0");
 
 
         ten_mon.setText(monan.getTen());

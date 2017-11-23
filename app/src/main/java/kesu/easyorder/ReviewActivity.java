@@ -1,14 +1,17 @@
 package kesu.easyorder;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
@@ -80,6 +83,7 @@ public class ReviewActivity extends AppCompatActivity{
                     }
                 }
                 reviewAdapter = new ReviewAdapter(ReviewActivity.this, R.layout.dong_review, list);
+
                 listView.setAdapter(reviewAdapter);
 
             }
@@ -104,6 +108,42 @@ public class ReviewActivity extends AppCompatActivity{
 
             }
         });
+
+        // đưa dữ liệu lên firebase sau khi review
+        btnXacNhan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final AlertDialog.Builder builder = new AlertDialog.Builder(ReviewActivity.this);
+                builder.setTitle("Review");
+                builder.setCancelable(false);
+                builder.setMessage("Xác nhận review");
+                builder.setPositiveButton("Xác nhận", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        for (MonAn temp: list)
+                        {
+                            String s = reviewAdapter.map.get(temp.getId());
+                            Rate rate = temp.getRate();
+                            int soNguoi = rate.getSoNguoi();
+                            Rate rate1 = new Rate((soNguoi + 1), (rate.getSoSao() * soNguoi + Float.valueOf(s))/ (soNguoi + 1));
+                            temp.setRate(new Rate((soNguoi + 1), (rate.getSoSao() * soNguoi + Float.valueOf(s))/ (soNguoi + 1)));
+                            mData.child("mon_an").child(temp.getId()).child("rate").setValue(rate1);
+                        }
+                        Toast.makeText(ReviewActivity.this, "Cảm ơn quý khách!", Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(ReviewActivity.this, SelectionActivity.class);
+                        startActivity(intent);
+                    }
+                });
+                builder.setNegativeButton("Huỷ", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+                    }
+                });
+                builder.show();
+            }
+        });
+
 
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
