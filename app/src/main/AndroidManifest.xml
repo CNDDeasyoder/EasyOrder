@@ -37,10 +37,8 @@
             android:name=".ReviewActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".Thanks"
+            android:name=".ThanksActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".Thanks2"
-            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

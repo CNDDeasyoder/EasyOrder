@@ -37,7 +37,7 @@ public class SelectionActivity extends AppCompatActivity {
                     public void onDataChange(DataSnapshot dataSnapshot) {
                         int check = dataSnapshot.getValue(int.class);
                         if (check == 0) {
-                            Intent mIntent = new Intent(SelectionActivity.this,Thanks.class);
+                            Intent mIntent = new Intent(SelectionActivity.this,ThanksActivity.class);
                             startActivity(mIntent);
                         }
                     }

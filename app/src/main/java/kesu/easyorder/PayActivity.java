@@ -58,7 +58,7 @@ public class PayActivity extends AppCompatActivity {
                     public void onDataChange(DataSnapshot dataSnapshot) {
                         int check = dataSnapshot.getValue(int.class);
                         if (check == 0) {
-                            Intent mIntent = new Intent(PayActivity.this,Thanks.class);
+                            Intent mIntent = new Intent(PayActivity.this,ThanksActivity.class);
                             startActivity(mIntent);
                         }
                     }
@@ -162,7 +162,7 @@ public class PayActivity extends AppCompatActivity {
                     public void onClick(DialogInterface dialog, int which) {
                         dialog1.show();
                         mData.child("danhSachBanAn").child("ban" + SetInforActivity.banSo).child("state").setValue(2);
-                        Intent intent = new Intent(PayActivity.this, Thanks.class);
+                        Intent intent = new Intent(PayActivity.this, ThanksActivity.class);
                         dialog1.dismiss();
                         startActivity(intent);
                     }

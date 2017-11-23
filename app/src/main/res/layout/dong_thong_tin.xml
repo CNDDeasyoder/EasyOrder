@@ -11,7 +11,7 @@
         android:orientation="horizontal"
         android:weightSum="2">
         <LinearLayout
-            android:paddingTop="@dimen/min_padding_thinh"
+            android:paddingTop="@dimen/margin_thinh"
             android:layout_width="match_parent"
             android:orientation="vertical"
             android:layout_weight="1"

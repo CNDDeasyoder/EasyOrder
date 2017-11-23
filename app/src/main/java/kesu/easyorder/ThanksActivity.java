@@ -1,9 +1,9 @@
 package kesu.easyorder;
 
-import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.widget.Button;
+import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.TextView;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -11,12 +11,14 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-public class Thanks extends AppCompatActivity {
+public class ThanksActivity extends AppCompatActivity {
+    TextView tvCamOn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_thanks);
+        tvCamOn = (TextView) findViewById(R.id.tv_cam_on);
         DatabaseReference hien = FirebaseDatabase.getInstance().getReference();
         hien.child("danhSachBanAn").child("ban"+ SetInforActivity.banSo).child("state")
                 .addValueEventListener(new ValueEventListener() {
@@ -24,8 +26,7 @@ public class Thanks extends AppCompatActivity {
                     public void onDataChange(DataSnapshot dataSnapshot) {
                         int check = dataSnapshot.getValue(int.class);
                         if (check == 0) {
-                            Intent mIntent = new Intent(Thanks.this,Thanks2.class);
-                            startActivity(mIntent);
+                            tvCamOn.setVisibility(View.GONE);
                         }
                     }
 
