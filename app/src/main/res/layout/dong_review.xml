@@ -4,7 +4,6 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginLeft="@dimen/min_margin_thinh"
-    android:padding="@dimen/min_margin_thinh"
     android:elevation="@dimen/do_bong"
     android:background="@color/thinh_white"
     android:orientation="horizontal"
@@ -22,8 +21,8 @@
             android:background="@drawable/circle"
             android:layout_gravity="center"
             android:text="5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_width="90dp"
+            android:layout_height="90dp" />
     </LinearLayout>
 
     <LinearLayout
@@ -32,6 +31,7 @@
         android:orientation="vertical"
         android:layout_marginLeft="@dimen/margin_thinh">
         <LinearLayout
+            android:layout_marginTop="@dimen/margin_thinh"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <TextView

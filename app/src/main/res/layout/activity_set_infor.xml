@@ -9,9 +9,11 @@
     >
     <EditText
         android:id="@+id/edt_set_name"
-        android:padding="@dimen/min_padding_thinh"
+        android:paddingLeft="@dimen/padding_thinh"
         android:hint="@string/set_name"
         android:inputType="text"
+        android:textSize="@dimen/text_size_large_thinh"
+        android:textStyle="bold"
         android:background="@drawable/layout_tv"
         android:layout_width="match_parent"
         android:layout_height="@dimen/height_view_thinh" />

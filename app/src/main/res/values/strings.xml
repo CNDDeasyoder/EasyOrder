@@ -11,7 +11,7 @@
     <string name="thanh_toan_thinh">Thanh toán</string>
     <string name="ds_ttoan_thinh">Các món ăn cần thanh toán</string>
     <string name="don_gia_thinh">Đơn giá</string>
-    <string name="tong_tien_thinh">Tổng tiền</string>
+    <string name="tong_tien_thinh">Tổng tiền: </string>
     <string name="hint_code">Code(1111)</string>
     <string name="hint_password">Password</string>
     <string name="text_login">Log In</string>

@@ -36,25 +36,33 @@
             android:textSize="@dimen/text_size_large_thinh" />
     </RelativeLayout>
 
-    <ScrollView
-        android:layout_width="fill_parent"
-        android:layout_height="match_parent">
         <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:padding="@dimen/padding_thinh">
 
-
-
-            <TextView
+            <LinearLayout
+                android:background="@drawable/border"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/height_view_thinh"
-                android:text="@string/ds_ttoan_thinh"
-                android:textSize="@dimen/text_size_small_thinh"
-                android:textColor="#5D4037"
-                android:textStyle="bold"
-                android:gravity="center"/>
+                android:layout_marginBottom="@dimen/min_margin_thinh">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="@string/tong_tien_thinh"
+                    android:textSize="@dimen/text_size_large_thinh"
+                    android:gravity="center"
+                    android:layout_marginLeft="@dimen/margin_thinh"/>
+                <TextView
+                    android:id="@+id/tv_tong_tien_thinh"
+                    android:gravity="center"
+                    android:layout_marginLeft="@dimen/margin_thinh"
+                    android:textSize="@dimen/text_size_large_thinh"
+                    android:textStyle="bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent" />
+            </LinearLayout>
 
             <TableLayout
                 android:layout_width="match_parent"
@@ -90,51 +98,23 @@
             </TableLayout>
 
             <LinearLayout
+                android:layout_marginTop="@dimen/min_margin_thinh"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
+                android:elevation="@dimen/do_bong"
                 android:orientation="vertical">
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/height_view_thinh"
-                    android:text="@string/tong_tien_thinh"
-                    android:textColor="#5D4037"
-                    android:gravity="center"
-                    android:textStyle="bold"
-                    android:textSize="@dimen/text_size_large_thinh"/>
-                <RelativeLayout
-                    android:background="@drawable/input_view"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/height_view_thinh"
-                    android:gravity="center">
-                    <TextView
-                        android:id="@+id/tv_tong_tien_thinh"
-                        android:gravity="center"
-                        android:textSize="@dimen/text_size_large_thinh"
-                        android:textStyle="bold"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent" />
-                    <TextView
-                        android:layout_toRightOf="@id/tv_tong_tien_thinh"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:text="@string/nghin_dong"
-                        android:textSize="@dimen/text_size_large_thinh"
-                        android:textStyle="bold"
-                        android:gravity="center_vertical" />
-                </RelativeLayout>
                 <Button
                     android:id="@+id/btn_thanh_toan_tong_thinh"
                     android:layout_width="match_parent"
                     android:background="@drawable/button"
-                    android:layout_margin="@dimen/min_margin_thinh"
                     android:textColor="@color/thinh_white"
                     android:textSize="@dimen/text_size_small_thinh"
                     android:textStyle="bold"
+                    android:elevation="@dimen/do_bong"
                     android:layout_height="match_parent"
                     android:text="@string/thanh_toan_thinh"/>
 
             </LinearLayout>
 
         </LinearLayout>
-    </ScrollView>
 </LinearLayout>

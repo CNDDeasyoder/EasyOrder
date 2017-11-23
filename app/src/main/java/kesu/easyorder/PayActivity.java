@@ -112,7 +112,7 @@ public class PayActivity extends AppCompatActivity {
                 {
                     tong = tong + list.get(i).getGia() * list.get(i).getSl();
                 }
-                tvTongTien.setText(String.valueOf(tong));
+                tvTongTien.setText(String.valueOf(tong) + " Nghìn đồng");
             }
 
             @Override
