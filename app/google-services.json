@@ -15,11 +15,131 @@
       },
       "oauth_client": [
         {
+          "client_id": "799322417128-1q0eb9j1vdis3ltg2k23sbvo4j6ss11u.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "kesu.easyorder",
+            "certificate_hash": "7d1487161916d20cac527181c7a7476220644e3e"
+          }
+        },
+        {
+          "client_id": "799322417128-n1ds0qqrikon0eqq6cs404fqmaeb77ur.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "kesu.easyorder",
+            "certificate_hash": "17e529d0c2162313b835c041ffc9092c0b1ff0d3"
+          }
+        },
+        {
           "client_id": "799322417128-ab25v88dav9c0532mpfs2tfh31h7s6nk.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "kesu.easyorder",
             "certificate_hash": "f02be0577307a3007acab76b3412a94449a0627d"
+          }
+        },
+        {
+          "client_id": "799322417128-u91eipkh6t1qpajmd1mv1ej9nofmhdv9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAQIv4WU-SD2x5lbP0axb1_1SgX4hFdoNY"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "799322417128-u91eipkh6t1qpajmd1mv1ej9nofmhdv9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:799322417128:android:79f9908c5accf062",
+        "android_client_info": {
+          "package_name": "gameloft.com.easyorder_server"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "799322417128-neh54bjui7ov74s913bocp2aur3q31ck.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "gameloft.com.easyorder_server",
+            "certificate_hash": "17e529d0c2162313b835c041ffc9092c0b1ff0d3"
+          }
+        },
+        {
+          "client_id": "799322417128-dl1mplmilql23iedkbd24iicejhd4hhv.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "gameloft.com.easyorder_server",
+            "certificate_hash": "7d1487161916d20cac527181c7a7476220644e3e"
+          }
+        },
+        {
+          "client_id": "799322417128-rcr3rafodhpta38ihuvj1g9067qlfuki.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "gameloft.com.easyorder_server",
+            "certificate_hash": "f02be0577307a3007acab76b3412a94449a0627d"
+          }
+        },
+        {
+          "client_id": "799322417128-u91eipkh6t1qpajmd1mv1ej9nofmhdv9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAQIv4WU-SD2x5lbP0axb1_1SgX4hFdoNY"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "799322417128-u91eipkh6t1qpajmd1mv1ej9nofmhdv9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:799322417128:android:875826f41b75eba4",
+        "android_client_info": {
+          "package_name": "com.example.android.myapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "799322417128-ertp2pu8dq0jqssi678r8bedt9ur20jh.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.android.myapplication",
+            "certificate_hash": "17e529d0c2162313b835c041ffc9092c0b1ff0d3"
           }
         },
         {

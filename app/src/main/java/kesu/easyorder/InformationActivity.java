@@ -167,4 +167,9 @@ public class InformationActivity extends AppCompatActivity{
 
     }
 
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(InformationActivity.this, SelectionActivity.class);
+        startActivity(intent);
+    }
 }
