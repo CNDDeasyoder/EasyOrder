@@ -51,24 +51,6 @@ public class PayActivity extends AppCompatActivity {
         dialog1.setCancelable(false);
         dialog1.show();
 
-        DatabaseReference hien = FirebaseDatabase.getInstance().getReference();
-        hien.child("danhSachBanAn").child("ban"+ SetInforActivity.banSo).child("state")
-                .addValueEventListener(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(DataSnapshot dataSnapshot) {
-                        int check = dataSnapshot.getValue(int.class);
-                        if (check == 0) {
-                            Intent mIntent = new Intent(PayActivity.this,ThanksActivity.class);
-                            startActivity(mIntent);
-                        }
-                    }
-
-                    @Override
-                    public void onCancelled(DatabaseError databaseError) {
-
-                    }
-                });
-
         btnBack = (ImageButton) findViewById(R.id.btn_nav_ttoan_thinh);
         tvTongTien = (TextView) findViewById(R.id.tv_tong_tien_thinh) ;
         headline = (TextView) findViewById(R.id.tv_headline_thanhtoan) ;
@@ -162,8 +144,10 @@ public class PayActivity extends AppCompatActivity {
                     public void onClick(DialogInterface dialog, int which) {
                         dialog1.show();
                         mData.child("danhSachBanAn").child("ban" + SetInforActivity.banSo).child("state").setValue(2);
-                        Intent intent = new Intent(PayActivity.this, ThanksActivity.class);
-                        dialog1.dismiss();
+                        Intent intent = new Intent(getApplicationContext(), ThanksActivity.class);
+                        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                        intent.putExtra("EXIT", true);
+                        finish();
                         startActivity(intent);
                     }
                 });
@@ -182,6 +166,12 @@ public class PayActivity extends AppCompatActivity {
                 (ConnectivityManager) getSystemService(this.CONNECTIVITY_SERVICE);
         NetworkInfo netInfo = cm.getActiveNetworkInfo();
         return netInfo != null && netInfo.isConnectedOrConnecting();
+    }
+
+    @Override
+    public void onBackPressed() {
+        onPause();
+        super.onBackPressed();
     }
 }
 

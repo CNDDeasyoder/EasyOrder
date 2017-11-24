@@ -48,24 +48,6 @@ public class InformationActivity extends AppCompatActivity{
         dialog1.setCancelable(false);
         dialog1.show();
 
-        DatabaseReference hien = FirebaseDatabase.getInstance().getReference();
-        hien.child("danhSachBanAn").child("ban"+ SetInforActivity.banSo).child("state")
-                .addValueEventListener(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(DataSnapshot dataSnapshot) {
-                        int check = dataSnapshot.getValue(int.class);
-                        if (check == 0) {
-                            Intent mIntent = new Intent(InformationActivity.this,ThanksActivity.class);
-                            startActivity(mIntent);
-                        }
-                    }
-
-                    @Override
-                    public void onCancelled(DatabaseError databaseError) {
-
-                    }
-                });
-
         btnBack = (ImageButton) findViewById(R.id.btn_nav_ttin_thinh);
         btnThanhToan = (Button) findViewById(R.id.btn_thanh_toan_thinh);
         btnThemMon = (Button) findViewById(R.id.btn_them_mon_thinh);
@@ -146,6 +128,7 @@ public class InformationActivity extends AppCompatActivity{
             public void onClick(View view) {
                 Intent intent = new Intent(InformationActivity.this, SelectionActivity.class);
                 startActivity(intent);
+                onPause();
             }
         });
 
@@ -154,6 +137,7 @@ public class InformationActivity extends AppCompatActivity{
             public void onClick(View view) {
                 Intent intent = new Intent(InformationActivity.this, MenuActivity.class);
                 startActivity(intent);
+                onPause();
             }
         });
 
@@ -162,6 +146,7 @@ public class InformationActivity extends AppCompatActivity{
             public void onClick(View view) {
                 Intent intent = new Intent(InformationActivity.this, PayActivity.class);
                 startActivity(intent);
+                onPause();
             }
         });
 
@@ -170,6 +155,7 @@ public class InformationActivity extends AppCompatActivity{
     @Override
     public void onBackPressed() {
         Intent intent = new Intent(InformationActivity.this, SelectionActivity.class);
+        onPause();
         startActivity(intent);
     }
 }

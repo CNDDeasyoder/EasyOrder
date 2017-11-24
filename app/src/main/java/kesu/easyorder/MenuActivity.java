@@ -44,7 +44,7 @@ public class MenuActivity extends AppCompatActivity {
     private FirebaseDatabase mFirebaseDatabase;
     private DatabaseReference mDatabaseReference;
     private ProgressDialog dialog1;
-    private int max;
+    private int max = 0;
 
 
     @Override
@@ -58,25 +58,6 @@ public class MenuActivity extends AppCompatActivity {
         setContentView(R.layout.activity_menu);
 
         //Hien code ----------------------
-
-
-        DatabaseReference hien = FirebaseDatabase.getInstance().getReference();
-        hien.child("danhSachBanAn").child("ban"+ SetInforActivity.banSo).child("state")
-                .addValueEventListener(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(DataSnapshot dataSnapshot) {
-                        int check = dataSnapshot.getValue(int.class);
-                        if (check == 0) {
-                            Intent mIntent = new Intent(MenuActivity.this,ThanksActivity.class);
-                            startActivity(mIntent);
-                        }
-                    }
-
-                    @Override
-                    public void onCancelled(DatabaseError databaseError) {
-
-                    }
-                });
 
         dialog1 = new ProgressDialog(this);
         dialog1.setMessage("Đang lấy dữ liệu");
@@ -141,6 +122,7 @@ public class MenuActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(MenuActivity.this, SelectionActivity.class);
                 startActivity(intent);
+                onPause();
             }
         });
 
@@ -202,11 +184,12 @@ public class MenuActivity extends AppCompatActivity {
                             max ++;
                         }
                         mData.child("danhSachOrder").child("max").setValue(max);
-                        dialog1.show();
                         for (MonAn ma : t_danhSachThemMon){
                             mData.child("danhSachBanAn").child("ban"+String.valueOf(ma.getBan())).child("khachHang")
                                     .child("danhSachMonAn").child(String.valueOf(ma.getStt())).setValue(ma);
                         }
+                        dialog1.show();
+
                         dialog1.dismiss();
                         Toast.makeText(MenuActivity.this, "Đã thêm món vừa chọn!", Toast.LENGTH_SHORT).show();
                         onBackPressed();
@@ -232,6 +215,11 @@ public class MenuActivity extends AppCompatActivity {
         return netInfo != null && netInfo.isConnectedOrConnecting();
     }
 
+    @Override
+    public void onBackPressed() {
+        onPause();
+        super.onBackPressed();
+    }
 }
 
 

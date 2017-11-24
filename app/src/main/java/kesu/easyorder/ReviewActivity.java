@@ -137,6 +137,7 @@ public class ReviewActivity extends AppCompatActivity{
                         }
                         Toast.makeText(ReviewActivity.this, "Cảm ơn quý khách!", Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(ReviewActivity.this, SelectionActivity.class);
+                        onPause();
                         startActivity(intent);
                     }
                 });
@@ -155,8 +156,15 @@ public class ReviewActivity extends AppCompatActivity{
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(ReviewActivity.this, SelectionActivity.class);
+                onPause();
                 startActivity(intent);
             }
         });
+    }
+
+    @Override
+    public void onBackPressed() {
+        onPause();
+        super.onBackPressed();
     }
 }
