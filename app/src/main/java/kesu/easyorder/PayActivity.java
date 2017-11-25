@@ -57,6 +57,25 @@ public class PayActivity extends AppCompatActivity {
         lvThanhToan = (ListView) findViewById(R.id.lv_thanh_toan);
         btnThanhToan = (Button) findViewById(R.id.btn_thanh_toan_tong_thinh);
 
+        DatabaseReference hien = FirebaseDatabase.getInstance().getReference();
+        hien.child("danhSachBanAn").child("ban"+ SetInforActivity.banSo).child("state")
+                .addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        int check = dataSnapshot.getValue(int.class);
+                        if (check == 0) {
+                            Intent mIntent = new Intent(PayActivity.this,ThanksActivity.class);
+                            startActivity(mIntent);
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+
+                    }
+                });
+
+
         Typeface f = Typeface.createFromAsset(getAssets(), "fonts/UVNBanhMi.TTF");
         headline.setTypeface(f);
         btnThanhToan.setTypeface(f);
@@ -73,10 +92,10 @@ public class PayActivity extends AppCompatActivity {
 
 
 
-        DatabaseReference temp = mData.child("danhSachBanAn").child("ban" + SetInforActivity.banSo).child("khachHang");
-        temp.addChildEventListener(new ChildEventListener() {
+        DatabaseReference temp = mData.child("danhSachBanAn").child("ban" + SetInforActivity.banSo).child("khachHang").child("danhSachMonAn");
+        temp.addValueEventListener(new ValueEventListener() {
             @Override
-            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+            public void onDataChange(DataSnapshot dataSnapshot) {
                 for (DataSnapshot ds : dataSnapshot.getChildren())
                 {
                     MonAn monAn = ds.getValue(MonAn.class);
@@ -98,27 +117,10 @@ public class PayActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
-
-            }
-
-            @Override
-            public void onChildRemoved(DataSnapshot dataSnapshot) {
-
-            }
-
-            @Override
-            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
-
-            }
-
-            @Override
             public void onCancelled(DatabaseError databaseError) {
 
             }
         });
-
-
 
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -149,6 +151,7 @@ public class PayActivity extends AppCompatActivity {
                         intent.putExtra("EXIT", true);
                         finish();
                         startActivity(intent);
+                        finish();
                     }
                 });
                 builder.setNegativeButton("Huỷ", new DialogInterface.OnClickListener() {

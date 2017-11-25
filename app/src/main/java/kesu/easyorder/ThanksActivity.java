@@ -23,13 +23,6 @@ public class ThanksActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_thanks);
         tvCamOn = (TextView) findViewById(R.id.tv_cam_on);
-        btn = (Button)findViewById(R.id.btn_out);
-        btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-            finishAffinity();
-            }
-        });
         DatabaseReference hien = FirebaseDatabase.getInstance().getReference();
         hien.child("danhSachBanAn").child("ban"+ SetInforActivity.banSo).child("state")
                 .addValueEventListener(new ValueEventListener() {
@@ -37,9 +30,7 @@ public class ThanksActivity extends AppCompatActivity {
                     public void onDataChange(DataSnapshot dataSnapshot) {
                         int check = dataSnapshot.getValue(int.class);
                         if (check == 0) {
-                            tvCamOn.setText("Cảm ơn quý khách đã thanh toán!" +
-                                    "\nHẹn gặp lại quý khách lần sau!");
-                            btn.setVisibility(View.VISIBLE);
+                            finishAffinity();
                         }
                     }
 

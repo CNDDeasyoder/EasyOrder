@@ -46,13 +46,31 @@ public class ReviewActivity extends AppCompatActivity{
         headline = (TextView) findViewById(R.id.tv_headline_review);
         tvReview = (TextView) findViewById(R.id.tv_review);
 
+        DatabaseReference hien = FirebaseDatabase.getInstance().getReference();
+        hien.child("danhSachBanAn").child("ban"+ SetInforActivity.banSo).child("state")
+                .addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        int check = dataSnapshot.getValue(int.class);
+                        if (check == 0) {
+                            Intent mIntent = new Intent(ReviewActivity.this,ThanksActivity.class);
+                            startActivity(mIntent);
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+
+                    }
+                });
+
 
         Typeface f = Typeface.createFromAsset(getAssets(), "fonts/UVNBanhMi.TTF");
         headline.setTypeface(f);
         btnXacNhan.setTypeface(f);
 
-        DatabaseReference hien = FirebaseDatabase.getInstance().getReference();
-        hien.child("danhSachBanAn").child("ban"+ SetInforActivity.banSo).child("state")
+        DatabaseReference hien1 = FirebaseDatabase.getInstance().getReference();
+        hien1.child("danhSachBanAn").child("ban"+ SetInforActivity.banSo).child("state")
                 .addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {

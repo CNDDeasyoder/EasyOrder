@@ -59,6 +59,25 @@ public class MenuActivity extends AppCompatActivity {
 
         //Hien code ----------------------
 
+        DatabaseReference hien = FirebaseDatabase.getInstance().getReference();
+        hien.child("danhSachBanAn").child("ban"+ SetInforActivity.banSo).child("state")
+                .addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        int check = dataSnapshot.getValue(int.class);
+                        if (check == 0) {
+                            Intent mIntent = new Intent(MenuActivity.this,ThanksActivity.class);
+                            startActivity(mIntent);
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+
+                    }
+                });
+
+
         dialog1 = new ProgressDialog(this);
         dialog1.setMessage("Đang lấy dữ liệu");
         dialog1.setCancelable(false);

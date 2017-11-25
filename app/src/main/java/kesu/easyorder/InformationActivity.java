@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -60,20 +61,27 @@ public class InformationActivity extends AppCompatActivity{
         headline.setTypeface(f);
         btnThanhToan.setTypeface(f);
         btnThemMon.setTypeface(f);
+        DatabaseReference hien = FirebaseDatabase.getInstance().getReference();
+        hien.child("danhSachBanAn").child("ban"+ SetInforActivity.banSo).child("state")
+                .addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        int check = dataSnapshot.getValue(int.class);
+                        if (check == 0) {
+                            Intent mIntent = new Intent(InformationActivity.this,ThanksActivity.class);
+                            startActivity(mIntent);
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+
+                    }
+                });
 
 
         DatabaseReference temp = mData.child("danhSachBanAn").child("ban" + SetInforActivity.banSo).child("banSo").getRef();
-        temp.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                banSo.setText(dataSnapshot.getValue().toString());
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });
+        banSo.setText(SetInforActivity.banSo.toString());
         temp = mData.child("danhSachBanAn").child("ban" + SetInforActivity.banSo).child("khachHang").child("tenKhachHang").getRef();
         temp.addValueEventListener(new ValueEventListener() {
             @Override
@@ -84,7 +92,7 @@ public class InformationActivity extends AppCompatActivity{
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
-
+                finish();
             }
         });
 
@@ -119,7 +127,7 @@ public class InformationActivity extends AppCompatActivity{
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
-
+            finish();
             }
         });
 
