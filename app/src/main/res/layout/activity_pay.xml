@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:padding="@dimen/min_padding_thinh"
     android:orientation="vertical">
-    <LinearLayout
-        android:layout_width="fill_parent"
+    <RelativeLayout
+        android:layout_width="match_parent"
         android:elevation="@dimen/do_bong"
-        android:layout_height="53dp"
+        android:layout_height="@dimen/height_view_thinh"
         android:orientation="horizontal"
         android:layout_marginBottom="@dimen/min_margin_thinh"
         android:background="@drawable/headline">
@@ -22,28 +22,27 @@
 
         <TextView
             android:id="@+id/tv_headline_thanhtoan"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
             android:gravity="center"
             android:text="@string/thanh_toan_thinh"
             android:textColor="@color/thinh_white"
             android:textSize="@dimen/text_size_large_thinh" />
-    </LinearLayout>
+    </RelativeLayout>
 
         <LinearLayout
-            android:layout_width="fill_parent"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:padding="@dimen/padding_thinh"
-            android:layout_weight="1"
-            >
+            android:layout_weight="1">
 
             <LinearLayout
                 android:background="@drawable/border"
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/height_view_thinh"
                 android:layout_weight="2.5"
                 android:layout_marginBottom="@dimen/min_margin_thinh">
                 <TextView
@@ -64,14 +63,16 @@
             </LinearLayout>
 
             <TableLayout
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
+                android:layout_width="match_parent"
+                android:layout_height="400dp"
                 android:layout_weight="1"
                 android:stretchColumns="*"
                 android:background="@drawable/input_view"
                 android:padding="5dp"
                 >
                 <TableRow
+                    android:layout_height="@dimen/height_view_thinh"
+                    android:layout_width="match_parent"
                     android:weightSum="1">
                     <TextView
                         android:layout_weight="0.4"
@@ -90,32 +91,23 @@
                 </TableRow>
                 <ListView
                     android:id="@+id/lv_thanh_toan"
-                    android:layout_height="@dimen/height_list_view"
+                    android:layout_height="match_parent"
                     android:layout_width="wrap_content"
                     android:fastScrollEnabled="true">
                 </ListView>
 
             </TableLayout>
-
-            <LinearLayout
+            <Button
+                android:id="@+id/btn_thanh_toan_tong_thinh"
+                android:layout_width="match_parent"
                 android:layout_marginTop="@dimen/min_margin_thinh"
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
-                android:layout_weight="2.7"
+                android:background="@drawable/button"
+                android:textColor="@color/thinh_white"
+                android:textSize="@dimen/text_size_small_thinh"
+                android:textStyle="bold"
                 android:elevation="@dimen/do_bong"
-                android:orientation="vertical">
-                <Button
-                    android:id="@+id/btn_thanh_toan_tong_thinh"
-                    android:layout_width="match_parent"
-                    android:background="@drawable/button"
-                    android:textColor="@color/thinh_white"
-                    android:textSize="@dimen/text_size_small_thinh"
-                    android:textStyle="bold"
-                    android:elevation="@dimen/do_bong"
-                    android:layout_height="match_parent"
-                    android:text="@string/thanh_toan_thinh"/>
-
-            </LinearLayout>
+                android:layout_height="@dimen/height_view_thinh"
+                android:text="@string/thanh_toan_thinh"/>
 
         </LinearLayout>
 </LinearLayout>

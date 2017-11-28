@@ -63,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
                         }
                         else
                         {
-                            Toast.makeText(MainActivity.this, "        Code sai! \nCode gồm 4 chữ số.", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(MainActivity.this, "Code sai!", Toast.LENGTH_SHORT).show();
                         }
                     }
                 });

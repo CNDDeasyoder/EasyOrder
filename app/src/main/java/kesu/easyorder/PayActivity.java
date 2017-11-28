@@ -22,7 +22,6 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
@@ -86,7 +85,7 @@ public class PayActivity extends AppCompatActivity {
                 view.getParent().requestDisallowInterceptTouchEvent(true);
                 return false;
             }
-        });////////////
+        });
 
         list = new ArrayList<>();
 
@@ -147,9 +146,7 @@ public class PayActivity extends AppCompatActivity {
                         dialog1.show();
                         mData.child("danhSachBanAn").child("ban" + SetInforActivity.banSo).child("state").setValue(2);
                         Intent intent = new Intent(getApplicationContext(), ThanksActivity.class);
-                        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
-                        intent.putExtra("EXIT", true);
-                        finish();
+                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                         startActivity(intent);
                         finish();
                     }

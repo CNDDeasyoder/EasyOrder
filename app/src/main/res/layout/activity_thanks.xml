@@ -2,36 +2,48 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:padding="@dimen/padding_thinh"
+    android:orientation="vertical"
     android:background="@drawable/get_code"
     tools:context="kesu.easyorder.ThanksActivity">
+    <TextView
+        android:id="@+id/tv_cam_on"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:textColor="@color/green"
+        android:textStyle="bold"
+        android:textSize="@dimen/text_size_large_thinh"
+        android:text="@string/loi_cam_on"/>
     <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
+        android:id="@+id/linear_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:orientation="vertical"
+        android:gravity="center"
+        android:visibility="gone"
         android:layout_gravity="center_vertical"
         >
         <TextView
-            android:id="@+id/tv_cam_on"
             android:gravity="center"
             android:textStyle="bold"
-            android:layout_width="fill_parent"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/green"
-            android:layout_gravity="center_horizontal|center_vertical"
-            android:text="@string/loi_cam_on"
+            android:layout_gravity="center_vertical"
+            android:text="@string/loi_cam_on2"
             android:textSize="@dimen/text_size_large_thinh"/>
         <Button
             android:id="@+id/btn_out"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Thoát"
-            android:layout_gravity="center_vertical|center_horizontal"
+            android:layout_marginTop="@dimen/margin_thinh"
+            android:textColor="@color/thinh_white"
+            android:layout_gravity="center"
             android:background="@drawable/button"
-            android:visibility="invisible"
-
             />
 
     </LinearLayout>
